@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Nizcare</string>
+    <string name="login">Login</string>
+    <string name="getstart">Get Started</string>
+
+    <string name="intro_one_title">Manage your \npractice with ease</string>
+    <string name="intro_two_title">Book your \nappointments \neasily</string>
+    <string name="intro_three_title">Manage clients on \nthe go</string>
+    <string name="phone">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="forgotpass">Forgot Password?</string>
+    <string name="signup">Signup</string>
+</resources>

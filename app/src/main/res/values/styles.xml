@@ -1,0 +1,56 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MyMaterialTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="android:itemTextAppearance">@style/TextAppearance</item>
+
+        <item name="android:dropDownListViewStyle">@style/PopupMenuListView</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+
+        <!-- Change Overflow Menu ListView Item Height & Property -->
+        <item name="android:listPreferredItemHeight">30dp</item>
+        <item name="android:listPreferredItemPaddingLeft">1dp</item>
+        <item name="android:listPreferredItemPaddingRight">1dp</item>
+
+        <item name="actionMenuTextColor">@color/lightGray</item>
+        <item name="android:actionMenuTextColor">@color/lightGray</item>
+        <item name="android:actionOverflowButtonStyle">@style/MyActionButtonOverflow</item>
+
+    </style>
+
+    <style name="TextAppearance">
+        <item name="android:textColor">@color/fullGray</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Change Overflow Menu ListView Divider Property -->
+    <style name="PopupMenuListView" parent="android:Widget.Holo.Light.ListPopupWindow">
+        <item name="android:divider">@color/lightGray</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="android:listPreferredItemHeightSmall">30dp</item>
+    </style>
+
+    <!-- Change Overflow Menu Background -->
+    <style name="PopupMenu" parent="android:Widget.Holo.Light.ListPopupWindow">
+        <item name="android:popupBackground">@color/white</item>
+    </style>
+
+    <style name="MyActionButtonOverflow" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
+        <!--<item name="android:src">@drawable/action</item>-->
+        <item name="android:background">?android:attr/actionBarItemBackground</item>
+        <item name="android:contentDescription">"Settings"</item>
+    </style>
+
+</resources>

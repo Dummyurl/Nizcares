@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.indglobal.nizcare.commons.RippleView
+        android:id="@+id/rplBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:rv_centered="true"
+        app:rv_color="@color/newfewGray"
+        android:layout_margin="15dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_back"
+            android:padding="10dp"/>
+
+    </com.indglobal.nizcare.commons.RippleView>
+
+    <LinearLayout
+        android:id="@+id/llLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/rplBack"
+        android:visibility="gone">
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textColor="@color/lightBlack"
+            android:text="@string/login"/>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="@color/fullGray"
+            android:text="@string/phone"
+            android:layout_marginTop="40dp"/>
+
+        <com.indglobal.nizcare.commons.fonts.EditRegular
+            android:id="@+id/etNumber"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:textSize="15sp"
+            android:textColor="@color/lightBlack"
+            android:background="@android:color/transparent"
+            android:inputType="phone"
+            android:imeOptions="actionNext"
+            android:maxLength="12"
+            android:gravity="center_vertical"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:paddingLeft="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.4dp"
+            android:background="@color/fullGray"/>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="@color/fullGray"
+            android:text="@string/password"
+            android:layout_marginTop="20dp"/>
+
+        <com.indglobal.nizcare.commons.fonts.EditRegular
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:textSize="15sp"
+            android:textColor="@color/lightBlack"
+            android:background="@android:color/transparent"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"
+            android:maxLength="25"
+            android:gravity="center_vertical"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:paddingLeft="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.4dp"
+            android:background="@color/fullGray"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvForgot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/lightGreen"
+                android:text="@string/forgotpass"
+                android:paddingTop="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="15dp"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvSignup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/lightGreen"
+                android:text="@string/signup"
+                android:paddingTop="15dp"
+                android:paddingLeft="15dp"
+                android:paddingBottom="15dp"
+                android:layout_alignParentRight="true" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/rplBack">
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textColor="@color/lightBlack"
+            android:text="@string/signup"/>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="@color/fullGray"
+            android:text="@string/phone"
+            android:layout_marginTop="40dp"/>
+
+        <com.indglobal.nizcare.commons.fonts.EditRegular
+            android:id="@+id/etSNumber"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:textSize="15sp"
+            android:textColor="@color/lightBlack"
+            android:background="@android:color/transparent"
+            android:inputType="phone"
+            android:imeOptions="actionNext"
+            android:maxLength="12"
+            android:gravity="center_vertical"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:paddingLeft="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.4dp"
+            android:background="@color/fullGray"/>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="@color/fullGray"
+            android:text="@string/password"
+            android:layout_marginTop="20dp"/>
+
+        <com.indglobal.nizcare.commons.fonts.EditRegular
+            android:id="@+id/etSPassword"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:textSize="15sp"
+            android:textColor="@color/lightBlack"
+            android:background="@android:color/transparent"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"
+            android:maxLength="25"
+            android:gravity="center_vertical"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:paddingLeft="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.4dp"
+            android:background="@color/fullGray"/>
+
+
+    </LinearLayout>
+
+    <com.indglobal.nizcare.commons.fonts.TextRegular
+        android:id="@+id/tvLogin"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@color/lightGreen"
+        android:text="@string/login"
+        android:layout_alignParentBottom="true"/>
+
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/prgLoading"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminateDrawable="@drawable/progress"/>
+
+</RelativeLayout>

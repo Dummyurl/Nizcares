@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:activities.app="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.viewpagerindicator.CirclePageIndicator
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:padding="5dip"
+        android:layout_above="@+id/llSplash"
+        activities.app:centered="true"
+        activities.app:fillColor="@color/white"
+        activities.app:pageColor="@android:color/transparent"
+        activities.app:snap="true"
+        android:layout_marginLeft="25dp" />
+
+    <LinearLayout
+        android:id="@+id/llSplash"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="35dp"
+        android:layout_marginTop="35dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <com.indglobal.nizcare.commons.RippleView
+            android:id="@+id/rplLogin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ripple:rv_centered="true"
+            ripple:rv_color="@color/newfewGray"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1">
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_stroke_white"
+                android:textColor="@color/white"
+                android:text="@string/login"
+                android:gravity="center"
+                android:textSize="16sp"/>
+
+        </com.indglobal.nizcare.commons.RippleView>
+
+        <com.indglobal.nizcare.commons.RippleView
+            android:id="@+id/rplgetStrt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ripple:rv_centered="true"
+            ripple:rv_color="@color/newfewGray"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1">
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_fill_white"
+                android:textColor="@color/lightBlack"
+                android:text="@string/getstart"
+                android:gravity="center"
+                android:textSize="16sp"/>
+
+        </com.indglobal.nizcare.commons.RippleView>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

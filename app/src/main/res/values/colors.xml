@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00a79d</color>
+    <color name="colorPrimaryDark">#00a79d</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="lightGreen">#00a79d</color>
+    <color name="pink">#faa722</color>
+    <color name="darkPink">#FFCF7F00</color>
+    <color name="fbBlue">#175d9f</color>
+    <color name="google">#aa1926</color>
+    <color name="gray">#FFB2B3B6</color>
+    <color name="lightGray">#ececec</color>
+    <color name="darkGray">#a8a9ac</color>
+    <color name="fullGray">#FF89898B</color>
+    <color name="lightBlack">#231f20</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#FFEF1B2E</color>
+    <color name="textGray">#FFC1C1C4</color>
+    <color name="newDarkGray">#d1d3d4</color>
+    <color name="newLightGray">#f1f2f2</color>
+    <color name="newfewGray">#80f1f2f2</color>
+    <color name="green">#FF457405</color>
+    <color name="lightblue">#43B5FF</color>
+    <color name="blue">#24699d</color>
+    <color name="navBack">#f4f5f6</color>
+
+    <color name="LightYello">#ecdc59</color>
+    <color name="LigthGreen">#4f6827</color>
+    <color name="FewGreen">#7faa46</color>
+    <color name="newfullgray">#6d6e70</color>
+
+</resources>
