@@ -10,4 +10,206 @@
     <string name="password">Password</string>
     <string name="forgotpass">Forgot Password?</string>
     <string name="signup">Signup</string>
+    <string name="slctCntry">Select Country</string>
+    <string name="srch">Search...</string>
+    <string name="noFound">No result found!</string>
+    <string name="vrfctn">Verification</string>
+    <string name="anotpsent">An OTP was sent to your phone number. \nEnter it in the field below.</string>
+    <string name="entrotp">Enter OTP</string>
+    <string name="rsndotp">Resend OTP</string>
+    <string name="sbmit">Submit</string>
+    <string name="congrts">Congratulations!</string>
+    <string name="acntscscrtd">Your account has been successfully created!</string>
+    <string name="setpmyacnt">Setup my account</string>
+    <string name="acntstup">Account Setup</string>
+    <string name="addlogo">Add logo</string>
+    <string name="cntrname">Center Name</string>
+    <string name="city">City</string>
+    <string name="email">Email</string>
+    <string name="speclty">Speciality</string>
+    <string name="registrtn">Registration</string>
+    <string name="edit">Edit</string>
+    <string name="submit">Submit</string>
+    <string name="calendr">Calender</string>
+    <string name="title">Title</string>
+    <string name="fullname">Full Name</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="exprnce">Years of experience</string>
+    <string name="education">Education</string>
+    <string name="degre">Degree</string>
+    <string name="clgunivrsity">College/university</string>
+    <string name="year">Year</string>
+    <string name="upldcrtfct">Upload Certificate</string>
+    <string name="save">Save</string>
+    <string name="discrd">Discard</string>
+    <string name="idprf">ID Proof</string>
+    <string name="doctype">Document type</string>
+    <string name="addanother">Add another</string>
+    <string name="patnt">Patients</string>
+    <string name="write">Write</string>
+    <string name="acnts">Accounts</string>
+    <string name="home">Home</string>
+    <string name="apointmnts">Appointments</string>
+    <string name="consltn">Consultations</string>
+    <string name="opiniun">2nd Opinion</string>
+    <string name="getanovervwonapp">Get an overview of the app</string>
+    <string name="bestdealforyou">Best deals for you</string>
+    <string name="viewall">View All</string>
+    <string name="news">News</string>
+    <string name="instantconsltn">Instant Consultation</string>
+    <string name="rglrcnsltn">Regular Consultation</string>
+    <string name="medclrprt">Medical Report</string>
+    <string name="prscrptn">Prescription</string>
+    <string name="free">FREE</string>
+    <string name="paid">PAID</string>
+    <string name="srchbyname">Search by name or mobile number</string>
+    <string name="mypatients">My Patients</string>
+    <string name="addnew">Add New</string>
+    <string name="cancel">Cancel</string>
+    <string name="menu">Menu</string>
+    <string name="crtapoint">Create a appointment</string>
+    <string name="addptntvst">Add a patient visit</string>
+    <string name="addprscptn">Add prescription</string>
+    <string name="addptnt">Add Patient</string>
+    <string name="addatip">Add a tip plan</string>
+    <string name="qstns">Questions</string>
+    <string name="enqries">Enquires</string>
+    <string name="helthfeed">Health Feed</string>
+    <string name="qa"><![CDATA[Q&A]]></string>
+    <string name="writehlthtip">Write a health tip for all nizcare users</string>
+    <string name="filter">FILTER</string>
+    <string name="noInternet">Please check your internet connection!</string>
+    <string name="somethingwrong">Something going wrong. Please try again later!</string>
+
+    <string name="avlble">AVAILABLE</string>
+    <string name="viewprfl">View Profile</string>
+    <string name="finance">Finance</string>
+    <string name="wallet">Wallet</string>
+    <string name="reprts">Reports</string>
+    <string name="buysell"><![CDATA[Buy & Sell]]></string>
+    <string name="store">Store</string>
+    <string name="myprdcts">My Products</string>
+    <string name="mypckgs">My Packages</string>
+    <string name="mngordrs">Manage Orders</string>
+    <string name="myacnts">My Accounts</string>
+    <string name="mybookmrks">My Bookmarks</string>
+    <string name="myhlthtips">My Health Tips</string>
+    <string name="myanswrs">My answers</string>
+    <string name="myrcrds">My Records</string>
+    <string name="advrstsnzcr">Advertise on Nizcare</string>
+    <string name="ntfctns">Notifications</string>
+    <string name="refrls">Referrals</string>
+    <string name="usrfdbks">User Feedbaks</string>
+    <string name="rfrlcode">Referal Code</string>
+    <string name="setngs">Settings</string>
+    <string name="fnduson">Find us on</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitr">Twitter</string>
+    <string name="youtube">Youtube</string>
+    <string name="done">Done</string>
+
+    <string-array name="prefix_array">
+        <item>Dr.</item>
+    </string-array>
+
+    <string-array name="exp_array">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+    </string-array>
+
+    <string-array name="idtype_array">
+        <item>Aadhar Card</item>
+        <item>Driving Licence</item>
+        <item>Voter Id</item>
+    </string-array>
+
+    <string-array name="filter_array">
+        <item>All Clinics</item>
+    </string-array>
+
+
+    <string name="addphoto">Add Photo</string>
+    <string name="frmgallery">From Gallery</string>
+    <string name="capture">Capture Photo</string>
+    <string name="imguploadscs">Image upload successfully!</string>
+    <string name="prvdclgcrtfct">Upload certificate!</string>
+    <string name="council">Council</string>
+    <string name="regno">Registration Number</string>
+    <string name="prvdregstn">Provide registration document!</string>
+    <string name="prvddocs">Provide document image!</string>
+    <string name="citynotfound">Cities not found!</string>
+    <string name="novaliddata">No proper data format found!</string>
+    <string name="prvdimage">Provide profile image!</string>
+    <string name="slctspeclty">Select atleast one speciality!</string>
+    <string name="prvdexp">Select your experience!</string>
+    <string name="prvedu">Provide your education details!</string>
+    <string name="prvdregdtl">Provide your registration details!</string>
+    <string name="prvdocs">Provide your ID!</string>
+    <string name="upldadrsprf">Upload ID</string>
+    <string name="upldregdoc">Upload Registration</string>
+    <string name="doctypenot">Doc type not found!</string>
+    <string name="brwsrnotavlbe">Browser not available!</string>
+
+    <string name="regApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/authenticate/register</string>
+    <string name="loginApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/authenticate/login</string>
+    <string name="cnfrmOtpApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/authenticate/confirm_otp</string>
+    <string name="rsndOtpApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/authenticate/resend_otp</string>
+    <string name="getSpeclitiesApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_master_speciality</string>
+    <string name="getCitiesApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_master_city</string>
+    <string name="sbmtDctrDtlsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/doctor_details_store</string>
+    <string name="getdoctypeApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_master_documents</string>
+    <string name="getApointApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_doctor_appointments</string>
+    <string name="getDealsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_master_ads</string>
+    <string name="getNewsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_master_news</string>
+    <string name="getPatientApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_patients</string>
+    <string name="addpatnt">Add a patient</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="langs">Languages</string>
+    <string name="dob">Date of birth</string>
+    <string name="adrs">Address</string>
+    <string name="height">Height</string>
+    <string name="wieght">Weight</string>
+    <string name="bldgrp">Blood Group</string>
+    <string name="refrby">Referred By</string>
+    <string name="typeofvst">Type of visit</string>
+    <string name="clinic">Clinic</string>
+    <string name="mdclinfo">Medical Informations</string>
+
 </resources>

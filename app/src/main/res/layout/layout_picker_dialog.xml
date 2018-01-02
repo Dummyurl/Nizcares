@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <com.indglobal.nizcare.commons.fonts.TextRegular
+        android:id="@+id/textView_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/slctCntry"
+        android:textColor="@android:color/secondary_text_light"
+        android:textSize="15sp" />
+
+    <com.indglobal.nizcare.commons.fonts.EditRegular
+        android:id="@+id/editText_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_title"
+        android:hint="@string/srch"
+        android:paddingLeft="8dp"
+        android:singleLine="true"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_countryDialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/editText_search"
+        android:dividerHeight="2dp" />
+
+    <com.indglobal.nizcare.commons.fonts.TextRegular
+        android:id="@+id/textView_noresult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/noFound"
+        android:textColor="@android:color/primary_text_light"
+        android:visibility="gone" />
+
+</RelativeLayout>

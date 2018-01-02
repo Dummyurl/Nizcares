@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@color/white">
+
+    <com.indglobal.nizcare.commons.roundedimageview.RoundedImageView
+        android:id="@+id/ivPatient"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        app:riv_corner_radius_top_left="5dp"
+        app:riv_corner_radius_top_right="5dp"
+        app:riv_corner_radius_bottom_left="5dp"
+        app:riv_corner_radius_bottom_right="5dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/round_fill_gray_stroke"
+        android:layout_centerVertical="true"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/ivPatient"
+        android:layout_marginLeft="15dp"
+        android:layout_centerVertical="true">
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/lightBlack"
+            android:text="som guldu"/>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:id="@+id/tvGndrAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/fullGray"
+            android:text="Female * 35 Years old"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_more_g"/>
+
+</RelativeLayout>

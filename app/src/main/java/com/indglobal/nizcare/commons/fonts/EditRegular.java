@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class EditRegular extends EditText {
     public EditRegular(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/Museo300-Regular.otf"));
+        this.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/OpenSans-Regular.ttf"));
     }
 
 }

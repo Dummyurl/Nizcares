@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.indglobal.nizcare.commons.RippleView
+        android:id="@+id/rplBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        ripple:rv_centered="true"
+        ripple:rv_color="@color/newfewGray"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_back"
+            android:padding="11dp"/>
+
+    </com.indglobal.nizcare.commons.RippleView>
+
+    <com.indglobal.nizcare.commons.fonts.TextRegular
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:textSize="18sp"
+        android:textColor="@color/lightBlack"
+        android:text="@string/addpatnt"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/toolbr_dropshadow"
+        android:layout_below="@+id/rplBack"/>
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rplBack"
+        android:layout_marginTop="1dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/llImageEdit">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/fullGray"
+                            android:text="@string/firstname"/>
+
+                        <com.indglobal.nizcare.commons.fonts.EditRegular
+                            android:id="@+id/etFName"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:background="@android:color/transparent"
+                            android:inputType="text"
+                            android:imeOptions="actionNext"
+                            android:gravity="center_vertical"
+                            android:textCursorDrawable="@drawable/color_cursor"
+                            android:paddingLeft="5dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0.4dp"
+                            android:background="@color/fullGray"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/fullGray"
+                            android:text="@string/lastname"
+                            android:layout_marginTop="15dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.EditRegular
+                            android:id="@+id/etLName"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:background="@android:color/transparent"
+                            android:inputType="text"
+                            android:imeOptions="actionNext"
+                            android:gravity="center_vertical"
+                            android:textCursorDrawable="@drawable/color_cursor"
+                            android:paddingLeft="5dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0.4dp"
+                            android:background="@color/fullGray"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llImageEdit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dp">
+
+                        <ImageView
+                            android:id="@+id/ivPrfl"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/round_fill_gray"
+                            android:src="@drawable/ic_camera_b"
+                            android:scaleType="center"
+                            android:layout_gravity="center_horizontal"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:id="@+id/tvAddlogo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/lightGreen"
+                            android:text="@string/addphoto"
+                            android:padding="10dp"
+                            android:layout_gravity="center_horizontal" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/fullGray"
+                    android:text="@string/gender"
+                    android:layout_marginTop="10dp"/>
+
+                <RadioGroup
+                    android:id="@+id/rgGndr"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/round_stroke_green"
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    android:padding="1dp">
+
+                    <com.indglobal.nizcare.commons.fonts.RadioRegular
+                        android:id="@+id/rbMale"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/male"
+                        android:textSize="15sp"
+                        android:gravity="center"
+                        android:checked="true"
+                        android:textColor="@color/radio_color_selector"
+                        android:button="@null"
+                        android:background="@drawable/twenty_selector" />
+
+                    <com.indglobal.nizcare.commons.fonts.RadioRegular
+                        android:id="@+id/rbFemale"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/female"
+                        android:textSize="15sp"
+                        android:gravity="center"
+                        android:checked="false"
+                        android:textColor="@color/radio_color_selector"
+                        android:button="@null"
+                        android:background="@drawable/twenty_selector" />
+
+                </RadioGroup>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginRight="10dp">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/fullGray"
+                            android:text="@string/dob"
+                            android:layout_marginTop="15dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:id="@+id/tvDob"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:background="@android:color/transparent"
+                            android:inputType="textEmailAddress"
+                            android:imeOptions="actionNext"
+                            android:maxLength="45"
+                            android:gravity="center_vertical"
+                            android:textCursorDrawable="@drawable/color_cursor"
+                            android:paddingLeft="5dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0.4dp"
+                            android:background="@color/fullGray"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/fullGray"
+                            android:text="@string/langs"
+                            android:layout_marginTop="15dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:id="@+id/tvLangs"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:paddingLeft="5dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0.4dp"
+                            android:background="@color/fullGray"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/fullGray"
+                    android:text="@string/email"
+                    android:layout_marginTop="15dp"/>
+
+                <com.indglobal.nizcare.commons.fonts.EditRegular
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/lightBlack"
+                    android:background="@android:color/transparent"
+                    android:inputType="textEmailAddress"
+                    android:imeOptions="actionNext"
+                    android:maxLength="45"
+                    android:gravity="center_vertical"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:paddingLeft="5dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/fullGray"/>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/fullGray"
+                    android:text="@string/adrs"
+                    android:layout_marginTop="15dp"/>
+
+                <com.indglobal.nizcare.commons.fonts.EditRegular
+                    android:id="@+id/etAdrs"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/lightBlack"
+                    android:background="@android:color/transparent"
+                    android:inputType="textPostalAddress"
+                    android:imeOptions="actionNext"
+                    android:maxLength="45"
+                    android:gravity="center_vertical"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:paddingLeft="5dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/fullGray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/fullGray"
+                            android:text="@string/height"
+                            android:layout_marginTop="15dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.EditRegular
+                            android:id="@+id/etHeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:background="@android:color/transparent"
+                            android:imeOptions="actionNext"
+                            android:maxLength="45"
+                            android:gravity="center_vertical"
+                            android:textCursorDrawable="@drawable/color_cursor"
+                            android:paddingLeft="5dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0.4dp"
+                            android:background="@color/fullGray"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/fullGray"
+                            android:text="@string/wieght"
+                            android:layout_marginTop="15dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.EditRegular
+                            android:id="@+id/etWeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:paddingLeft="5dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0.4dp"
+                            android:background="@color/fullGray"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/fullGray"
+                            android:text="@string/bldgrp"
+                            android:layout_marginTop="15dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.EditRegular
+                            android:id="@+id/etBldGrp"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:paddingLeft="5dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0.4dp"
+                            android:background="@color/fullGray"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/fullGray"
+                    android:text="@string/refrby"
+                    android:layout_marginTop="15dp"/>
+
+                <com.indglobal.nizcare.commons.fonts.EditRegular
+                    android:id="@+id/etRfrdby"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/lightBlack"
+                    android:background="@android:color/transparent"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"
+                    android:maxLength="45"
+                    android:gravity="center_vertical"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:paddingLeft="5dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/fullGray"/>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/fullGray"
+                    android:text="@string/typeofvst"
+                    android:layout_marginTop="15dp"/>
+
+                <com.indglobal.nizcare.commons.fonts.EditRegular
+                    android:id="@+id/etTypeofVisit"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/lightBlack"
+                    android:background="@android:color/transparent"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"
+                    android:maxLength="45"
+                    android:gravity="center_vertical"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:paddingLeft="5dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/fullGray"/>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/fullGray"
+                    android:text="@string/clinic"
+                    android:layout_marginTop="15dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Spinner
+                        android:id="@+id/spinClinics"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@android:color/transparent"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        android:gravity="center_vertical"
+                        android:textCursorDrawable="@drawable/color_cursor"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_arrow_g_d"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/fullGray"/>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/fullGray"
+                    android:text="@string/mdclinfo"
+                    android:layout_marginTop="15dp"/>
+
+                <com.indglobal.nizcare.commons.fonts.EditRegular
+                    android:id="@+id/etMdclInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/lightBlack"
+                    android:background="@android:color/transparent"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+                    android:maxLength="45"
+                    android:gravity="center_vertical"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:paddingLeft="5dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/fullGray"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <com.indglobal.nizcare.commons.RippleView
+            android:id="@+id/rplAddPtnt"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            ripple:rv_centered="true"
+            ripple:rv_color="@color/newfewGray">
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvAddPtnt"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@color/lightGreen"
+                android:text="@string/addptnt"/>
+
+        </com.indglobal.nizcare.commons.RippleView>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:layout_width="@dimen/prgSize"
+        android:layout_height="@dimen/prgSize"
+        android:id="@+id/prgLoading"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminateDrawable="@drawable/progress"/>
+
+</RelativeLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingTop="10dp">
+
+    <RelativeLayout
+        android:id="@+id/rlReport"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/round_stroke_gray"/>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_stroke_gray_white"
+            android:textColor="@color/fullGray"
+            android:textSize="14sp"
+            android:text="@string/medclrprt"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round_stroke_gray_white"
+            android:textColor="@color/fullGray"
+            android:textSize="14sp"
+            android:text="@string/prscrptn"/>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/lightBlack"
+            android:textSize="15sp"
+            android:text="Aspirine 250mg. Crocin pain relief 500mg \nAziagard Tonic 250ml"/>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/fullGray"
+            android:textSize="15sp"
+            android:text="Luke pratt . chandigarh"
+            android:layout_centerVertical="true"/>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/round_fill_gray_stroke"
+            android:textColor="@color/fullGray"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:text="@string/free"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/round_fill_green_stroke"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:text="@string/paid"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lightGray"/>
+
+</LinearLayout>

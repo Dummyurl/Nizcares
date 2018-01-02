@@ -12,6 +12,6 @@ import android.widget.TextView;
 public class TextBold extends TextView {
     public TextBold(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/Museo700-Regular.otf"));
+        this.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/OpenSans-Semibold.ttf"));
     }
 }

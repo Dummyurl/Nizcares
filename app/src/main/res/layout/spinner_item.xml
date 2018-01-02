@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:background="@color/white">
+
+    <com.indglobal.nizcare.commons.fonts.TextRegular
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="15sp"
+        android:textColor="@color/lightBlack"
+        android:singleLine="true"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"/>
+
+</LinearLayout>

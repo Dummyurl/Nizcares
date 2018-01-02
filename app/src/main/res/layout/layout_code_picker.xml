@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/countryCodeHolder"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:paddingLeft="8dp">
+
+    <LinearLayout
+        android:id="@+id/linear_flag_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="8dp">
+
+        <ImageView
+            android:id="@+id/image_flag"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/flag_india"
+            android:padding="2dp"/>
+    </LinearLayout>
+
+    <!--</LinearLayout>-->
+    <com.indglobal.nizcare.commons.fonts.TextRegular
+        android:id="@+id/textView_selectedCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/linear_flag_holder"
+        android:singleLine="true"
+        android:text="(IN) +91"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp" />
+
+
+    <ImageView
+        android:id="@+id/imageView_arrow"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:adjustViewBounds="true"
+        android:alpha="0.6"
+        android:src="@drawable/down_arrow"
+        android:padding="2dp"/>
+
+
+    <!-- // android:src="@drawable/down"-->
+</RelativeLayout>

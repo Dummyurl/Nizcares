@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/popup_window"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top|center"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/ivClndrBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_arrow_g_b"
+                android:padding="10dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/round_gray_stroke"/>
+
+            <ImageView
+                android:id="@+id/ivClndrNext"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_arrow_g_f"
+                android:padding="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/round_gray_stroke"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvClndrMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightBlack"
+                android:textSize="15sp"
+                android:text="December 2017"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="SUN"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/lightBlack"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="MON"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/lightBlack"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="TUE"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/lightBlack"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="WED"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/lightBlack"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="THU"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/lightBlack"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="FRI"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/lightBlack"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="SAT"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/lightBlack"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
+            <com.indglobal.nizcare.commons.ExpandableHeightGridView
+                android:id="@+id/grdClndr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:verticalSpacing="1dp"
+                android:horizontalSpacing="1dp"
+                android:numColumns="7"
+                android:layout_marginBottom="1dp"
+                android:focusableInTouchMode="true"
+                tools:listitem="@layout/calendr_item"
+                android:background="@color/white"
+                android:listSelector="@android:color/transparent" />
+
+            <ProgressBar
+                android:id="@+id/prgLoading"
+                android:layout_width="@dimen/prgSize"
+                android:layout_height="@dimen/prgSize"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                android:indeterminateDrawable="@drawable/progress"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

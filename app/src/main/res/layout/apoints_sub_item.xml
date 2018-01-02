@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerVertical="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="09:20 AM"
+                android:textSize="15sp"
+                android:textColor="@color/fullGray"
+                android:layout_gravity="center_vertical"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DONE"
+                android:textSize="13sp"
+                android:textColor="@color/lightGreen"
+                android:layout_gravity="end"
+                android:layout_marginTop="5dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvStatusDot"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/circle_fill_green"
+            android:layout_marginTop="4dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp">
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvPName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shane Colon"
+                android:textSize="15sp"
+                android:textColor="@color/fullGray"
+                android:layout_gravity="center_vertical"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvHName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Oliver's healthcare center"
+                android:textSize="14sp"
+                android:textColor="@color/fullGray"
+                android:layout_marginTop="5dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivDroparw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_more_g"/>
+
+</RelativeLayout>

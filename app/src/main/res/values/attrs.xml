@@ -19,5 +19,61 @@
 
     </declare-styleable>
 
+    <declare-styleable name="CountryCodePicker">
+        <attr name="defaultCode" format="integer" />
+        <attr name="contentColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="arrowSize" format="dimension" />
+        <attr name="countryPreference" format="string" />
+        <attr name="defaultNameCode" format="string" />
+        <attr name="hideNameCode" format="boolean" />
+        <attr name="ccpLanguage" format="enum">
+            <enum name="ARABIC" value="1" />
+            <enum name="BENGALI" value="2" />
+            <enum name="CHINESE" value="3" />
+            <enum name="ENGLISH" value="4" />
+            <enum name="FRENCH" value="5" />
+            <enum name="GERMAN" value="6" />
+            <enum name="GUJARATI" value="7" />
+            <enum name="HINDI" value="8" />
+            <enum name="JAPANESE" value="9" />
+            <enum name="JAVANESE" value="10" />
+            <enum name="PORTUGUESE" value="11" />
+            <enum name="RUSSIAN" value="12" />
+            <enum name="SPANISH" value="13" />
+        </attr>
+        <attr name="keyboardAutoPopOnSearch" format="boolean" />
+        <attr name="customMasterCountries" format="string" />
+        <attr name="showFlag" format="boolean" />
+        <attr name="showFullName" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundedImageView">
+        <attr name="riv_corner_radius" format="dimension" />
+        <attr name="riv_corner_radius_top_left" format="dimension" />
+        <attr name="riv_corner_radius_top_right" format="dimension" />
+        <attr name="riv_corner_radius_bottom_left" format="dimension" />
+        <attr name="riv_corner_radius_bottom_right" format="dimension" />
+        <attr name="riv_border_width" format="dimension" />
+        <attr name="riv_border_color" format="color" />
+        <attr name="riv_mutate_background" format="boolean" />
+        <attr name="riv_oval" format="boolean" />
+        <attr name="android:scaleType" />
+        <attr name="riv_tile_mode">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+        <attr name="riv_tile_mode_x">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+        <attr name="riv_tile_mode_y">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+    </declare-styleable>
 
 </resources>

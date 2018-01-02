@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="55dp"
+    android:layout_height="55dp"
+    android:background="@color/white"
+    android:id="@+id/rlDate"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:id="@+id/tvDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/lightBlack"
+            android:text="Mon"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"/>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/lightBlack"
+            android:text="23"
+            android:textSize="15sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="1dp"/>
+
+    </LinearLayout>
+
+    <com.indglobal.nizcare.commons.fonts.TextRegular
+        android:id="@+id/tvApntsCnts"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/circle_fill_green"
+        android:textSize="10sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="0"
+        android:layout_margin="2dp"/>
+
+</RelativeLayout>

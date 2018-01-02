@@ -5,13 +5,20 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +27,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -164,5 +175,46 @@ public class Comman {
 		params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
 		listView.setLayoutParams(params);
 	}
+
+	public static Bitmap readBitmap(Context context, Uri selectedImage, int angle) {
+		Bitmap bm = null;
+		BitmapFactory.Options options = new BitmapFactory.Options();
+		options.inJustDecodeBounds = false;
+		options.inPreferredConfig = Bitmap.Config.RGB_565;
+		options.inDither = true;
+		options.inSampleSize = 4;
+		AssetFileDescriptor fileDescriptor =null;
+		try {
+			fileDescriptor = context.getContentResolver().openAssetFileDescriptor(selectedImage,"r");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally{
+			try {
+				bm = BitmapFactory.decodeFileDescriptor(fileDescriptor.getFileDescriptor(), null, options);
+				fileDescriptor.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		Matrix matrix = new Matrix();
+		matrix.postRotate(angle);
+		return Bitmap.createBitmap(bm, 0, 0, bm.getWidth(), bm.getHeight(), matrix, false);
+	}
+
+	public static byte[] getFileDataFromDrawable(Context context, int id) {
+		Drawable drawable = ContextCompat.getDrawable(context, id);
+		Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);
+		return byteArrayOutputStream.toByteArray();
+	}
+
+	public static byte[] getFileDataFromDrawable(Context context, Bitmap bitmap) {
+		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		bitmap.compress(Bitmap.CompressFormat.JPEG, 80, byteArrayOutputStream);
+		return byteArrayOutputStream.toByteArray();
+	}
+
 
 }

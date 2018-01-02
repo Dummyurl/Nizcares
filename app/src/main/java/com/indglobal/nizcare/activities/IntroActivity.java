@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 
 import com.indglobal.nizcare.R;
@@ -35,7 +36,7 @@ public class IntroActivity extends Activity implements RippleView.OnRippleComple
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash_main);
+        setContentView(R.layout.intro_main);
         overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
 
         IMAGES.add(R.drawable.intro_one);
@@ -120,11 +121,13 @@ public class IntroActivity extends Activity implements RippleView.OnRippleComple
         switch (id){
             case R.id.rplLogin:
                 Intent ii = new Intent(IntroActivity.this,LoginActivity.class);
+                ii.putExtra("type","1");
                 startActivity(ii);
                 break;
 
             case R.id.rplgetStrt:
-                Intent intent = new Intent(IntroActivity.this,SignUpActivity.class);
+                Intent intent = new Intent(IntroActivity.this,LoginActivity.class);
+                intent.putExtra("type","2");
                 startActivity(intent);
                 break;
         }

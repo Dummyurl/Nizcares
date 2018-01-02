@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="100dp"
+    android:layout_height="100dp">
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="15dp"
+        android:background="@drawable/round_stroke_green_lite"/>
+
+    <com.indglobal.nizcare.commons.fonts.TextRegular
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/circle_fill_yellow"
+        android:layout_margin="5dp"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:text="8"
+        android:gravity="center"/>
+
+</RelativeLayout>
