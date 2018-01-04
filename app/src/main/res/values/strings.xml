@@ -82,7 +82,6 @@
     <string name="filter">FILTER</string>
     <string name="noInternet">Please check your internet connection!</string>
     <string name="somethingwrong">Something going wrong. Please try again later!</string>
-
     <string name="avlble">AVAILABLE</string>
     <string name="viewprfl">View Profile</string>
     <string name="finance">Finance</string>
@@ -109,6 +108,56 @@
     <string name="twitr">Twitter</string>
     <string name="youtube">Youtube</string>
     <string name="done">Done</string>
+    <string name="addphoto">Add Photo</string>
+    <string name="frmgallery">From Gallery</string>
+    <string name="capture">Capture Photo</string>
+    <string name="imguploadscs">Image upload successfully!</string>
+    <string name="prvdclgcrtfct">Upload certificate!</string>
+    <string name="council">Council</string>
+    <string name="regno">Registration Number</string>
+    <string name="prvdregstn">Provide registration document!</string>
+    <string name="prvddocs">Provide document image!</string>
+    <string name="citynotfound">Cities not found!</string>
+    <string name="novaliddata">No proper data format found!</string>
+    <string name="prvdimage">Provide profile image!</string>
+    <string name="slctspeclty">Select atleast one speciality!</string>
+    <string name="prvdexp">Select your experience!</string>
+    <string name="prvedu">Provide your education details!</string>
+    <string name="prvdregdtl">Provide your registration details!</string>
+    <string name="prvdocs">Provide your ID!</string>
+    <string name="upldadrsprf">Upload ID</string>
+    <string name="upldregdoc">Upload Registration</string>
+    <string name="doctypenot">Doc type not found!</string>
+    <string name="brwsrnotavlbe">Browser not available!</string>
+    <string name="addpatnt">Add a patient</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="langs">Languages</string>
+    <string name="dob">Date of birth</string>
+    <string name="adrs">Address</string>
+    <string name="height">Height</string>
+    <string name="wieght">Weight</string>
+    <string name="bldgrp">Blood Group</string>
+    <string name="refrby">Referred By</string>
+    <string name="typeofvst">Type of visit</string>
+    <string name="clinic">Clinic</string>
+    <string name="mdclinfo">Medical Informations</string>
+    <string name="addpatient">Added patient successfully!</string>
+    <string name="chat">Chat</string>
+    <string name="pblic">Public</string>
+    <string name="prvte">Private</string>
+    <string name="timeslot">Time Slot</string>
+    <string name="date">Date</string>
+    <string name="reschduleapoint">Re-Schedule Appointment</string>
+    <string name="cancelapoint">Cancel Appointment</string>
+    <string name="apointcanceld">Appointment Cancelled</string>
+    <string name="refranthrdoc">Refer Another Doctor</string>
+    <string name="undocancle">Undo Cancellation</string>
+    <string name="ptnt">Patient</string>
+    <string name="dateandtime"><![CDATA[Date & Timings]]></string>
+    <string name="clnccnsltns"><![CDATA[Clinic & Consultants]]></string>
+    <string name="slctclnc">Select Clinic</string>
+    <string name="slctcnsltnt">Select Consultants</string>
 
     <string-array name="prefix_array">
         <item>Dr.</item>
@@ -163,28 +212,25 @@
         <item>All Clinics</item>
     </string-array>
 
+    <string-array name="BloodGroup">
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>O+</item>
+        <item>O-</item>
+        <item>A1+</item>
+        <item>A1-</item>
+        <item>A2+</item>
+        <item>A2-</item>
+        <item>A1B+</item>
+        <item>A1B-</item>
+        <item>A2B+</item>
+        <item>A2B-</item>
+    </string-array>
 
-    <string name="addphoto">Add Photo</string>
-    <string name="frmgallery">From Gallery</string>
-    <string name="capture">Capture Photo</string>
-    <string name="imguploadscs">Image upload successfully!</string>
-    <string name="prvdclgcrtfct">Upload certificate!</string>
-    <string name="council">Council</string>
-    <string name="regno">Registration Number</string>
-    <string name="prvdregstn">Provide registration document!</string>
-    <string name="prvddocs">Provide document image!</string>
-    <string name="citynotfound">Cities not found!</string>
-    <string name="novaliddata">No proper data format found!</string>
-    <string name="prvdimage">Provide profile image!</string>
-    <string name="slctspeclty">Select atleast one speciality!</string>
-    <string name="prvdexp">Select your experience!</string>
-    <string name="prvedu">Provide your education details!</string>
-    <string name="prvdregdtl">Provide your registration details!</string>
-    <string name="prvdocs">Provide your ID!</string>
-    <string name="upldadrsprf">Upload ID</string>
-    <string name="upldregdoc">Upload Registration</string>
-    <string name="doctypenot">Doc type not found!</string>
-    <string name="brwsrnotavlbe">Browser not available!</string>
 
     <string name="regApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/authenticate/register</string>
     <string name="loginApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/authenticate/login</string>
@@ -198,18 +244,11 @@
     <string name="getDealsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_master_ads</string>
     <string name="getNewsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_master_news</string>
     <string name="getPatientApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_patients</string>
-    <string name="addpatnt">Add a patient</string>
-    <string name="firstname">First Name</string>
-    <string name="lastname">Last Name</string>
-    <string name="langs">Languages</string>
-    <string name="dob">Date of birth</string>
-    <string name="adrs">Address</string>
-    <string name="height">Height</string>
-    <string name="wieght">Weight</string>
-    <string name="bldgrp">Blood Group</string>
-    <string name="refrby">Referred By</string>
-    <string name="typeofvst">Type of visit</string>
-    <string name="clinic">Clinic</string>
-    <string name="mdclinfo">Medical Informations</string>
+    <string name="getClinicsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_doctor_hospitals</string>
+    <string name="getLanguageApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_master_languages</string>
+    <string name="sbmtPatientDtlsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/doctor_add_patient_store</string>
+    <string name="cancelApointApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/cancel_appointment_bydoctor</string>
+    <string name="undoCanceledApointApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/undo_cancel_appointment_bydoctor</string>
+    <string name="getConsltnsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_consultants_byhospitalid</string>
 
 </resources>

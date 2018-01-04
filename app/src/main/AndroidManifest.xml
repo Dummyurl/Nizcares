@@ -74,6 +74,18 @@
             android:theme="@style/MyMaterialTheme"
             android:windowSoftInputMode ="stateHidden|adjustResize"/>
 
+        <activity
+            android:name=".activities.LanguageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme"
+            android:windowSoftInputMode ="stateHidden|adjustResize"/>
+
+        <activity
+            android:name=".activities.ReScheduleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme"
+            android:windowSoftInputMode ="stateHidden|adjustResize"/>
+
         <receiver android:name=".commons.IncomingSms"
             android:permission="android.permission.BROADCAST_SMS"
             android:exported="true">

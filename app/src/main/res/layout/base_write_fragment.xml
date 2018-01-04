@@ -20,7 +20,7 @@
             android:layout_weight="1"
             android:textSize="14sp"
             android:textColor="@color/lightGreen"
-            android:text="@string/qstns"
+            android:text="@string/chat"
             android:gravity="center"/>
 
         <com.indglobal.nizcare.commons.fonts.TextRegular
@@ -97,12 +97,51 @@
         android:orientation="vertical"
         android:visibility="visible">
 
+        <RadioGroup
+            android:id="@+id/rgChat"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_stroke_green"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:padding="1dp">
+
+            <com.indglobal.nizcare.commons.fonts.RadioRegular
+                android:id="@+id/rbPblc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/pblic"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:checked="true"
+                android:textColor="@color/radio_color_selector"
+                android:button="@null"
+                android:background="@drawable/twenty_selector" />
+
+            <com.indglobal.nizcare.commons.fonts.RadioRegular
+                android:id="@+id/rbPrvt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/prvte"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:checked="false"
+                android:textColor="@color/radio_color_selector"
+                android:button="@null"
+                android:background="@drawable/twenty_selector_right" />
+
+        </RadioGroup>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
             android:weightSum="2"
-            android:padding="10dp">
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <RelativeLayout
                 android:layout_width="0dp"

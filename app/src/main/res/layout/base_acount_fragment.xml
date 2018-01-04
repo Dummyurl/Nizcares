@@ -1,914 +1,921 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/lightGreen"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true">
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:text="@string/instantconsltn"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:text="@string/avlble"
+                android:layout_marginTop="5dp"/>
+
+        </LinearLayout>
+
+        <Switch
+            android:id="@+id/swtchAvlbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text=""
+            android:thumbTint="@color/white"
+            android:buttonTint="@color/white"
+            android:trackTint="@color/lightGray"/>
+
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:background="@color/lightGreen"
-            android:padding="15dp">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round_fill_gray_stroke"
+            android:layout_gravity="center_vertical"/>
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp">
+
+            <com.indglobal.nizcare.commons.fonts.TextBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerVertical="true">
+                android:textSize="16sp"
+                android:textColor="@color/lightBlack"
+                android:text="Dr. Terry Oliver"/>
 
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:textColor="@color/white"
-                    android:text="@string/instantconsltn"/>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/white"
-                    android:text="@string/avlble"
-                    android:layout_marginTop="5dp"/>
-
-            </LinearLayout>
-
-            <Switch
-                android:id="@+id/swtchAvlbl"
+            <com.indglobal.nizcare.commons.fonts.TextRegular
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:text=""
-                android:thumbTint="@color/white"
-                android:buttonTint="@color/white"
-                android:trackTint="@color/lightGray"/>
+                android:textSize="15sp"
+                android:textColor="@color/lightGreen"
+                android:text="@string/viewprfl"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="5dp"/>
 
-        </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/round_fill_gray_stroke"
-                android:layout_gravity="center_vertical"/>
-
-            <LinearLayout
+            <com.indglobal.nizcare.commons.fonts.TextBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/lightBlack"
+                android:text="@string/finance"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="65dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/darkGray"
+                android:layout_marginLeft="65dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="15dp">
+                android:paddingRight="15dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_payments"
+                            android:padding="10dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/wallet"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/fullGray"
+                        android:text="$2,800/-"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_reports"
+                            android:padding="10dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/reprts"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/fullGray"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
 
                 <com.indglobal.nizcare.commons.fonts.TextBold
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:textColor="@color/lightBlack"
-                    android:text="Dr. Terry Oliver"/>
+                    android:text="@string/buysell"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="65dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/darkGray"
+                    android:layout_marginLeft="65dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="8dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_cart"
+                            android:padding="10dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/store"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_product_services_pressed"
+                            android:padding="10dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/myprdcts"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/fullGray"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_package"
+                            android:padding="10dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/mypckgs"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_products"
+                            android:padding="10dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/mngordrs"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:text="2 New"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:background="@drawable/round_green_fill_gray_stroke"/>
+
+                </RelativeLayout>
+
+                <com.indglobal.nizcare.commons.fonts.TextBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/lightBlack"
+                    android:text="@string/myacnts"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="65dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/darkGray"
+                    android:layout_marginLeft="65dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="8dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_bookmark_dark"
+                            android:padding="10dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/mybookmrks"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/fullGray"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_write_dark"
+                            android:padding="12dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/myhlthtips"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/fullGray"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_answer_dark"
+                            android:padding="10dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/myanswrs"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:text="2 New"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:background="@drawable/round_green_fill_gray_stroke"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_records"
+                            android:padding="10dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/myrcrds"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/fullGray"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_ads"
+                            android:padding="12dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/advrstsnzcr"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/fullGray"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_notification"
+                            android:padding="10dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/ntfctns"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/fullGray"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_refer"
+                            android:padding="12dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/refrls"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/fullGray"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_feed_dark"
+                            android:padding="10dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/usrfdbks"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/fullGray"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_referal_dark"
+                            android:padding="12dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/rfrlcode"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/fullGray"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_settings_dark"
+                            android:padding="12dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/setngs"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/fullGray"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <com.indglobal.nizcare.commons.fonts.TextBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/lightBlack"
+                    android:text="@string/fnduson"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="65dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/darkGray"
+                    android:layout_marginLeft="65dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="8dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_facebook"
+                            android:padding="12dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/facebook"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/fullGray"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_twitter"
+                            android:padding="12dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/twitr"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/fullGray"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_youtube"
+                            android:padding="10dp"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/youtube"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/fullGray"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/nizcare"/>
 
                 <com.indglobal.nizcare.commons.fonts.TextRegular
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/lightGreen"
-                    android:text="@string/viewprfl"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:paddingRight="5dp"/>
+                    android:textSize="14sp"
+                    android:textColor="@color/fullGray"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:text="Version 1.0"/>
 
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
         </LinearLayout>
 
-        <com.indglobal.nizcare.commons.fonts.TextBold
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="@color/lightBlack"
-            android:text="@string/finance"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="65dp"/>
+    </ScrollView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/darkGray"
-            android:layout_marginLeft="65dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="8dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingRight="15dp"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_payments"
-                        android:padding="10dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/wallet"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/fullGray"
-                    android:text="$2,800/-"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_reports"
-                        android:padding="10dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/reprts"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/fullGray"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
-
-            <com.indglobal.nizcare.commons.fonts.TextBold
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/lightBlack"
-                android:text="@string/buysell"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="65dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/darkGray"
-                android:layout_marginLeft="65dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="8dp"/>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_cart"
-                        android:padding="10dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/store"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_product_services_pressed"
-                        android:padding="10dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/myprdcts"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/fullGray"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_package"
-                        android:padding="10dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/mypckgs"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_products"
-                        android:padding="10dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/mngordrs"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:text="2 NEW"
-                    android:textColor="@color/white"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:background="@drawable/round_green_fill_gray_stroke"/>
-
-            </RelativeLayout>
-
-            <com.indglobal.nizcare.commons.fonts.TextBold
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/lightBlack"
-                android:text="@string/myacnts"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="65dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/darkGray"
-                android:layout_marginLeft="65dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="8dp"/>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_bookmark_dark"
-                        android:padding="10dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/mybookmrks"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/fullGray"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_write_dark"
-                        android:padding="12dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/myhlthtips"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/fullGray"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_answer_dark"
-                        android:padding="10dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/myanswrs"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:text="2 NEW"
-                    android:textColor="@color/white"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:background="@drawable/round_green_fill_gray_stroke"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_records"
-                        android:padding="10dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/myrcrds"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/fullGray"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_ads"
-                        android:padding="12dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/advrstsnzcr"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/fullGray"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_notification"
-                        android:padding="10dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/ntfctns"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/fullGray"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_refer"
-                        android:padding="12dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/refrls"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/fullGray"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_feed_dark"
-                        android:padding="10dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/usrfdbks"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/fullGray"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_referal_dark"
-                        android:padding="12dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/rfrlcode"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/fullGray"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_settings_dark"
-                        android:padding="12dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/setngs"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/fullGray"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
-
-            <com.indglobal.nizcare.commons.fonts.TextBold
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/lightBlack"
-                android:text="@string/fnduson"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="65dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/darkGray"
-                android:layout_marginLeft="65dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="8dp"/>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_facebook"
-                        android:padding="12dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/facebook"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/fullGray"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_twitter"
-                        android:padding="12dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/twitr"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/fullGray"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_youtube"
-                        android:padding="10dp"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/youtube"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/fullGray"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/nizcare"/>
-
-            <com.indglobal.nizcare.commons.fonts.TextRegular
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textColor="@color/fullGray"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dp"
-                android:text="Version 1.0"/>
-
-        </LinearLayout>
-        
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
-
-    </LinearLayout>
-
-</ScrollView>
+</LinearLayout>

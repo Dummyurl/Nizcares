@@ -7,348 +7,355 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/llMain"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
 
-        <LinearLayout
-            android:id="@+id/llMain"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
+            android:padding="10dp">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/llMonth"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="10dp">
+                android:orientation="horizontal"
+                android:layout_centerVertical="true">
 
-                <LinearLayout
-                    android:id="@+id/llMonth"
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:id="@+id/tvMonth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_centerVertical="true">
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:id="@+id/tvMonth"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="August 2017"
-                        android:layout_gravity="center_vertical"/>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_arrow_g_d"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
+                    android:textSize="16sp"
+                    android:textColor="@color/lightBlack"
+                    android:text="August 2017"
+                    android:layout_gravity="center_vertical"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_search_c"
-                    android:padding="5dp"
-                    android:visibility="gone"/>
-
-            </RelativeLayout>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvDates"
-                android:scrollbars="none"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:listitem="@layout/horizontal_date_item"
-                android:background="@color/white"
-                android:layout_marginTop="5dp"
-                android:scrollbarSize="1dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:orientation="horizontal"
-                android:weightSum="3"
-                android:layout_marginTop="5dp">
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:id="@+id/tvTabApoints"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:textSize="14sp"
-                    android:textColor="@color/lightGreen"
-                    android:text="@string/apointmnts"
-                    android:gravity="center"/>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:id="@+id/tvTabConsltns"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:textSize="14sp"
-                    android:textColor="@color/lightBlack"
-                    android:text="@string/consltn"
-                    android:gravity="center"/>
-
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:id="@+id/tvTabOpinon"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:textSize="14sp"
-                    android:textColor="@color/lightBlack"
-                    android:text="@string/opiniun"
-                    android:gravity="center"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <TextView
-                    android:id="@+id/tvIndApoints"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/lightGreen"/>
-
-                <TextView
-                    android:id="@+id/tvIndConsltns"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/lightGray"/>
-                <TextView
-                    android:id="@+id/tvIndOpinion"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/lightGray"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llApoints"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="visible">
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rvApoints"
-                    android:scrollbars="none"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:listitem="@layout/apoints_item"
-                    android:visibility="visible"
-                    android:layout_marginBottom="5dp"/>
-
-                <com.indglobal.nizcare.commons.RippleView
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_margin="10dp"
-                    app:rv_centered="true"
-                    app:rv_color="@color/lightGray"
-                    android:background="@drawable/round_stroke_green">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:src="@drawable/ic_play_how_it_works"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:textColor="@color/lightGreen"
-                        android:text="@string/getanovervwonapp"
-                        android:layout_centerInParent="true"/>
-
-                </com.indglobal.nizcare.commons.RippleView>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp">
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/bestdealforyou"
-                        android:layout_gravity="center_vertical"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:textColor="@color/lightGreen"
-                        android:text="@string/viewall"
-                        android:layout_centerInParent="true"
-                        android:layout_alignParentRight="true"
-                        android:padding="2dp"/>
-
-                </RelativeLayout>
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rvBstDeals"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:listitem="@layout/deals_item"
-                    android:scrollbars="none"
-                    android:visibility="visible"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp">
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="@color/lightBlack"
-                        android:text="@string/news"
-                        android:layout_gravity="center_vertical"/>
-
-                    <com.indglobal.nizcare.commons.fonts.TextRegular
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:textColor="@color/lightGreen"
-                        android:text="@string/viewall"
-                        android:layout_centerInParent="true"
-                        android:layout_alignParentRight="true"
-                        android:padding="2dp"/>
-
-                </RelativeLayout>
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rvNews"
-                    android:scrollbars="none"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:listitem="@layout/news_item"
-                    android:visibility="visible"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llConsultations"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="10dp"
-                android:visibility="gone">
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/lightBlack"
-                    android:text="@string/instantconsltn"
+                    android:src="@drawable/ic_arrow_g_d"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginTop="5dp"/>
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rvInstantCnsltn"
-                    android:scrollbars="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:listitem="@layout/instnt_cnsltn_item"
-                    android:visibility="visible"
-                    android:layout_marginTop="10dp"/>
-
-                <com.indglobal.nizcare.commons.fonts.TextRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/lightBlack"
-                    android:text="@string/rglrcnsltn"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginTop="15dp"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/lightGray"/>
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rvReglrCnsltn"
-                    android:scrollbars="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:listitem="@layout/apoints_item"
-                    android:visibility="gone"/>
+                    android:layout_marginLeft="10dp"/>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llOpinion"
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="10dp"
-                android:visibility="gone">
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_search_c"
+                android:padding="5dp"
+                android:visibility="gone"/>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp">
+        </RelativeLayout>
 
-                    <Spinner
-                        android:id="@+id/spinAlltype"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvDates"
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/horizontal_date_item"
+            android:background="@color/white"
+            android:layout_marginTop="5dp"
+            android:scrollbarSize="1dp"/>
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"
-                        android:src="@drawable/ic_arrow_g_d"
-                        android:contentDescription="" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_marginTop="5dp">
 
-                </RelativeLayout>
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvTabApoints"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:textColor="@color/lightGreen"
+                android:text="@string/apointmnts"
+                android:gravity="center"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/lightGray"/>
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rvReports"
-                    android:scrollbars="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:listitem="@layout/report_item"
-                    android:visibility="visible"
-                    android:layout_marginTop="10dp"/>
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvTabConsltns"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:textColor="@color/lightBlack"
+                android:text="@string/consltn"
+                android:gravity="center"/>
 
 
-            </LinearLayout>
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvTabOpinon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:textColor="@color/lightBlack"
+                android:text="@string/opiniun"
+                android:gravity="center"/>
 
         </LinearLayout>
 
-    </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/tvIndApoints"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/lightGreen"/>
+
+            <TextView
+                android:id="@+id/tvIndConsltns"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/lightGray"/>
+            <TextView
+                android:id="@+id/tvIndOpinion"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/lightGray"/>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/llApoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rvApoints"
+                        android:scrollbars="none"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/apoints_item"
+                        android:visibility="visible"
+                        android:layout_marginBottom="5dp"/>
+
+                    <com.indglobal.nizcare.commons.RippleView
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_margin="10dp"
+                        app:rv_centered="true"
+                        app:rv_color="@color/lightGray"
+                        android:background="@drawable/round_stroke_green">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/ic_play_how_it_works"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/lightGreen"
+                            android:text="@string/getanovervwonapp"
+                            android:layout_centerInParent="true"/>
+
+                    </com.indglobal.nizcare.commons.RippleView>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/bestdealforyou"
+                            android:layout_gravity="center_vertical"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/lightGreen"
+                            android:text="@string/viewall"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentRight="true"
+                            android:padding="2dp"/>
+
+                    </RelativeLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rvBstDeals"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/deals_item"
+                        android:scrollbars="none"
+                        android:visibility="visible"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="@string/news"
+                            android:layout_gravity="center_vertical"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/lightGreen"
+                            android:text="@string/viewall"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentRight="true"
+                            android:padding="2dp"/>
+
+                    </RelativeLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rvNews"
+                        android:scrollbars="none"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/news_item"
+                        android:visibility="visible"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llConsultations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp"
+                    android:visibility="gone">
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/lightBlack"
+                        android:text="@string/instantconsltn"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rvInstantCnsltn"
+                        android:scrollbars="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/instnt_cnsltn_item"
+                        android:visibility="visible"
+                        android:layout_marginTop="10dp"/>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/lightBlack"
+                        android:text="@string/rglrcnsltn"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="15dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/lightGray"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rvReglrCnsltn"
+                        android:scrollbars="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/apoints_item"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llOpinion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+
+                        <Spinner
+                            android:id="@+id/spinAlltype"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/ic_arrow_g_d"
+                            android:contentDescription="" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/lightGray"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rvReports"
+                        android:scrollbars="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/report_item"
+                        android:visibility="visible"
+                        android:layout_marginTop="10dp"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/prgLoading"

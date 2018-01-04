@@ -91,7 +91,6 @@ public class BasePatientFragment extends Fragment implements PatientAdapter.OnIt
         rvPatients.setAdapter(patientAdapter);
 
 
-
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -126,6 +125,7 @@ public class BasePatientFragment extends Fragment implements PatientAdapter.OnIt
                     llMain.setVisibility(View.GONE);
                     Toast.makeText(getActivity(),getResources().getString(R.string.noInternet),Toast.LENGTH_SHORT).show();
                 }else {
+                    llMain.setVisibility(View.GONE);
                     prgLoading.setVisibility(View.VISIBLE);
                     getPatients();
                 }
@@ -144,6 +144,7 @@ public class BasePatientFragment extends Fragment implements PatientAdapter.OnIt
                     llMain.setVisibility(View.GONE);
                     Toast.makeText(getActivity(),getResources().getString(R.string.noInternet),Toast.LENGTH_SHORT).show();
                 }else {
+                    llMain.setVisibility(View.GONE);
                     prgLoading.setVisibility(View.VISIBLE);
                     getPatients();
                 }
@@ -189,16 +190,6 @@ public class BasePatientFragment extends Fragment implements PatientAdapter.OnIt
                             patientItemArrayList.add(patientItem);
 
                         }
-
-//                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext(),LinearLayoutManager.VERTICAL,false);
-//                        patientAdapter = new PatientAdapter(getActivity(),patientItemArrayList,new PatientAdapter.OnItemClickListener(){
-//                            @Override
-//                            public void onItemClick(PatientItem patientItem) {
-//
-//                            }
-//                        });
-//                        rvPatients.setLayoutManager(layoutManager);
-//                        rvPatients.setAdapter(patientAdapter);
 
                         patientAdapter.notifyDataSetChanged();
 
@@ -262,8 +253,28 @@ public class BasePatientFragment extends Fragment implements PatientAdapter.OnIt
         switch (id){
             case R.id.tvAddNew:
                 Intent ii = new Intent(getActivity(),AddPatientActivity.class);
-                startActivity(ii);
+                startActivityForResult(ii,4);
                 break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 4) {
+            if(resultCode == Activity.RESULT_OK){
+                String PatientAdded = Comman.getPreferences(getActivity(),"PatientAdded");
+                if (PatientAdded.equalsIgnoreCase("1")){
+                    if (!Comman.isConnectionAvailable(getActivity())){
+                        llMain.setVisibility(View.GONE);
+                        Toast.makeText(getActivity(),getResources().getString(R.string.noInternet),Toast.LENGTH_SHORT).show();
+                    }else {
+                        llMain.setVisibility(View.GONE);
+                        prgLoading.setVisibility(View.VISIBLE);
+                        getPatients();
+                        Comman.setPreferences(getActivity(),"PatientAdded","0");
+                    }
+                }
+            }
         }
     }
 }

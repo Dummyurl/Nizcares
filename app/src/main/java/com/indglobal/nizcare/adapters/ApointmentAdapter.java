@@ -1,23 +1,45 @@
 package com.indglobal.nizcare.adapters;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.indglobal.nizcare.R;
+import com.indglobal.nizcare.activities.LoginActivity;
+import com.indglobal.nizcare.activities.ReScheduleActivity;
+import com.indglobal.nizcare.commons.Comman;
+import com.indglobal.nizcare.commons.CustomRequest;
+import com.indglobal.nizcare.commons.RippleView;
+import com.indglobal.nizcare.commons.VolleySingleton;
+import com.indglobal.nizcare.fragments.BaseHomeFragment;
 import com.indglobal.nizcare.model.ApointItem;
 import com.indglobal.nizcare.model.ApointMainItem;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
-import static com.indglobal.nizcare.R.id.tvDay;
 
 /**
  * Created by readyassist on 12/30/17.
@@ -49,8 +71,8 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
         void bind(final int position, final ApointItem apointItem) {
 
             tvTime.setText(apointItem.getAppointment_time());
-            tvPName.setText(apointItem.getPatient_name());
-            tvHName.setText(apointItem.getHospital_name());
+            tvPName.setText(Comman.capitalize(apointItem.getPatient_name()));
+            tvHName.setText(Comman.capitalize(apointItem.getHospital_name()));
 
             String status = apointItem.getStatus();
             if (status.equalsIgnoreCase("1")){
@@ -75,13 +97,62 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //listener.onItemClick(apointItem);
+                    openRescheduleDialog(apointItem);
                 }
-
             });
         }
+    }
 
+    private void openRescheduleDialog(final ApointItem apointItem) {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.apointment_dialog);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
+        TextView tvPName = (TextView)dialog.findViewById(R.id.tvPName);
+        TextView tvGndrAge = (TextView)dialog.findViewById(R.id.tvGndrAge);
+        ImageView ivChat = (ImageView)dialog.findViewById(R.id.ivChat);
+        ImageView ivCall = (ImageView)dialog.findViewById(R.id.ivCall);
+        TextView tvHName = (TextView)dialog.findViewById(R.id.tvHName);
+        TextView tvTime = (TextView)dialog.findViewById(R.id.tvTime);
+        TextView tvDate = (TextView)dialog.findViewById(R.id.tvDate);
+        RippleView rplReschdule = (RippleView) dialog.findViewById(R.id.rplReschdule);
+        RippleView rplCancel = (RippleView)dialog.findViewById(R.id.rplCancel);
+
+        tvTime.setText(apointItem.getAppointment_time());
+        tvPName.setText(Comman.capitalize(apointItem.getPatient_name()));
+        tvHName.setText(Comman.capitalize(apointItem.getHospital_name()));
+        tvGndrAge.setText(Comman.capitalize(apointItem.getGender())+" * "+apointItem.getAge()+" Years old");
+        tvDate.setText(apointItem.getAppointment_date());
+
+        rplCancel.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+            @Override
+            public void onComplete(RippleView rippleView) {
+                if (!Comman.isConnectionAvailable(context)){
+                    Toast.makeText(context,context.getResources().getString(R.string.noInternet),Toast.LENGTH_SHORT).show();
+                }else {
+                    dialog.cancel();
+                    BaseHomeFragment.prgLoading.setVisibility(View.VISIBLE);
+                    cancelApointment(apointItem.getApointment_id(),apointItem.getPatient_name());
+                }
+
+            }
+        });
+
+        rplReschdule.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+            @Override
+            public void onComplete(RippleView rippleView) {
+                Intent ii = new Intent(context,ReScheduleActivity.class);
+                ii.putExtra("name",apointItem.getPatient_name());
+                ii.putExtra("image",apointItem.getProfile_image());
+                ii.putExtra("age",apointItem.getAge());
+                ii.putExtra("gender",apointItem.getGender());
+                ii.putExtra("apoint_id",apointItem.getApointment_id());
+                context.startActivity(ii);
+            }
+        });
+
+        dialog.show();
     }
 
 
@@ -103,10 +174,170 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
 
     }
 
-
     @Override
     public int getItemCount() {
         return apointItemArrayList.size();
+    }
+
+    private void cancelApointment(final String appointment_id, final String patient_name) {
+
+        String url = context.getResources().getString(R.string.cancelApointApi);
+        String token = Comman.getPreferences(context,"token");
+        url = url+"?token="+token;
+
+        Map<String, String> params = new HashMap<>();
+        params.put("appointment_id",appointment_id);
+
+        String CNCLAPNTHIT = "cncl_apnt_hit";
+        VolleySingleton.getInstance(context).cancelRequestInQueue(CNCLAPNTHIT);
+        CustomRequest request = new CustomRequest(Request.Method.POST, url, params, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+
+                    boolean success = response.getBoolean("success");
+                    String msg = response.getString("message");
+
+                    if (success){
+                        Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
+                        openCancelledDialog(appointment_id,patient_name);
+
+                    }else {
+                        Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
+                    }
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(context,context.getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                }
+
+                BaseHomeFragment.prgLoading.setVisibility(View.GONE);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if (error.networkResponse.data!=null){
+                    try {
+
+                        String jsonString = new String(error.networkResponse.data, HttpHeaderParser.parseCharset(error.networkResponse.headers));
+                        JSONObject errObject = new JSONObject(jsonString);
+
+                        String message = errObject.getString("message");
+
+                        Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
+
+                    } catch (Exception e) {
+                        Toast.makeText(context,context.getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(context,context.getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                }
+
+                BaseHomeFragment.prgLoading.setVisibility(View.GONE);
+            }
+        });
+        request.setTag(CNCLAPNTHIT);
+        request.setRetryPolicy(new DefaultRetryPolicy(15000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        VolleySingleton.getInstance(context).addToRequestQueue(request);
+    }
+
+    private void openCancelledDialog(final String appointment_id, String patient_name) {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.canceled_apoint_dialog);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+        TextView tvCancledMsg = (TextView)dialog.findViewById(R.id.tvCancledMsg);
+        RippleView rplRefranthrdoc = (RippleView) dialog.findViewById(R.id.rplRefranthrdoc);
+        RippleView rplUndoCncl = (RippleView)dialog.findViewById(R.id.rplUndoCncl);
+
+        tvCancledMsg.setText("Appointment with "+Comman.capitalize(patient_name)+" was successfully cancelled. You may want to refer another doctor or undo cancellation.");
+
+        rplUndoCncl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!Comman.isConnectionAvailable(context)){
+                    Toast.makeText(context,context.getResources().getString(R.string.noInternet),Toast.LENGTH_SHORT).show();
+                }else {
+                    dialog.cancel();
+                    BaseHomeFragment.prgLoading.setVisibility(View.VISIBLE);
+                    undoCanceledApointment(appointment_id);
+                }
+
+            }
+        });
+
+        dialog.show();
+    }
+
+    private void undoCanceledApointment(final String appointment_id) {
+
+        String url = context.getResources().getString(R.string.undoCanceledApointApi);
+        String token = Comman.getPreferences(context,"token");
+        url = url+"?token="+token;
+
+        Map<String, String> params = new HashMap<>();
+        params.put("appointment_id",appointment_id);
+
+        String UNDOCNCLAPNTHIT = "undo_cncl_apnt_hit";
+        VolleySingleton.getInstance(context).cancelRequestInQueue(UNDOCNCLAPNTHIT);
+        CustomRequest request = new CustomRequest(Request.Method.POST, url, params, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+
+                    boolean success = response.getBoolean("success");
+                    String msg = response.getString("message");
+
+                    if (success){
+                        Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
+                        BaseHomeFragment fragment = new BaseHomeFragment();
+                        fragment.initMethod();
+
+                    }else {
+                        Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
+                        BaseHomeFragment.prgLoading.setVisibility(View.GONE);
+                    }
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(context,context.getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                    BaseHomeFragment.prgLoading.setVisibility(View.GONE);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if (error.networkResponse.data!=null){
+                    try {
+
+                        String jsonString = new String(error.networkResponse.data, HttpHeaderParser.parseCharset(error.networkResponse.headers));
+                        JSONObject errObject = new JSONObject(jsonString);
+
+                        String message = errObject.getString("message");
+
+                        Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
+
+                    } catch (Exception e) {
+                        Toast.makeText(context,context.getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(context,context.getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                }
+
+                BaseHomeFragment.prgLoading.setVisibility(View.GONE);
+            }
+        });
+        request.setTag(UNDOCNCLAPNTHIT);
+        request.setRetryPolicy(new DefaultRetryPolicy(15000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        VolleySingleton.getInstance(context).addToRequestQueue(request);
     }
 
 }

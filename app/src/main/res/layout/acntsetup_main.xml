@@ -269,7 +269,7 @@
                             android:checked="false"
                             android:textColor="@color/radio_color_selector"
                             android:button="@null"
-                            android:background="@drawable/twenty_selector" />
+                            android:background="@drawable/twenty_selector_right" />
 
                     </RadioGroup>
 

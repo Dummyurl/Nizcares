@@ -60,7 +60,7 @@ import java.util.HashMap;
 public class BaseHomeFragment extends Fragment implements View.OnClickListener{
 
     LayoutInflater inflater;
-    ProgressBar prgLoading;
+    public static ProgressBar prgLoading;
 
     TextView tvTabApoints,tvTabConsltns,tvTabOpinon,tvIndApoints,tvIndConsltns,tvIndOpinion,tvMonth;
     LinearLayout llApoints,llConsultations,llOpinion,llMain,llMonth;
@@ -100,6 +100,7 @@ public class BaseHomeFragment extends Fragment implements View.OnClickListener{
     ArrayList<NewsItem> newsItemArrayList = new ArrayList<>();
     NewsAdapter newsAdapter;
 
+    public static Date selectedDate;
 
     @Override
     public void onAttach(Activity activity) {
@@ -271,8 +272,15 @@ public class BaseHomeFragment extends Fragment implements View.OnClickListener{
                                 String appointment_date = objmrng.getString("appointment_date");
                                 String appointment_time = objmrng.getString("appointment_time");
                                 String status = objmrng.getString("status");
+                                String patient_id = objmrng.getString("patient_id");
+                                String gender = objmrng.getString("gender");
+                                String age = objmrng.getString("age");
+                                String createdby = objmrng.getString("appointment_created_by");
+                                String profile_image = objmrng.getString("profile_image");
+                                String profile_image_thumb = objmrng.getString("profile_image_thumb");
 
-                                apointItem = new ApointItem(apointment_id,patient_name,hospital_name,appointment_date,appointment_time,status);
+                                apointItem = new ApointItem(apointment_id,patient_name,hospital_name,appointment_date,
+                                        appointment_time,status,patient_id,gender,age,createdby,profile_image,profile_image_thumb);
                                 morningItems.add(apointItem);
                             }
 
@@ -291,8 +299,15 @@ public class BaseHomeFragment extends Fragment implements View.OnClickListener{
                                 String appointment_date = objmrng.getString("appointment_date");
                                 String appointment_time = objmrng.getString("appointment_time");
                                 String status = objmrng.getString("status");
+                                String patient_id = objmrng.getString("patient_id");
+                                String gender = objmrng.getString("gender");
+                                String age = objmrng.getString("age");
+                                String createdby = objmrng.getString("appointment_created_by");
+                                String profile_image = objmrng.getString("profile_image");
+                                String profile_image_thumb = objmrng.getString("profile_image_thumb");
 
-                                apointItem = new ApointItem(apointment_id,patient_name,hospital_name,appointment_date,appointment_time,status);
+                                apointItem = new ApointItem(apointment_id,patient_name,hospital_name,appointment_date,
+                                        appointment_time,status,patient_id,gender,age,createdby,profile_image,profile_image_thumb);
                                 afternoonItems.add(apointItem);
                             }
 
@@ -311,8 +326,15 @@ public class BaseHomeFragment extends Fragment implements View.OnClickListener{
                                 String appointment_date = objmrng.getString("appointment_date");
                                 String appointment_time = objmrng.getString("appointment_time");
                                 String status = objmrng.getString("status");
+                                String patient_id = objmrng.getString("patient_id");
+                                String gender = objmrng.getString("gender");
+                                String age = objmrng.getString("age");
+                                String createdby = objmrng.getString("appointment_created_by");
+                                String profile_image = objmrng.getString("profile_image");
+                                String profile_image_thumb = objmrng.getString("profile_image_thumb");
 
-                                apointItem = new ApointItem(apointment_id,patient_name,hospital_name,appointment_date,appointment_time,status);
+                                apointItem = new ApointItem(apointment_id,patient_name,hospital_name,appointment_date,
+                                        appointment_time,status,patient_id,gender,age,createdby,profile_image,profile_image_thumb);
                                 eveningItems.add(apointItem);
                             }
 
@@ -488,6 +510,7 @@ public class BaseHomeFragment extends Fragment implements View.OnClickListener{
                         if (rvDates.findViewHolderForAdapterPosition(finalSlctdPosition) != null) {
                             if (rvDates.findViewHolderForAdapterPosition(finalSlctdPosition).itemView != null) {
                                 rvDates.findViewHolderForAdapterPosition(finalSlctdPosition).itemView.performClick();
+
                             }
                         }
                     } catch (Exception e) {
@@ -501,6 +524,7 @@ public class BaseHomeFragment extends Fragment implements View.OnClickListener{
     }
 
     private void showApointments(Date slctdDate) {
+        selectedDate = slctdDate;
         final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String date = simpleDateFormat.format(slctdDate);
         topDate = slctdDate;
@@ -521,6 +545,16 @@ public class BaseHomeFragment extends Fragment implements View.OnClickListener{
             apointTimeItemArrayList.clear();
             rvApoints.setAdapter(null);
         }
+
+        llOpinion.setVisibility(View.GONE);
+        llConsultations.setVisibility(View.GONE);
+        llApoints.setVisibility(View.VISIBLE);
+        tvIndOpinion.setBackgroundColor(getResources().getColor(R.color.lightGray));
+        tvTabOpinon.setTextColor(getResources().getColor(R.color.lightBlack));
+        tvIndConsltns.setBackgroundColor(getResources().getColor(R.color.lightGray));
+        tvTabConsltns.setTextColor(getResources().getColor(R.color.lightBlack));
+        tvIndApoints.setBackgroundColor(getResources().getColor(R.color.lightGreen));
+        tvTabApoints.setTextColor(getResources().getColor(R.color.lightGreen));
     }
 
     public void openCalendarSheet (Date slctdDate) {

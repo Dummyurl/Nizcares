@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ripple="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,7 +26,7 @@
     <com.indglobal.nizcare.commons.fonts.TextRegular
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textColor="@color/lightBlack"
         android:text="@string/addpatnt"
         android:layout_centerHorizontal="true"
@@ -34,7 +34,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:background="@drawable/toolbr_dropshadow"
         android:layout_below="@+id/rplBack"/>
 
@@ -43,7 +43,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/rplBack"
-        android:layout_marginTop="1dp">
+        android:layout_marginTop="2dp"
+        android:visibility="gone">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -195,7 +196,7 @@
                         android:checked="false"
                         android:textColor="@color/radio_color_selector"
                         android:button="@null"
-                        android:background="@drawable/twenty_selector" />
+                        android:background="@drawable/twenty_selector_right" />
 
                 </RadioGroup>
 
@@ -310,6 +311,50 @@
                     android:layout_height="wrap_content"
                     android:textSize="13sp"
                     android:textColor="@color/fullGray"
+                    android:text="@string/phone"
+                    android:layout_marginTop="15dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.indglobal.nizcare.commons.countrycodes.CountryCodePicker
+                        android:id="@+id/spinCountry"
+                        android:layout_width="100dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@android:color/transparent"
+                        android:gravity="center_vertical"
+                        app:defaultNameCode="IN" />
+
+                    <com.indglobal.nizcare.commons.fonts.EditRegular
+                        android:id="@+id/etNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:textSize="15sp"
+                        android:textColor="@color/lightBlack"
+                        android:background="@android:color/transparent"
+                        android:inputType="phone"
+                        android:imeOptions="actionNext"
+                        android:maxLength="12"
+                        android:gravity="center_vertical"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:paddingLeft="5dp"
+                        android:layout_gravity="center_vertical"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/fullGray"/>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/fullGray"
                     android:text="@string/adrs"
                     android:layout_marginTop="15dp"/>
 
@@ -322,7 +367,6 @@
                     android:background="@android:color/transparent"
                     android:inputType="textPostalAddress"
                     android:imeOptions="actionNext"
-                    android:maxLength="45"
                     android:gravity="center_vertical"
                     android:textCursorDrawable="@drawable/color_cursor"
                     android:paddingLeft="5dp"/>
@@ -359,6 +403,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:textSize="15sp"
+                            android:hint="175 cm"
+                            android:maxLines="1"
                             android:textColor="@color/lightBlack"
                             android:background="@android:color/transparent"
                             android:imeOptions="actionNext"
@@ -395,6 +441,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:textSize="15sp"
+                            android:hint="68 kg"
+                            android:maxLines="1"
                             android:textColor="@color/lightBlack"
                             android:background="@android:color/transparent"
                             android:gravity="center_vertical"
@@ -424,17 +472,29 @@
                             android:text="@string/bldgrp"
                             android:layout_marginTop="15dp"/>
 
-                        <com.indglobal.nizcare.commons.fonts.EditRegular
-                            android:id="@+id/etBldGrp"
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:textSize="15sp"
-                            android:textColor="@color/lightBlack"
-                            android:background="@android:color/transparent"
-                            android:gravity="center_vertical"
-                            android:singleLine="true"
-                            android:ellipsize="end"
-                            android:paddingLeft="5dp"/>
+                            android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/spinBldgrp"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="text"
+                                android:imeOptions="actionNext"
+                                android:gravity="center_vertical"
+                                android:textCursorDrawable="@drawable/color_cursor"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_arrow_g_d"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"/>
+
+                        </RelativeLayout>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -514,7 +574,7 @@
                     <Spinner
                         android:id="@+id/spinClinics"
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="35dp"
                         android:background="@android:color/transparent"
                         android:inputType="text"
                         android:imeOptions="actionNext"
