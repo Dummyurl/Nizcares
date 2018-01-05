@@ -158,6 +158,10 @@
     <string name="clnccnsltns"><![CDATA[Clinic & Consultants]]></string>
     <string name="slctclnc">Select Clinic</string>
     <string name="slctcnsltnt">Select Consultants</string>
+    <string name="nodateslctd">Date not found!</string>
+    <string name="slctTime">Selet time slot!</string>
+    <string name="clinicidnot">Clinic Id not found!</string>
+    <string name="noconsltnt">No Consultant id found!</string>
 
     <string-array name="prefix_array">
         <item>Dr.</item>
@@ -250,5 +254,7 @@
     <string name="cancelApointApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/cancel_appointment_bydoctor</string>
     <string name="undoCanceledApointApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/undo_cancel_appointment_bydoctor</string>
     <string name="getConsltnsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_consultants_byhospitalid</string>
+    <string name="getSlotsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_slots_bydocid</string>
+    <string name="reschdlapointApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/reschedule_appointment_bydoctor</string>
 
 </resources>

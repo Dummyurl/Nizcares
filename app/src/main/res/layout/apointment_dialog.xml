@@ -2,10 +2,9 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:layout_width="320dp"
     android:layout_height="wrap_content"
     app:cardCornerRadius="10dp"
-    android:layout_margin="30dp"
     app:cardBackgroundColor="@color/lightGreen">
 
     <LinearLayout
@@ -62,14 +61,14 @@
                         android:id="@+id/ivChat"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:padding="14dp"
+                        android:padding="15dp"
                         android:src="@drawable/ic_message_mini"/>
 
                     <ImageView
                         android:id="@+id/ivCall"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:padding="12dp"
+                        android:padding="13dp"
                         android:src="@drawable/ic_call_b"/>
 
                 </LinearLayout>

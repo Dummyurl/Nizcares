@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/ivType"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/ic_morning"
+                android:layout_gravity="center_vertical"
+                android:padding="10dp"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Morning"
+                android:textSize="15sp"
+                android:textColor="@color/lightBlack"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:minWidth="75dp"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivDroparw"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_arrow_g_d"/>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvSlots"
+        android:scrollbars="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/apoints_sub_item"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginRight="15dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray"
+        android:layout_marginRight="10dp"/>
+
+</LinearLayout>

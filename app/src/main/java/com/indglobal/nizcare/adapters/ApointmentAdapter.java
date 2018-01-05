@@ -97,13 +97,13 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    openRescheduleDialog(apointItem);
+                    openRescheduleDialog(apointItem,position);
                 }
             });
         }
     }
 
-    private void openRescheduleDialog(final ApointItem apointItem) {
+    private void openRescheduleDialog(final ApointItem apointItem,final int pstn) {
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.apointment_dialog);
@@ -119,6 +119,13 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
         RippleView rplReschdule = (RippleView) dialog.findViewById(R.id.rplReschdule);
         RippleView rplCancel = (RippleView)dialog.findViewById(R.id.rplCancel);
 
+        if ((apointItem.getStatus()).equalsIgnoreCase("3")){
+            rplCancel.setVisibility(View.GONE);
+        }else if ((apointItem.getStatus()).equalsIgnoreCase("4")){
+            rplCancel.setVisibility(View.GONE);
+            rplReschdule.setVisibility(View.GONE);
+        }
+
         tvTime.setText(apointItem.getAppointment_time());
         tvPName.setText(Comman.capitalize(apointItem.getPatient_name()));
         tvHName.setText(Comman.capitalize(apointItem.getHospital_name()));
@@ -133,7 +140,7 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
                 }else {
                     dialog.cancel();
                     BaseHomeFragment.prgLoading.setVisibility(View.VISIBLE);
-                    cancelApointment(apointItem.getApointment_id(),apointItem.getPatient_name());
+                    cancelApointment(apointItem.getApointment_id(),apointItem.getPatient_name(),pstn);
                 }
 
             }
@@ -142,6 +149,7 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
         rplReschdule.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleView rippleView) {
+                dialog.cancel();
                 Intent ii = new Intent(context,ReScheduleActivity.class);
                 ii.putExtra("name",apointItem.getPatient_name());
                 ii.putExtra("image",apointItem.getProfile_image());
@@ -179,7 +187,7 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
         return apointItemArrayList.size();
     }
 
-    private void cancelApointment(final String appointment_id, final String patient_name) {
+    private void cancelApointment(final String appointment_id, final String patient_name,final int pstn) {
 
         String url = context.getResources().getString(R.string.cancelApointApi);
         String token = Comman.getPreferences(context,"token");
@@ -201,7 +209,9 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
 
                     if (success){
                         Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
-                        openCancelledDialog(appointment_id,patient_name);
+                        apointItemArrayList.get(pstn).setStatus("3");
+                        notifyDataSetChanged();
+                        openCancelledDialog(appointment_id,patient_name,pstn);
 
                     }else {
                         Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
@@ -245,7 +255,7 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
         VolleySingleton.getInstance(context).addToRequestQueue(request);
     }
 
-    private void openCancelledDialog(final String appointment_id, String patient_name) {
+    private void openCancelledDialog(final String appointment_id, String patient_name,final int pstn) {
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.canceled_apoint_dialog);
@@ -265,7 +275,7 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
                 }else {
                     dialog.cancel();
                     BaseHomeFragment.prgLoading.setVisibility(View.VISIBLE);
-                    undoCanceledApointment(appointment_id);
+                    undoCanceledApointment(appointment_id,pstn);
                 }
 
             }
@@ -274,7 +284,7 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
         dialog.show();
     }
 
-    private void undoCanceledApointment(final String appointment_id) {
+    private void undoCanceledApointment(final String appointment_id,final int pstn) {
 
         String url = context.getResources().getString(R.string.undoCanceledApointApi);
         String token = Comman.getPreferences(context,"token");
@@ -296,8 +306,9 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
 
                     if (success){
                         Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
-                        BaseHomeFragment fragment = new BaseHomeFragment();
-                        fragment.initMethod();
+                        apointItemArrayList.get(pstn).setStatus("1");
+                        notifyDataSetChanged();
+                        BaseHomeFragment.prgLoading.setVisibility(View.GONE);
 
                     }else {
                         Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();

@@ -169,7 +169,7 @@ public class BaseHomeFragment extends Fragment implements View.OnClickListener{
         int crnt = BaseActivity.viewPager.getCurrentItem();
         if (crnt == 0) {
             if (!isViewShown) {
-                if (!Comman.isConnectionAvailable(getActivity())){
+                if (!Comman.isConnectionAvailable((BaseActivity)getActivity())){
                     Toast.makeText(getActivity(),getResources().getString(R.string.noInternet),Toast.LENGTH_SHORT).show();
                 }else {
                     prgLoading.setVisibility(View.VISIBLE);
