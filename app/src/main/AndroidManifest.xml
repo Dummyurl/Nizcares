@@ -86,6 +86,24 @@
             android:theme="@style/MyMaterialTheme"
             android:windowSoftInputMode ="stateHidden|adjustResize"/>
 
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme"
+            android:windowSoftInputMode ="stateHidden|adjustResize"/>
+
+        <activity
+            android:name=".activities.PrivateAnswerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme"
+            android:windowSoftInputMode ="stateHidden|adjustResize"/>
+
+        <activity
+            android:name=".activities.EnquiryReplyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme"
+            android:windowSoftInputMode ="stateHidden|adjustResize"/>
+
         <receiver android:name=".commons.IncomingSms"
             android:permission="android.permission.BROADCAST_SMS"
             android:exported="true">

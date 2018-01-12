@@ -15,6 +15,7 @@
         android:layout_height="wrap_content">
 
         <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Acne Removal"
@@ -25,6 +26,7 @@
             android:ellipsize="end"/>
 
         <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:id="@+id/tvDays"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2 days"
@@ -39,10 +41,13 @@
     </RelativeLayout>
 
     <com.indglobal.nizcare.commons.fonts.TextRegular
+        android:id="@+id/tvDescrptn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="I have had acene related problems from a long time. i wish to get rid of them permanently. Please help!"
         android:textSize="13sp"
+        android:maxLines="3"
+        android:ellipsize="end"
         android:textColor="@color/fullGray"
         android:layout_gravity="center_vertical"
         android:layout_marginTop="5dp"/>
@@ -59,6 +64,7 @@
             android:orientation="vertical">
 
             <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jeff Tate"
@@ -69,9 +75,10 @@
                 android:ellipsize="end"/>
 
             <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvGender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Male * 25 Years oldo"
+                android:text="Male * 25 Years old"
                 android:textSize="13sp"
                 android:textColor="@color/fullGray"
                 android:layout_gravity="center_vertical"
@@ -88,6 +95,7 @@
             android:layout_alignParentRight="true">
 
             <com.indglobal.nizcare.commons.RippleView
+                android:id="@+id/rplReply"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:rv_centered="true"
@@ -117,6 +125,7 @@
             </com.indglobal.nizcare.commons.RippleView>
 
             <com.indglobal.nizcare.commons.RippleView
+                android:id="@+id/rplCall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:rv_centered="true"

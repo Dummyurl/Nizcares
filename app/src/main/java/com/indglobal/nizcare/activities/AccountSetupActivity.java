@@ -763,7 +763,13 @@ public class AccountSetupActivity extends Activity implements RippleView.OnRippl
                         Toast.makeText(AccountSetupActivity.this,message,Toast.LENGTH_SHORT).show();
                         prgLoading.setVisibility(View.GONE);
 
+                        String name = response.getString("name");
+                        String profile_pic = response.getString("profile_pic");
+                        String speciality = response.getString("speciality");
                         Comman.setPreferences(AccountSetupActivity.this,"loggedIn","1");
+                        Comman.setPreferences(AccountSetupActivity.this,"name",name);
+                        Comman.setPreferences(AccountSetupActivity.this,"profile_pic",profile_pic);
+                        Comman.setPreferences(AccountSetupActivity.this,"speciality",speciality);
                         Intent ii = new Intent(AccountSetupActivity.this,BaseActivity.class);
                         startActivity(ii);
 

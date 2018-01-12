@@ -1,7 +1,85 @@
 <resources>
+
     <string name="app_name">Nizcare</string>
     <string name="login">Login</string>
     <string name="getstart">Get Started</string>
+
+    <string-array name="prefix_array">
+        <item>Dr.</item>
+    </string-array>
+
+    <string-array name="exp_array">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+    </string-array>
+
+    <string-array name="idtype_array">
+        <item>Aadhar Card</item>
+        <item>Driving Licence</item>
+        <item>Voter Id</item>
+    </string-array>
+
+    <string-array name="filter_array">
+        <item>All Clinics</item>
+    </string-array>
+
+    <string-array name="BloodGroup">
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>O+</item>
+        <item>O-</item>
+        <item>A1+</item>
+        <item>A1-</item>
+        <item>A2+</item>
+        <item>A2-</item>
+        <item>A1B+</item>
+        <item>A1B-</item>
+        <item>A2B+</item>
+        <item>A2B-</item>
+    </string-array>
+
+    <string-array name="days_array">
+        <item>30 Days</item>
+    </string-array>
+
 
     <string name="intro_one_title">Manage your \npractice with ease</string>
     <string name="intro_two_title">Book your \nappointments \neasily</string>
@@ -100,8 +178,8 @@
     <string name="advrstsnzcr">Advertise on Nizcare</string>
     <string name="ntfctns">Notifications</string>
     <string name="refrls">Referrals</string>
-    <string name="usrfdbks">User Feedbaks</string>
-    <string name="rfrlcode">Referal Code</string>
+    <string name="usrfdbks">User Feedbacks</string>
+    <string name="rfrlcode">Referral Code</string>
     <string name="setngs">Settings</string>
     <string name="fnduson">Find us on</string>
     <string name="facebook">Facebook</string>
@@ -162,78 +240,24 @@
     <string name="slctTime">Selet time slot!</string>
     <string name="clinicidnot">Clinic Id not found!</string>
     <string name="noconsltnt">No Consultant id found!</string>
-
-    <string-array name="prefix_array">
-        <item>Dr.</item>
-    </string-array>
-
-    <string-array name="exp_array">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-        <item>13</item>
-        <item>14</item>
-        <item>15</item>
-        <item>16</item>
-        <item>17</item>
-        <item>18</item>
-        <item>19</item>
-        <item>20</item>
-        <item>21</item>
-        <item>22</item>
-        <item>23</item>
-        <item>24</item>
-        <item>25</item>
-        <item>26</item>
-        <item>27</item>
-        <item>28</item>
-        <item>29</item>
-        <item>30</item>
-        <item>31</item>
-        <item>32</item>
-        <item>33</item>
-        <item>34</item>
-        <item>35</item>
-    </string-array>
-
-    <string-array name="idtype_array">
-        <item>Aadhar Card</item>
-        <item>Driving Licence</item>
-        <item>Voter Id</item>
-    </string-array>
-
-    <string-array name="filter_array">
-        <item>All Clinics</item>
-    </string-array>
-
-    <string-array name="BloodGroup">
-        <item>A+</item>
-        <item>A-</item>
-        <item>B+</item>
-        <item>B-</item>
-        <item>AB+</item>
-        <item>AB-</item>
-        <item>O+</item>
-        <item>O-</item>
-        <item>A1+</item>
-        <item>A1-</item>
-        <item>A2+</item>
-        <item>A2-</item>
-        <item>A1B+</item>
-        <item>A1B-</item>
-        <item>A2B+</item>
-        <item>A2B-</item>
-    </string-array>
+    <string name="getdirctn">Get Directions</string>
+    <string name="call">Call</string>
+    <string name="exp">Experience</string>
+    <string name="cnsltnfee">Consultation Fee</string>
+    <string name="weblnk">Weblink</string>
+    <string name="timings">Timings</string>
+    <string name="taptoviewtime">Tap to view more timings</string>
+    <string name="awards"><![CDATA[Awards & Recognization]]></string>
+    <string name="membrshp">MemberShip</string>
+    <string name="myclinics">My Clinics</string>
+    <string name="treatmentsofrs">Treatment Offered</string>
+    <string name="editprfl">Edit Profile</string>
+    <string name="answer">Answer</string>
+    <string name="typeanswr">Type Your Answer Here...</string>
+    <string name="prvdanswr">Provide Proper Answer!</string>
+    <string name="reply">Reply</string>
+    <string name="send">Send</string>
+    <string name="typereplyhere">Type Your Reply Here...</string>
 
 
     <string name="regApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/authenticate/register</string>
@@ -256,5 +280,11 @@
     <string name="getConsltnsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_consultants_byhospitalid</string>
     <string name="getSlotsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_slots_bydocid</string>
     <string name="reschdlapointApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/reschedule_appointment_bydoctor</string>
+    <string name="getPblcGrpsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_public_groups</string>
+    <string name="getPrvteGrpsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_free_questions</string>
+    <string name="sbmtAnswrApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/Answer_free_questions_store</string>
+    <string name="getEnquiriesApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_doctor_enquiry</string>
+    <string name="sbmtReplyApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/enquiry_reply_store</string>
+    <string name="getHealthFeedApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_doctor_health_feeds</string>
 
 </resources>

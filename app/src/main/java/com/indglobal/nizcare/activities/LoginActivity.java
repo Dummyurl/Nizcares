@@ -271,7 +271,13 @@ public class LoginActivity extends Activity implements RippleView.OnRippleComple
                             Intent ii = new Intent(LoginActivity.this,AccountSetupActivity.class);
                             startActivity(ii);
                         }else {
+                            String name = data.getString("name");
+                            String profile_pic = data.getString("profile_pic");
+                            String speciality = data.getString("speciality");
                             Comman.setPreferences(LoginActivity.this,"loggedIn","1");
+                            Comman.setPreferences(LoginActivity.this,"name",name);
+                            Comman.setPreferences(LoginActivity.this,"profile_pic",profile_pic);
+                            Comman.setPreferences(LoginActivity.this,"speciality",speciality);
                             Intent ii = new Intent(LoginActivity.this,BaseActivity.class);
                             startActivity(ii);
                         }
