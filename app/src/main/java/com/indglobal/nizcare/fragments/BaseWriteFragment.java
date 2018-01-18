@@ -29,22 +29,26 @@ import com.indglobal.nizcare.R;
 import com.indglobal.nizcare.activities.BaseActivity;
 import com.indglobal.nizcare.activities.PrivateAnswerActivity;
 import com.indglobal.nizcare.activities.SpecialityActivity;
+import com.indglobal.nizcare.activities.WriteHealthTipsActivity;
 import com.indglobal.nizcare.adapters.ApointMainAdapter;
 import com.indglobal.nizcare.adapters.EnquiryAdapter;
 import com.indglobal.nizcare.adapters.HealthFeedAdapter;
 import com.indglobal.nizcare.adapters.PrivateChatAdapter;
 import com.indglobal.nizcare.adapters.PublicChatAdapter;
+import com.indglobal.nizcare.adapters.QaAdapter;
 import com.indglobal.nizcare.adapters.SpecialityAdapter;
 import com.indglobal.nizcare.adapters.SpinSpecAdapter;
 import com.indglobal.nizcare.commons.Comman;
 import com.indglobal.nizcare.commons.VolleyJSONRequest;
 import com.indglobal.nizcare.commons.VolleySingleton;
+import com.indglobal.nizcare.model.AnswerItem;
 import com.indglobal.nizcare.model.CheckSpecialityItem;
 import com.indglobal.nizcare.model.EnquiryItem;
 import com.indglobal.nizcare.model.HealthFeedItem;
 import com.indglobal.nizcare.model.PatientItem;
 import com.indglobal.nizcare.model.PrivateChatItem;
 import com.indglobal.nizcare.model.PublicChatItem;
+import com.indglobal.nizcare.model.QAItem;
 import com.indglobal.nizcare.model.ReplyItem;
 import com.indglobal.nizcare.model.SpecialityItem;
 
@@ -65,7 +69,7 @@ public class BaseWriteFragment extends Fragment implements View.OnClickListener{
     ProgressBar prgLoading;
     TextView tvTabQstns,tvTabEnqrs,tvTabHlth,tvTabQA,tvIndQstns,tvIndEnqrs,tvIndHelth,tvIndQa,tvWriteHealth;
     LinearLayout llMain,llQstns,llHealthfeed;
-    RecyclerView rvQuestns,rvEnquirs,rvHealthfds;
+    RecyclerView rvQuestns,rvEnquirs,rvHealthfds,rvQA;
     RelativeLayout rlQA;
     Spinner spinLastDays,spinAllSpeclts;
     RadioGroup rgChat;
@@ -89,6 +93,10 @@ public class BaseWriteFragment extends Fragment implements View.OnClickListener{
     HealthFeedItem healthFeedItem;
     ArrayList<HealthFeedItem> healthFeedItemArrayList = new ArrayList<>();
     HealthFeedAdapter healthFeedAdapter;
+
+    QAItem qaItem;
+    ArrayList<QAItem> qaItemArrayList = new ArrayList<>();
+    QaAdapter qaAdapter;
 
     private boolean isViewShown = false,fromRadio = false;
     int chatType = 1;
@@ -121,6 +129,7 @@ public class BaseWriteFragment extends Fragment implements View.OnClickListener{
         rvQuestns = (RecyclerView)view.findViewById(R.id.rvQuestns);
         rvEnquirs = (RecyclerView)view.findViewById(R.id.rvEnquirs);
         rvHealthfds = (RecyclerView)view.findViewById(R.id.rvHealthfds);
+        rvQA = (RecyclerView)view.findViewById(R.id.rvQA);
         rlQA = (RelativeLayout)view.findViewById(R.id.rlQA);
         rgChat = (RadioGroup)view.findViewById(R.id.rgChat);
         spinLastDays = (Spinner) view.findViewById(R.id.spinLastDays);
@@ -176,6 +185,7 @@ public class BaseWriteFragment extends Fragment implements View.OnClickListener{
         tvTabEnqrs.setOnClickListener(this);
         tvTabHlth.setOnClickListener(this);
         tvTabQA.setOnClickListener(this);
+        tvWriteHealth.setOnClickListener(this);
 
         return view;
     }
@@ -309,6 +319,17 @@ public class BaseWriteFragment extends Fragment implements View.OnClickListener{
                 tvIndEnqrs.setBackgroundColor(getResources().getColor(R.color.lightGray));
                 tvTabQstns.setTextColor(getResources().getColor(R.color.lightBlack));
                 tvIndQstns.setBackgroundColor(getResources().getColor(R.color.lightGray));
+                if (!Comman.isConnectionAvailable(getActivity())){
+                    Toast.makeText(getActivity(),getResources().getString(R.string.noInternet),Toast.LENGTH_SHORT).show();
+                }else {
+                    prgLoading.setVisibility(View.VISIBLE);
+                    getQA();
+                }
+                break;
+
+            case R.id.tvWriteHealth:
+                Intent ii = new Intent(getActivity(),WriteHealthTipsActivity.class);
+                startActivity(ii);
                 break;
         }
     }
@@ -625,14 +646,16 @@ public class BaseWriteFragment extends Fragment implements View.OnClickListener{
                             String time_ago = object.getString("time_ago");
 
                             ArrayList<ReplyItem> replyItemArrayList = new ArrayList<>();
-                            JSONArray reply = object.getJSONArray("reply");
-                            for (int j=0;j<reply.length();j++){
-                                JSONObject jsonObject = reply.getJSONObject(j);
-                                String reply_id = jsonObject.getString("reply_id");
-                                String doctor_id = jsonObject.getString("doctor_id");
-                                String message = jsonObject.getString("message");
+                            if (object.has("reply")){
+                                JSONArray reply = object.getJSONArray("reply");
+                                for (int j=0;j<reply.length();j++){
+                                    JSONObject jsonObject = reply.getJSONObject(j);
+                                    String reply_id = jsonObject.getString("reply_id");
+                                    String doctor_id = jsonObject.getString("doctor_id");
+                                    String message = jsonObject.getString("message");
 
-                                replyItemArrayList.add(new ReplyItem(reply_id,doctor_id,message));
+                                    replyItemArrayList.add(new ReplyItem(reply_id,doctor_id,message));
+                                }
                             }
 
                             enquiryItem = new EnquiryItem(enquiry_id,patient_id,patient_name,country_code,
@@ -789,6 +812,114 @@ public class BaseWriteFragment extends Fragment implements View.OnClickListener{
             }
         });
         request.setTag(GETHEALTHHIT);
+        request.setRetryPolicy(new DefaultRetryPolicy(15000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        VolleySingleton.getInstance(getActivity()).addToRequestQueue(request);
+    }
+
+    private void getQA() {
+
+        String url = getResources().getString(R.string.getQAApi);
+        String token = Comman.getPreferences(getActivity(),"token");
+        url = url+"?token="+token;
+
+        String GETQAHIT = "get_qa_hit";
+        VolleySingleton.getInstance(getActivity()).cancelRequestInQueue(GETQAHIT);
+        VolleyJSONRequest request = new VolleyJSONRequest(Request.Method.GET, url,null, null,new Response.Listener<String>() {
+            @Override
+            public void onResponse(String result) {
+
+                try {
+                    JSONObject response  = new JSONObject(result);
+                    boolean success = response.getBoolean("success");
+
+                    if (success){
+
+                        qaItemArrayList.clear();
+
+                        JSONArray data = response.getJSONArray("data");
+                        for (int i=0;i<data.length();i++){
+
+                            JSONObject object = data.getJSONObject(i);
+
+                            String question_id = object.getString("question_id");
+                            String title = object.getString("title");
+                            String description = object.getString("description");
+                            String speciality = object.getString("speciality");
+                            String answers_count = object.getString("answers_count");
+                            String time_ago = object.getString("time_ago");
+
+                            ArrayList<AnswerItem> answerItemArrayList = new ArrayList<>();
+                            JSONArray answers = object.getJSONArray("answers");
+                            for (int j=0;j<answers.length();j++){
+
+                                JSONObject jsonObject = answers.getJSONObject(j);
+
+                                String doctor_id = jsonObject.getString("doctor_id");
+                                String name = jsonObject.getString("name");
+                                String profilr_pic = jsonObject.getString("profilr_pic");
+                                String drspeciality = jsonObject.getString("speciality");
+                                String ans_id = jsonObject.getString("ans_id");
+                                String dranswers = jsonObject.getString("answers");
+                                String drtime_ago = jsonObject.getString("time_ago");
+                                String votes = jsonObject.getString("votes");
+
+                                AnswerItem answerItem = new AnswerItem(doctor_id,name,profilr_pic,drspeciality,ans_id,dranswers,drtime_ago,votes);
+                                answerItemArrayList.add(answerItem);
+                            }
+
+                            qaItem = new QAItem(question_id,title,description,speciality,answers_count,time_ago,answerItemArrayList);
+                            qaItemArrayList.add(qaItem);
+
+                        }
+
+                        rvQA.setAdapter(null);
+                        rvQA.invalidate();
+
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext(),LinearLayoutManager.VERTICAL,false);
+                        qaAdapter = new QaAdapter(getActivity(),qaItemArrayList);
+                        rvQA.setLayoutManager(layoutManager);
+                        rvQA.setAdapter(qaAdapter);
+
+                        prgLoading.setVisibility(View.GONE);
+
+
+                    }else {
+                        String message = response.getString("message");
+                        Toast.makeText(getActivity(),message,Toast.LENGTH_SHORT).show();
+                    }
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getActivity(),getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                }
+
+                prgLoading.setVisibility(View.GONE);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                try {
+                    if (error.networkResponse.data!=null){
+                        String jsonString = new String(error.networkResponse.data, HttpHeaderParser.parseCharset(error.networkResponse.headers));
+                        JSONObject errObject = new JSONObject(jsonString);
+
+                        String message = errObject.getString("message");
+
+                        Toast.makeText(getActivity(),message,Toast.LENGTH_SHORT).show();
+
+                    }else {
+                        Toast.makeText(getActivity(),getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(getActivity(),getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                }
+                prgLoading.setVisibility(View.GONE);
+            }
+        });
+        request.setTag(GETQAHIT);
         request.setRetryPolicy(new DefaultRetryPolicy(15000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));

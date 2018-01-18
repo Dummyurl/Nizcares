@@ -258,6 +258,9 @@
     <string name="reply">Reply</string>
     <string name="send">Send</string>
     <string name="typereplyhere">Type Your Reply Here...</string>
+    <string name="newpost">New Post</string>
+    <string name="typehere">Type Here…</string>
+    <string name="prvdtitle">Provide Title!</string>
 
 
     <string name="regApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/authenticate/register</string>
@@ -286,5 +289,7 @@
     <string name="getEnquiriesApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_doctor_enquiry</string>
     <string name="sbmtReplyApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/enquiry_reply_store</string>
     <string name="getHealthFeedApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_doctor_health_feeds</string>
+    <string name="sbmtHealthfeesApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/doctor_health_feed_store</string>
+    <string name="getQAApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_question_answers</string>
 
 </resources>

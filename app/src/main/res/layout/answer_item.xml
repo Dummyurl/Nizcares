@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <com.indglobal.nizcare.commons.roundedimageview.RoundedImageView
+            android:id="@+id/ivDoc"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            app:riv_corner_radius_top_left="5dp"
+            app:riv_corner_radius_top_right="5dp"
+            app:riv_corner_radius_bottom_right="5dp"
+            app:riv_corner_radius_bottom_left="5dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/round_fill_gray_stroke"/>
+
+        <LinearLayout
+            android:layout_toRightOf="@+id/ivDoc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp">
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvDrName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dr. Lou Meyer"
+                android:textSize="14sp"
+                android:textColor="@color/lightBlack"
+                android:layout_gravity="center_vertical"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvDrSpeclty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dentist * 2 Days ago"
+                android:textSize="13sp"
+                android:textColor="@color/fullGray"
+                android:layout_gravity="center_vertical"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <com.indglobal.nizcare.commons.fonts.TextRegular
+        android:id="@+id/tvDrAnswr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I have had acene related problems from a long time. i wish to get rid of them permanently. Please help!"
+        android:textSize="13sp"
+        android:textColor="@color/fullGray"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:maxLines="2"
+        android:ellipsize="end"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/ivLike"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_conduct_normal"/>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:id="@+id/tvVotes"
+            android:layout_toRightOf="@+id/ivLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upvote * 12"
+            android:textSize="15sp"
+            android:textColor="@color/fullGray"
+            android:layout_gravity="center_vertical"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:id="@+id/ivReply"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/ic_bookmark_normal"
+                android:padding="10dp"
+                android:layout_centerVertical="true"/>
+
+            <ImageView
+                android:id="@+id/ivCall"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/ic_share_g"
+                android:layout_centerVertical="true"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
