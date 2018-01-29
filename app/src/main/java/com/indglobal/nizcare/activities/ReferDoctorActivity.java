@@ -6,8 +6,13 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -17,11 +22,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.indglobal.nizcare.R;
 import com.indglobal.nizcare.adapters.BankAdapter;
+import com.indglobal.nizcare.adapters.PatientAdapter;
+import com.indglobal.nizcare.adapters.ReferDoctAdapter;
 import com.indglobal.nizcare.commons.Comman;
 import com.indglobal.nizcare.commons.RippleView;
 import com.indglobal.nizcare.commons.VolleyJSONRequest;
 import com.indglobal.nizcare.commons.VolleySingleton;
 import com.indglobal.nizcare.model.BankItem;
+import com.indglobal.nizcare.model.ReferDocImgItem;
+import com.indglobal.nizcare.model.ReferDoctorItem;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -32,16 +41,21 @@ import java.util.ArrayList;
  * Created by readyassist on 1/29/18.
  */
 
-public class ReferDoctorActivity extends Activity implements RippleView.OnRippleCompleteListener,View.OnClickListener{
+public class ReferDoctorActivity extends Activity implements RippleView.OnRippleCompleteListener{
 
     public static ProgressBar prgLoading;
     RippleView rplBack;
-    RecyclerView rvMyClinics;
-    CardView crdAddNewClinic;
+    public static TextView tvRefer;
+    LinearLayout llMain;
+    EditText etSearch;
+    RecyclerView rvDoctrs;
 
-    BankItem bankItem;
-    ArrayList<BankItem> bankItemArrayList = new ArrayList<>();
-    BankAdapter bankAdapter;
+    ReferDoctorItem referDoctorItem;
+    ArrayList<ReferDoctorItem> referDoctorItemArrayList = new ArrayList<>();
+    ReferDoctAdapter referDoctAdapter;
+    ReferDocImgItem referDocImgItem;
+
+    public static String appointment_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,37 +65,48 @@ public class ReferDoctorActivity extends Activity implements RippleView.OnRipple
 
         prgLoading = (ProgressBar)findViewById(R.id.prgLoading);
         rplBack = (RippleView)findViewById(R.id.rplBack);
-        rvMyClinics  = (RecyclerView)findViewById(R.id.rvMyClinics);
-        crdAddNewClinic = (CardView)findViewById(R.id.crdAddNewClinic);
+        tvRefer = (TextView)findViewById(R.id.tvRefer);
+        llMain = (LinearLayout)findViewById(R.id.llMain);
+        etSearch = (EditText)findViewById(R.id.etSearch);
+        rvDoctrs  = (RecyclerView)findViewById(R.id.rvDoctrs);
 
-        Comman.setPreferences(ReferDoctorActivity.this,"ClinicListUpdated","0");
+        Intent ii = getIntent();
+        appointment_id = ii.getStringExtra("appointment_id");
 
-//        if (!Comman.isConnectionAvailable(ReferDoctorActivity.this)){
-//            Toast.makeText(ReferDoctorActivity.this,getResources().getString(R.string.noInternet),Toast.LENGTH_SHORT).show();
-//        }else {
-//            prgLoading.setVisibility(View.VISIBLE);
-//            getBankAccounts();
-//        }
+        referDoctAdapter = new ReferDoctAdapter(ReferDoctorActivity.this, referDoctorItemArrayList, null);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
+        rvDoctrs.setLayoutManager(layoutManager);
+        rvDoctrs.setAdapter(referDoctAdapter);
 
-        rplBack.setOnRippleCompleteListener(this);
-        crdAddNewClinic.setOnClickListener(this);
-
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        int id = v.getId();
-
-        switch (id){
-            case R.id.crdAddNewClinic:
-                Intent ii = new Intent(ReferDoctorActivity.this,AddBankActivity.class);
-                ii.putExtra("isEdit","0");
-                startActivity(ii);
-                break;
+        if (!Comman.isConnectionAvailable(ReferDoctorActivity.this)){
+            llMain.setVisibility(View.GONE);
+            Toast.makeText(ReferDoctorActivity.this,getResources().getString(R.string.noInternet),Toast.LENGTH_SHORT).show();
+        }else {
+            prgLoading.setVisibility(View.VISIBLE);
+            getDoctors();
         }
 
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                referDoctAdapter.getFilter().filter(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        rplBack.setOnRippleCompleteListener(this);
+
     }
+
 
     @Override
     public void onComplete(RippleView rippleView) {
@@ -94,14 +119,14 @@ public class ReferDoctorActivity extends Activity implements RippleView.OnRipple
         }
     }
 
-    private void getBankAccounts() {
+    private void getDoctors() {
 
-        String url = getResources().getString(R.string.getBankdtlsApi);
+        String url = getResources().getString(R.string.getDoctrListApi);
         String token = Comman.getPreferences(ReferDoctorActivity.this,"token");
         url = url+"?token="+token;
 
-        String GETBANKDTLSHIT = "get_bnkdtls_hit";
-        VolleySingleton.getInstance(ReferDoctorActivity.this).cancelRequestInQueue(GETBANKDTLSHIT);
+        String GETDOCTRLISTHIT = "get_doctrs_hit";
+        VolleySingleton.getInstance(ReferDoctorActivity.this).cancelRequestInQueue(GETDOCTRLISTHIT);
         VolleyJSONRequest request = new VolleyJSONRequest(Request.Method.GET, url,null, null,new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -112,40 +137,54 @@ public class ReferDoctorActivity extends Activity implements RippleView.OnRipple
 
                     if (success){
 
-                        bankItemArrayList.clear();
+                        referDoctorItemArrayList.clear();
 
                         JSONArray data = response.getJSONArray("data");
                         for (int i=0;i<data.length();i++){
 
                             JSONObject object = data.getJSONObject(i);
 
-                            String bank_id = object.getString("bank_id");
-                            String country = object.getString("country");
-                            String bank_name = object.getString("bank_name");
-                            String account_holder_name = object.getString("account_holder_name");
-                            String account_number = object.getString("account_number");
-                            String account_type = object.getString("account_type");
-                            String ifsc = object.getString("ifsc");
-                            String bank_address = object.getString("bank_address");
-                            String micr = object.getString("micr");
-                            String deflt = object.getString("default");
-                            String pan_card_no = object.getString("pan_card_no");
+                            String doctor_id = object.getString("doctor_id");
+                            String prefix = object.getString("prefix");
+                            String name = object.getString("name");
+                            String speciality = object.getString("speciality");
+                            String degree = object.getString("degree");
+                            String total_reviews = object.getString("total_reviews");
+                            String rating = object.getString("rating");
+                            String country_code = object.getString("country_code");
+                            String mobile_no = object.getString("mobile_no");
+                            String profile_pic = object.getString("profile_pic");
+                            String profile_pic_thumb = object.getString("profile_pic_thumb");
+                            String hospital_address = object.getString("hospital_address");
+                            String gender = object.getString("gender");
+                            String experience = object.getString("experience");
+                            String location = object.getString("location");
+                            String online_status = object.getString("online_status");
 
-                            bankItem = new BankItem(bank_id,country,bank_name,account_holder_name,account_number,account_type,ifsc,bank_address,micr,deflt,pan_card_no);
-                            bankItemArrayList.add(bankItem);
+                            ArrayList<ReferDocImgItem> referDocImgItems = new ArrayList<>();
+                            JSONArray arrayImages = object.getJSONArray("hospital_images");
+                            for (int j=0;j<arrayImages.length();j++){
+
+                                JSONObject jsonObject = arrayImages.getJSONObject(j);
+
+                                String id = jsonObject.getString("id");
+                                String media = jsonObject.getString("media");
+                                String media_thumb = jsonObject.getString("media_thumb");
+
+                                referDocImgItem = new ReferDocImgItem(id,media,media_thumb);
+                                referDocImgItems.add(referDocImgItem);
+                            }
+
+                            referDoctorItem = new ReferDoctorItem(doctor_id,prefix,name,speciality,degree,total_reviews,rating,country_code,
+                                    mobile_no,profile_pic,profile_pic_thumb,hospital_address,gender,experience,location,
+                                    online_status,"0",referDocImgItems);
+                            referDoctorItemArrayList.add(referDoctorItem);
 
                         }
 
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ReferDoctorActivity.this.getApplicationContext(),LinearLayoutManager.VERTICAL,false);
-                        bankAdapter = new BankAdapter(ReferDoctorActivity.this,bankItemArrayList, new BankAdapter.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(BankItem bankItem) {
+                        referDoctAdapter.notifyDataSetChanged();
 
-                            }
-                        });
-                        rvMyClinics.setLayoutManager(layoutManager);
-                        rvMyClinics.setAdapter(bankAdapter);
-
+                        llMain.setVisibility(View.VISIBLE);
                         prgLoading.setVisibility(View.GONE);
 
 
@@ -183,7 +222,7 @@ public class ReferDoctorActivity extends Activity implements RippleView.OnRipple
                 prgLoading.setVisibility(View.GONE);
             }
         });
-        request.setTag(GETBANKDTLSHIT);
+        request.setTag(GETDOCTRLISTHIT);
         request.setRetryPolicy(new DefaultRetryPolicy(15000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
@@ -193,16 +232,6 @@ public class ReferDoctorActivity extends Activity implements RippleView.OnRipple
     @Override
     protected void onResume() {
         super.onResume();
-        String ClinicListUpdated = Comman.getPreferences(ReferDoctorActivity.this,"ClinicListUpdated");
-        if (ClinicListUpdated.equalsIgnoreCase("1")){
-            Comman.setPreferences(ReferDoctorActivity.this,"ClinicListUpdated","0");
-            if (!Comman.isConnectionAvailable(ReferDoctorActivity.this)){
-                Toast.makeText(ReferDoctorActivity.this,getResources().getString(R.string.noInternet),Toast.LENGTH_SHORT).show();
-            }else {
-                prgLoading.setVisibility(View.VISIBLE);
-                getBankAccounts();
-            }
-        }
     }
 
     @Override

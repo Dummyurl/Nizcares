@@ -311,6 +311,7 @@
     <string name="prvdPan">Provide valid PanCard Number!</string>
     <string name="srchdoctr">Search Doctors</string>
     <string name="srchbydctrname">Search by name…</string>
+    <string name="alrdyRefered">Already refered this doctor!</string>
 
 
     <string name="regApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/authenticate/register</string>
@@ -351,5 +352,7 @@
     <string name="srchIfscApi">https://ifsc.razorpay.com/</string>
     <string name="addBankApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/doctor_bank_details_store</string>
     <string name="updateBankApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/update_bank_details_byid</string>
+    <string name="referDoctrApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/refer_doctor_store</string>
+    <string name="getDoctrListApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_refer_doctors_list</string>
 
 </resources>

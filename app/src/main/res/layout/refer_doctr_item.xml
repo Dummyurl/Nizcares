@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -28,7 +29,7 @@
                 android:textColor="@color/lightBlack"/>
 
             <com.indglobal.nizcare.commons.fonts.TextRegular
-                android:id="@+id/tvAcntNmbr"
+                android:id="@+id/tvSpeclty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
@@ -138,21 +139,44 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:paddingLeft="10dp"
         android:paddingRight="15dp">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvDoctrs"
-            android:scrollbars="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/refer_doctr_item"
-            android:visibility="visible"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"/>
+            android:id="@+id/rvImages"
+            android:scrollbars="none"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            tools:listitem="@layout/refer_doctr_img_item" />
+
+        <RelativeLayout
+            android:id="@+id/rlRefer"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/circle_fill_gray_stroke">
+            
+            <ImageView
+                android:id="@+id/ivTick"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_tick_white"
+                android:visibility="gone"/>
+            
+        </RelativeLayout>
 
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/lightGray"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
 
 </LinearLayout>

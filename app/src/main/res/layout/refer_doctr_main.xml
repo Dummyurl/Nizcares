@@ -38,6 +38,7 @@
             android:gravity="center_vertical"/>
 
         <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:id="@+id/tvRefer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
@@ -101,10 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/refer_doctr_item"
-            android:visibility="visible"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"/>
+            android:visibility="visible"/>
 
     </LinearLayout>
 
