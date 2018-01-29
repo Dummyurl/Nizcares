@@ -87,6 +87,12 @@
             android:windowSoftInputMode ="stateHidden|adjustResize"/>
 
         <activity
+            android:name=".activities.ReferDoctorActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme"
+            android:windowSoftInputMode ="stateHidden|adjustResize"/>
+
+        <activity
             android:name=".activities.ProfileActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme"
@@ -106,6 +112,36 @@
 
         <activity
             android:name=".activities.WriteHealthTipsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme"
+            android:windowSoftInputMode ="stateHidden|adjustResize"/>
+
+        <activity
+            android:name=".activities.ConsltnChatActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme"
+            android:windowSoftInputMode ="stateHidden|adjustResize"/>
+
+        <activity
+            android:name=".activities.SettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme"
+            android:windowSoftInputMode ="stateHidden|adjustResize"/>
+
+        <activity
+            android:name=".activities.BankDtlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme"
+            android:windowSoftInputMode ="stateHidden|adjustResize"/>
+
+        <activity
+            android:name=".activities.AddBankActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme"
+            android:windowSoftInputMode ="stateHidden|adjustResize"/>
+
+        <activity
+            android:name=".activities.MyClinicsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme"
             android:windowSoftInputMode ="stateHidden|adjustResize"/>

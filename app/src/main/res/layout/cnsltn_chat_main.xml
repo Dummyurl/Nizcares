@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rlToolbr"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <com.indglobal.nizcare.commons.RippleView
+            android:id="@+id/rplBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:rv_centered="true"
+            app:rv_color="@color/newfewGray"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_back"
+                android:padding="11dp"/>
+
+        </com.indglobal.nizcare.commons.RippleView>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:id="@+id/tvName"
+            android:layout_toRightOf="@+id/rplBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/lightBlack"
+            android:text="Amit Yadav"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_more_g"
+            android:padding="15dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/toolbr_dropshadow"
+        android:layout_below="@+id/rlToolbr"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lightGray"
+        android:layout_below="@+id/rlToolbr">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvCnsltChat"
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/cnslt_chat_item"
+            android:visibility="visible"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_above="@+id/rlBtmChat"/>
+
+        <RelativeLayout
+            android:id="@+id/rlBtmChat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom"
+            android:paddingRight="5dp">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="25dp"
+                android:layout_toLeftOf="@+id/crdSend">
+
+                <com.indglobal.nizcare.commons.fonts.EditRegular
+                    android:id="@+id/etMsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:background="@android:color/transparent"
+                    android:maxHeight="180dp"
+                    android:textColor="@color/fullGray"
+                    android:textSize="13sp"
+                    android:hint="@string/typemsg"
+                    android:gravity="start"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="17dp"
+                    android:paddingBottom="15dp"/>
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/crdSend"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:cardBackgroundColor="@color/lightGreen"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="25dp"
+                android:layout_alignParentRight="true">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_arrow_g_f"
+                    android:padding="10dp"/>
+
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+    <ProgressBar
+        android:layout_width="@dimen/prgSize"
+        android:layout_height="@dimen/prgSize"
+        android:id="@+id/prgLoading"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminateDrawable="@drawable/progress"/>
+
+</RelativeLayout>

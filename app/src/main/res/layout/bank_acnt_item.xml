@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true">
+            
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvBankName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="ICIC Bank"
+                android:textColor="@color/lightBlack"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvAcntNmbr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Saving : 31986955456"
+                android:textColor="@color/lightBlack"/>
+            
+        </LinearLayout>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:id="@+id/tvBankDflt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Default"
+            android:textColor="@color/lightGreen"
+            android:layout_alignParentRight="true"/>
+        
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10dp">
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:id="@+id/tvBankAdrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="ICIC Bank, Sector 48, Noida"
+            android:textColor="@color/fullGray"/>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:id="@+id/tvIfsc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="IFSC Code : ICICI2323"
+            android:textColor="@color/fullGray"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerVertical="true">
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:id="@+id/tvBankEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/edit"
+            android:textColor="@color/lightGreen"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="10dp"/>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:id="@+id/tvBankRemove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/remove"
+            android:textColor="@color/red"
+            android:padding="10dp"/>
+
+    </LinearLayout>
+
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="1dp"
+       android:background="@color/lightGray"
+       android:layout_marginTop="5dp"/>
+
+</LinearLayout>

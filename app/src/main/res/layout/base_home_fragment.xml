@@ -273,7 +273,7 @@
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/rvInstantCnsltn"
-                        android:scrollbars="horizontal"
+                        android:scrollbars="none"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         tools:listitem="@layout/instnt_cnsltn_item"
@@ -287,7 +287,7 @@
                         android:textColor="@color/lightBlack"
                         android:text="@string/rglrcnsltn"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="20dp"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -297,11 +297,32 @@
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/rvReglrCnsltn"
-                        android:scrollbars="vertical"
+                        android:scrollbars="none"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:listitem="@layout/apoints_item"
-                        android:visibility="gone"/>
+                        tools:listitem="@layout/apoints_item"/>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/lightBlack"
+                        android:text="@string/dctrform"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="20dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/lightGray"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rvDctrFrm"
+                        android:scrollbars="none"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/forum_item"/>
 
                 </LinearLayout>
 

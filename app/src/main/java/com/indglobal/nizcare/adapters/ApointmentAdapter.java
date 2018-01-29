@@ -25,6 +25,7 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.indglobal.nizcare.R;
 import com.indglobal.nizcare.activities.LoginActivity;
 import com.indglobal.nizcare.activities.ReScheduleActivity;
+import com.indglobal.nizcare.activities.ReferDoctorActivity;
 import com.indglobal.nizcare.commons.Comman;
 import com.indglobal.nizcare.commons.CustomRequest;
 import com.indglobal.nizcare.commons.RippleView;
@@ -278,6 +279,15 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
                     undoCanceledApointment(appointment_id,pstn);
                 }
 
+            }
+        });
+
+        rplRefranthrdoc.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+            @Override
+            public void onComplete(RippleView rippleView) {
+                Intent ii = new Intent(context,ReferDoctorActivity.class);
+                ii.putExtra("appointment_id",appointment_id);
+                context.startActivity(ii);
             }
         });
 

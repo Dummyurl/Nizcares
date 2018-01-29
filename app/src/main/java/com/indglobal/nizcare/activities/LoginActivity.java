@@ -298,23 +298,8 @@ public class LoginActivity extends Activity implements RippleView.OnRippleComple
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (error.networkResponse.data!=null){
-                    try {
-
-                        String jsonString = new String(error.networkResponse.data, HttpHeaderParser.parseCharset(error.networkResponse.headers));
-                        JSONObject errObject = new JSONObject(jsonString);
-
-                        String message = errObject.getString("message");
-
-                        Toast.makeText(LoginActivity.this,message,Toast.LENGTH_SHORT).show();
-
-                    } catch (Exception e) {
-                        Toast.makeText(LoginActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
-                    }
-                }else {
-                    Toast.makeText(LoginActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
-                }
-
+                Log.d("ERROR",error+"");
+                Toast.makeText(LoginActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
                 prgLoading.setVisibility(View.GONE);
             }
         });
@@ -370,23 +355,8 @@ public class LoginActivity extends Activity implements RippleView.OnRippleComple
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (error.networkResponse.data!=null){
-                    try {
-
-                        String jsonString = new String(error.networkResponse.data, HttpHeaderParser.parseCharset(error.networkResponse.headers));
-                        JSONObject errObject = new JSONObject(jsonString);
-
-                        String message = errObject.getString("message");
-
-                        Toast.makeText(LoginActivity.this,message,Toast.LENGTH_SHORT).show();
-
-                    } catch (Exception e) {
-                        Toast.makeText(LoginActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
-                    }
-                }else {
-                    Toast.makeText(LoginActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
-                }
-
+                Log.d("ERROR",error+"");
+                Toast.makeText(LoginActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
                 prgLoading.setVisibility(View.GONE);
             }
         });
@@ -436,23 +406,8 @@ public class LoginActivity extends Activity implements RippleView.OnRippleComple
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (error.networkResponse.data!=null){
-                    try {
-
-                        String jsonString = new String(error.networkResponse.data, HttpHeaderParser.parseCharset(error.networkResponse.headers));
-                        JSONObject errObject = new JSONObject(jsonString);
-
-                        String message = errObject.getString("message");
-
-                        Toast.makeText(LoginActivity.this,message,Toast.LENGTH_SHORT).show();
-
-                    } catch (Exception e) {
-                        Toast.makeText(LoginActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
-                    }
-                }else {
-                    Toast.makeText(LoginActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
-                }
-
+                Log.d("ERROR",error+"");
+                Toast.makeText(LoginActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
                 prgLoading.setVisibility(View.GONE);
             }
         });
@@ -493,23 +448,8 @@ public class LoginActivity extends Activity implements RippleView.OnRippleComple
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (error.networkResponse.data!=null){
-                    try {
-
-                        String jsonString = new String(error.networkResponse.data, HttpHeaderParser.parseCharset(error.networkResponse.headers));
-                        JSONObject errObject = new JSONObject(jsonString);
-
-                        String message = errObject.getString("message");
-
-                        Toast.makeText(LoginActivity.this,message,Toast.LENGTH_SHORT).show();
-
-                    } catch (Exception e) {
-                        Toast.makeText(LoginActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
-                    }
-                }else {
-                    Toast.makeText(LoginActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
-                }
-
+                Log.d("ERROR",error+"");
+                Toast.makeText(LoginActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
                 prgLoading.setVisibility(View.GONE);
             }
         });

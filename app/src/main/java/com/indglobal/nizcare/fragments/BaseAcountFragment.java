@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.indglobal.nizcare.R;
 import com.indglobal.nizcare.activities.ProfileActivity;
+import com.indglobal.nizcare.activities.SettingActivity;
 import com.indglobal.nizcare.commons.roundedimageview.RoundedImageView;
 
 /**
@@ -73,6 +74,7 @@ public class BaseAcountFragment extends Fragment implements View.OnClickListener
         llYoutube = (LinearLayout)view.findViewById(R.id.llYoutube);
 
         tvViewPrfl.setOnClickListener(this);
+        llStngs.setOnClickListener(this);
 
         return view;
     }
@@ -86,6 +88,11 @@ public class BaseAcountFragment extends Fragment implements View.OnClickListener
             case R.id.tvViewPrfl:
                 Intent ii = new Intent(getActivity(),ProfileActivity.class);
                 startActivity(ii);
+                break;
+
+            case R.id.llStngs:
+                Intent iiSetng = new Intent(getActivity(),SettingActivity.class);
+                startActivity(iiSetng);
                 break;
         }
     }

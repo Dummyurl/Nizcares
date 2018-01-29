@@ -30,8 +30,12 @@ import com.indglobal.nizcare.R;
 import com.indglobal.nizcare.activities.BaseActivity;
 import com.indglobal.nizcare.adapters.ApointMainAdapter;
 import com.indglobal.nizcare.adapters.CalendarAdapter;
+import com.indglobal.nizcare.adapters.CncltnMainAdapter;
 import com.indglobal.nizcare.adapters.DatesAdapter;
 import com.indglobal.nizcare.adapters.DealsAdapter;
+import com.indglobal.nizcare.adapters.EnquiryAdapter;
+import com.indglobal.nizcare.adapters.ForumAdapter;
+import com.indglobal.nizcare.adapters.InstantAdapter;
 import com.indglobal.nizcare.adapters.NewsAdapter;
 import com.indglobal.nizcare.commons.Comman;
 import com.indglobal.nizcare.commons.ExpandableHeightGridView;
@@ -40,8 +44,15 @@ import com.indglobal.nizcare.commons.VolleySingleton;
 import com.indglobal.nizcare.model.ApointItem;
 import com.indglobal.nizcare.model.ApointMainItem;
 import com.indglobal.nizcare.model.ApointTimeItem;
+import com.indglobal.nizcare.model.CnsltnItem;
+import com.indglobal.nizcare.model.CnsltnMainItem;
+import com.indglobal.nizcare.model.CnsltnTimeItem;
 import com.indglobal.nizcare.model.DealsItem;
+import com.indglobal.nizcare.model.EnquiryItem;
+import com.indglobal.nizcare.model.ForumItem;
+import com.indglobal.nizcare.model.InstantItem;
 import com.indglobal.nizcare.model.NewsItem;
+import com.indglobal.nizcare.model.ReplyItem;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -64,7 +75,7 @@ public class BaseHomeFragment extends Fragment implements View.OnClickListener{
 
     TextView tvTabApoints,tvTabConsltns,tvTabOpinon,tvIndApoints,tvIndConsltns,tvIndOpinion,tvMonth;
     LinearLayout llApoints,llConsultations,llOpinion,llMain,llMonth;
-    RecyclerView rvDates,rvApoints,rvBstDeals,rvNews;
+    RecyclerView rvDates,rvApoints,rvBstDeals,rvNews,rvInstantCnsltn,rvReglrCnsltn,rvDctrFrm;
 
     ApointMainItem apointMainItem;
     ApointTimeItem apointTimeItem;
@@ -100,6 +111,21 @@ public class BaseHomeFragment extends Fragment implements View.OnClickListener{
     ArrayList<NewsItem> newsItemArrayList = new ArrayList<>();
     NewsAdapter newsAdapter;
 
+    InstantItem instantItem;
+    ArrayList<InstantItem> instantItemArrayList = new ArrayList<>();
+    InstantAdapter instantAdapter;
+
+    CnsltnItem cnsltnItem;
+    CnsltnTimeItem cnsltnTimeItem;
+    CnsltnMainItem cnsltnMainItem;
+    public HashMap<String,CnsltnMainItem> cnsltnMainItemHashMap= new HashMap<>();
+    CncltnMainAdapter cncltnMainAdapter;
+    public static ArrayList<CnsltnTimeItem> cnsltnTimeItemArrayList = new ArrayList<>();
+
+    ForumItem forumItem;
+    ArrayList<ForumItem> forumItemArrayList = new ArrayList<>();
+    ForumAdapter forumAdapter;
+
     public static Date selectedDate;
 
     @Override
@@ -132,6 +158,9 @@ public class BaseHomeFragment extends Fragment implements View.OnClickListener{
         rvApoints = (RecyclerView)view.findViewById(R.id.rvApoints);
         rvBstDeals = (RecyclerView)view.findViewById(R.id.rvBstDeals);
         rvNews = (RecyclerView)view.findViewById(R.id.rvNews);
+        rvInstantCnsltn = (RecyclerView)view.findViewById(R.id.rvInstantCnsltn);
+        rvReglrCnsltn = (RecyclerView)view.findViewById(R.id.rvReglrCnsltn);
+        rvDctrFrm = (RecyclerView)view.findViewById(R.id.rvDctrFrm);
 
         tvTabApoints.setOnClickListener(this);
         tvTabConsltns.setOnClickListener(this);
@@ -210,6 +239,12 @@ public class BaseHomeFragment extends Fragment implements View.OnClickListener{
                 tvTabConsltns.setTextColor(getResources().getColor(R.color.lightGreen));
                 tvIndApoints.setBackgroundColor(getResources().getColor(R.color.lightGray));
                 tvTabApoints.setTextColor(getResources().getColor(R.color.lightBlack));
+                if (!Comman.isConnectionAvailable(getActivity())){
+                    Toast.makeText(getActivity(),getResources().getString(R.string.noInternet),Toast.LENGTH_SHORT).show();
+                }else {
+                    prgLoading.setVisibility(View.VISIBLE);
+                    getConsultations();
+                }
                 break;
 
             case R.id.tvTabOpinon:
@@ -918,5 +953,240 @@ public class BaseHomeFragment extends Fragment implements View.OnClickListener{
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         VolleySingleton.getInstance(getActivity()).addToRequestQueue(request);
+    }
+
+    private void getConsultations() {
+
+        String url = getResources().getString(R.string.getConsultationsApi);
+        String token = Comman.getPreferences(getActivity(),"token");
+        url = url+"?token="+token;
+
+        String GETCNSLTNHIT = "get_cnsltatn_hit";
+        VolleySingleton.getInstance(getActivity()).cancelRequestInQueue(GETCNSLTNHIT);
+        VolleyJSONRequest request = new VolleyJSONRequest(Request.Method.GET, url,null, null,new Response.Listener<String>() {
+            @Override
+            public void onResponse(String result) {
+
+                try {
+                    JSONObject response  = new JSONObject(result);
+                    boolean success = response.getBoolean("success");
+
+                    if (success){
+
+                        instantItemArrayList.clear();
+
+                        JSONObject data = response.getJSONObject("data");
+
+                        JSONArray instant = data.getJSONArray("instant");
+                        for (int i=0;i<instant.length();i++){
+
+                            JSONObject object = instant.getJSONObject(i);
+
+                            String consultation_id = object.getString("consultation_id");
+                            String patient_id = object.getString("patient_id");
+                            String name = object.getString("name");
+                            String status = object.getString("status");
+                            String consult_type = object.getString("consult_type");
+                            String type = object.getString("type");
+                            String profile_pic = object.getString("profile_pic");
+                            String profile_pic_thumb = object.getString("profile_pic_thumb");
+                            String text_notification_count = object.getString("text_notification_count");
+
+                            instantItem = new InstantItem(consultation_id,patient_id,name,status,consult_type,type,profile_pic,profile_pic_thumb,text_notification_count);
+                            instantItemArrayList.add(instantItem);
+
+                        }
+
+                        rvInstantCnsltn.setAdapter(null);
+                        rvInstantCnsltn.invalidate();
+
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
+                        instantAdapter = new InstantAdapter(getActivity(),instantItemArrayList, new InstantAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(InstantItem instantItem) {
+
+                            }
+                        });
+                        rvInstantCnsltn.setLayoutManager(layoutManager);
+                        rvInstantCnsltn.setAdapter(instantAdapter);
+
+                        JSONArray regular = data.getJSONArray("regular");
+                        for (int i=0;i<regular.length();i++){
+
+                            JSONObject object = regular.getJSONObject(i);
+
+                            String date = object.getString("date");
+                            String count = object.getString("count");
+
+                            ArrayList<CnsltnTimeItem> cnsltnTimeItems = new ArrayList<>();
+
+                            JSONArray morning = object.getJSONArray("morning");
+                            ArrayList<CnsltnItem> morningItems = new ArrayList<>();
+                            for (int j=0;j<morning.length();j++){
+
+                                JSONObject objmrng = morning.getJSONObject(j);
+
+                                String consultation_id = objmrng.getString("consultation_id");
+                                String patient_id = objmrng.getString("patient_id");
+                                String name = objmrng.getString("name");
+                                String status = objmrng.getString("status");
+                                String consult_type = objmrng.getString("consult_type");
+                                String consultation_time = objmrng.getString("consult_time");
+                                String type = objmrng.getString("type");
+                                String profile_pic = objmrng.getString("profile_pic");
+                                String profile_pic_thumb = objmrng.getString("profile_pic_thumb");
+
+                                cnsltnItem = new CnsltnItem(consultation_id,patient_id,name,status,consult_type,type,profile_pic,profile_pic_thumb,consultation_time);
+                                morningItems.add(cnsltnItem);
+                            }
+
+                            cnsltnTimeItem = new CnsltnTimeItem(false,"Morning",morning.length()+"",morningItems);
+                            cnsltnTimeItems.add(cnsltnTimeItem);
+
+                            JSONArray afternoon = object.getJSONArray("afternoon");
+                            ArrayList<CnsltnItem> afternoonItems = new ArrayList<>();
+                            for (int j=0;j<afternoon.length();j++){
+
+                                JSONObject objmrng = afternoon.getJSONObject(j);
+
+                                String consultation_id = objmrng.getString("consultation_id");
+                                String patient_id = objmrng.getString("patient_id");
+                                String name = objmrng.getString("name");
+                                String status = objmrng.getString("status");
+                                String consult_type = objmrng.getString("consult_type");
+                                String consultation_time = objmrng.getString("consult_time");
+                                String type = objmrng.getString("type");
+                                String profile_pic = objmrng.getString("profile_pic");
+                                String profile_pic_thumb = objmrng.getString("profile_pic_thumb");
+
+                                cnsltnItem = new CnsltnItem(consultation_id,patient_id,name,status,consult_type,type,profile_pic,profile_pic_thumb,consultation_time);
+                                afternoonItems.add(cnsltnItem);
+                            }
+
+                            cnsltnTimeItem = new CnsltnTimeItem(false,"Afternoon",afternoon.length()+"",afternoonItems);
+                            cnsltnTimeItems.add(cnsltnTimeItem);
+
+                            JSONArray evening = object.getJSONArray("evening");
+                            ArrayList<CnsltnItem> eveningItems = new ArrayList<>();
+                            for (int j=0;j<evening.length();j++){
+
+                                JSONObject objmrng = evening.getJSONObject(j);
+
+                                String consultation_id = objmrng.getString("consultation_id");
+                                String patient_id = objmrng.getString("patient_id");
+                                String name = objmrng.getString("name");
+                                String status = objmrng.getString("status");
+                                String consult_type = objmrng.getString("consult_type");
+                                String consultation_time = objmrng.getString("consult_time");
+                                String type = objmrng.getString("type");
+                                String profile_pic = objmrng.getString("profile_pic");
+                                String profile_pic_thumb = objmrng.getString("profile_pic_thumb");
+
+                                cnsltnItem = new CnsltnItem(consultation_id,patient_id,name,status,consult_type,type,profile_pic,profile_pic_thumb,consultation_time);
+                                eveningItems.add(cnsltnItem);
+                            }
+
+                            cnsltnTimeItem = new CnsltnTimeItem(false,"Evening",evening.length()+"",eveningItems);
+                            cnsltnTimeItems.add(cnsltnTimeItem);
+
+                            cnsltnMainItem = new CnsltnMainItem(count,cnsltnTimeItems);
+                            cnsltnMainItemHashMap.put(date,cnsltnMainItem);
+
+                        }
+
+                        showConsultation(topDate);
+
+                        JSONArray forums = data.getJSONArray("forums");
+                        for (int i=0;i<forums.length();i++){
+
+                            JSONObject jsonObject = forums.getJSONObject(i);
+
+                            String forum_id = jsonObject.getString("forum_id");
+                            String forum_name = jsonObject.getString("forum_name");
+                            String members = jsonObject.getString("members");
+                            String join_status = jsonObject.getString("join_status");
+
+                            forumItem = new ForumItem(forum_id,forum_name,members,join_status);
+                            forumItemArrayList.add(forumItem);
+
+                        }
+
+                        RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(getActivity().getApplicationContext(),LinearLayoutManager.VERTICAL,false);
+                        forumAdapter = new ForumAdapter(getActivity(),forumItemArrayList, new ForumAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(ForumItem forumItem) {
+
+                            }
+                        });
+                        rvDctrFrm.setLayoutManager(layoutManager1);
+                        rvDctrFrm.setAdapter(forumAdapter);
+
+                        prgLoading.setVisibility(View.GONE);
+
+
+                    }else {
+                        String message = response.getString("message");
+                        Toast.makeText(getActivity(),message,Toast.LENGTH_SHORT).show();
+                    }
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getActivity(),getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                }
+
+                prgLoading.setVisibility(View.GONE);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                try {
+                    if (error.networkResponse.data!=null){
+                        String jsonString = new String(error.networkResponse.data, HttpHeaderParser.parseCharset(error.networkResponse.headers));
+                        JSONObject errObject = new JSONObject(jsonString);
+
+                        String message = errObject.getString("message");
+
+                        Toast.makeText(getActivity(),message,Toast.LENGTH_SHORT).show();
+
+                    }else {
+                        Toast.makeText(getActivity(),getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(getActivity(),getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                }
+                prgLoading.setVisibility(View.GONE);
+            }
+        });
+        request.setTag(GETCNSLTNHIT);
+        request.setRetryPolicy(new DefaultRetryPolicy(15000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        VolleySingleton.getInstance(getActivity()).addToRequestQueue(request);
+    }
+
+    private void showConsultation(Date slctdDate) {
+        selectedDate = slctdDate;
+        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String date = simpleDateFormat.format(slctdDate);
+        topDate = slctdDate;
+
+        if (cnsltnMainItemHashMap.containsKey(date)){
+
+            CnsltnMainItem cnsltnMainItem = cnsltnMainItemHashMap.get(date);
+            cnsltnTimeItemArrayList.clear();
+            cnsltnTimeItemArrayList.addAll(cnsltnMainItem.getCnsltnTimeItems());
+
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext(),LinearLayoutManager.VERTICAL,false);
+            cncltnMainAdapter = new CncltnMainAdapter(getActivity(),cnsltnTimeItemArrayList);
+            rvReglrCnsltn.setLayoutManager(layoutManager);
+            rvReglrCnsltn.setAdapter(cncltnMainAdapter);
+            rvReglrCnsltn.invalidate();
+
+        }else {
+            cnsltnTimeItemArrayList.clear();
+            rvReglrCnsltn.setAdapter(null);
+        }
+
     }
 }

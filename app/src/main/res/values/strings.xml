@@ -80,6 +80,11 @@
         <item>30 Days</item>
     </string-array>
 
+    <string-array name="acntType_array">
+        <item>Current</item>
+        <item>Savings</item>
+    </string-array>
+
 
     <string name="intro_one_title">Manage your \npractice with ease</string>
     <string name="intro_two_title">Book your \nappointments \neasily</string>
@@ -253,14 +258,59 @@
     <string name="treatmentsofrs">Treatment Offered</string>
     <string name="editprfl">Edit Profile</string>
     <string name="answer">Answer</string>
-    <string name="typeanswr">Type Your Answer Here...</string>
+    <string name="typeanswr">Type Your Answer Here…</string>
     <string name="prvdanswr">Provide Proper Answer!</string>
     <string name="reply">Reply</string>
     <string name="send">Send</string>
-    <string name="typereplyhere">Type Your Reply Here...</string>
+    <string name="typereplyhere">Type Your Reply Here…</string>
     <string name="newpost">New Post</string>
     <string name="typehere">Type Here…</string>
     <string name="prvdtitle">Provide Title!</string>
+    <string name="dctrform">Doctor Forum</string>
+    <string name="alreadyjoined">You already joined this group!</string>
+    <string name="txtmsgs">Text Messeges</string>
+    <string name="phncall">Phone Call</string>
+    <string name="vdocall">Video Call</string>
+    <string name="typemsg">Type Message…</string>
+    <string name="mangclinic">Manage your clinics</string>
+    <string name="myholydays">My Holidays</string>
+    <string name="setoffdays">Set your off days</string>
+    <string name="setcnsltnfee">Set your consultation fee structure</string>
+    <string name="smsemlprefrnc"><![CDATA[Sms & Email Prefrence]]></string>
+    <string name="cmnctwithpatnt">Communicate with you patients</string>
+    <string name="sbcrptnplan">Subcription Plan</string>
+    <string name="crntplanfreeuser">Current Plan : Free User</string>
+    <string name="bankdtls">Bank Details</string>
+    <string name="addbnkdtlstopaymnt">Add your bank details to receive payments</string>
+    <string name="sgntrstng">Signature Setting</string>
+    <string name="setsign">Set your signature</string>
+    <string name="help">Help</string>
+    <string name="cntctus">Contact Us</string>
+    <string name="rateus">Rate Us On Play Store</string>
+    <string name="leavfeedbk">Leave Feedback</string>
+    <string name="redem">Redeem</string>
+    <string name="lngsstng">Language Settings</string>
+    <string name="logout">Logout</string>
+    <string name="bankacnts">Bank Accounts</string>
+    <string name="remove">Remove</string>
+    <string name="addbankdtls">Add Bank Details</string>
+    <string name="acnthldrname">Account Holder Name</string>
+    <string name="acntnmbr">Account Number</string>
+    <string name="acnttype">Account Type</string>
+    <string name="ifsccode">IFSC Code</string>
+    <string name="bankadrs">Bank Address</string>
+    <string name="mcrcode">MICR Code</string>
+    <string name="pancard">Pan Card Number</string>
+    <string name="setdfltacnt">Set as default pay - payout account</string>
+    <string name="contriesnotfound">Country not found!</string>
+    <string name="ifscnotfound">IFSC code not found!</string>
+    <string name="prvdacnthldrname">Provide Account Holder Name!</string>
+    <string name="entrAcntNumber">Provide Account Number!</string>
+    <string name="provideifsc">Provide valid IFSC code!</string>
+    <string name="providemicr">Provide MICR code!</string>
+    <string name="prvdPan">Provide valid PanCard Number!</string>
+    <string name="srchdoctr">Search Doctors</string>
+    <string name="srchbydctrname">Search by name…</string>
 
 
     <string name="regApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/authenticate/register</string>
@@ -291,5 +341,15 @@
     <string name="getHealthFeedApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_doctor_health_feeds</string>
     <string name="sbmtHealthfeesApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/doctor_health_feed_store</string>
     <string name="getQAApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_question_answers</string>
+    <string name="getConsultationsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_doctor_consultations</string>
+    <string name="joinGroupApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/Join_public_forum_store</string>
+    <string name="sendCnsltMsgApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/text_consultation_chat_store</string>
+    <string name="getCnsltMsgApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_text_consultation_details_byid</string>
+    <string name="getBankdtlsApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_doctor_bank_details</string>
+    <string name="removeAcuntApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/delete_bank_detail_byid</string>
+    <string name="getContriesApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_master_country</string>
+    <string name="srchIfscApi">https://ifsc.razorpay.com/</string>
+    <string name="addBankApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/doctor_bank_details_store</string>
+    <string name="updateBankApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/update_bank_details_byid</string>
 
 </resources>

@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rlToolbr"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <com.indglobal.nizcare.commons.RippleView
+            android:id="@+id/rplBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:rv_centered="true"
+            app:rv_color="@color/newfewGray"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_back"
+                android:padding="11dp"/>
+
+        </com.indglobal.nizcare.commons.RippleView>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/lightBlack"
+            android:text="@string/setngs"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"/>
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/toolbr_dropshadow"
+        android:layout_below="@+id/rlToolbr"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlToolbr"
+        android:layout_marginTop="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp">
+
+            <LinearLayout
+                android:id="@+id/llMyClinics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:orientation="vertical">
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/lightBlack"
+                    android:textSize="14sp"
+                    android:text="@string/myclinics"/>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/fullGray"
+                    android:textSize="13sp"
+                    android:text="@string/mangclinic"
+                    android:layout_marginTop="3dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMyHolidays"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:orientation="vertical">
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/lightBlack"
+                    android:textSize="14sp"
+                    android:text="@string/myholydays"/>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/fullGray"
+                    android:textSize="13sp"
+                    android:text="@string/setoffdays"
+                    android:layout_marginTop="3dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llCnsltnFee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:orientation="vertical">
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/lightBlack"
+                    android:textSize="14sp"
+                    android:text="@string/cnsltnfee"/>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/fullGray"
+                    android:textSize="13sp"
+                    android:text="@string/setcnsltnfee"
+                    android:layout_marginTop="3dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSmsEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:orientation="vertical">
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/lightBlack"
+                    android:textSize="14sp"
+                    android:text="@string/smsemlprefrnc"/>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/fullGray"
+                    android:textSize="13sp"
+                    android:text="@string/cmnctwithpatnt"
+                    android:layout_marginTop="3dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSubcrptn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:orientation="vertical">
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/lightBlack"
+                    android:textSize="14sp"
+                    android:text="@string/sbcrptnplan"/>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/fullGray"
+                    android:textSize="13sp"
+                    android:text="@string/crntplanfreeuser"
+                    android:layout_marginTop="3dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llBankDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:orientation="vertical">
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/lightBlack"
+                    android:textSize="14sp"
+                    android:text="@string/bankdtls"/>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/fullGray"
+                    android:textSize="13sp"
+                    android:text="@string/addbnkdtlstopaymnt"
+                    android:layout_marginTop="3dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSignature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:orientation="vertical">
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/lightBlack"
+                    android:textSize="14sp"
+                    android:text="@string/sgntrstng"/>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/fullGray"
+                    android:textSize="13sp"
+                    android:text="@string/setsign"
+                    android:layout_marginTop="3dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightGray"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvHelp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightBlack"
+                android:textSize="14sp"
+                android:text="@string/help"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvCntctus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightBlack"
+                android:textSize="14sp"
+                android:text="@string/cntctus"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvRateus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightBlack"
+                android:textSize="14sp"
+                android:text="@string/rateus"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvLeaveFdbk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightBlack"
+                android:textSize="14sp"
+                android:text="@string/leavfeedbk"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvRedeem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightBlack"
+                android:textSize="14sp"
+                android:text="@string/redem"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvLangsStng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightBlack"
+                android:textSize="14sp"
+                android:text="@string/lngsstng"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:id="@+id/tvLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightBlack"
+                android:textSize="14sp"
+                android:text="@string/logout"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"/>
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <ProgressBar
+        android:layout_width="@dimen/prgSize"
+        android:layout_height="@dimen/prgSize"
+        android:id="@+id/prgLoading"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminateDrawable="@drawable/progress"/>
+
+</RelativeLayout>
