@@ -311,7 +311,10 @@
     <string name="prvdPan">Provide valid PanCard Number!</string>
     <string name="srchdoctr">Search Doctors</string>
     <string name="srchbydctrname">Search by name…</string>
-    <string name="alrdyRefered">Already refered this doctor!</string>
+    <string name="alrdyRefered">Already referred this doctor!</string>
+    <string name="signtre">Signature</string>
+    <string name="upldsigntxt">Upload your signature in PNG or JPG format. \n Choose from gallery or take photo.</string>
+    <string name="change">Change</string>
 
 
     <string name="regApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/authenticate/register</string>
@@ -354,5 +357,8 @@
     <string name="updateBankApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/update_bank_details_byid</string>
     <string name="referDoctrApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/refer_doctor_store</string>
     <string name="getDoctrListApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_refer_doctors_list</string>
+    <string name="getDocPrflApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_doctor_profile</string>
+    <string name="getSignApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_doctor_signature</string>
+    <string name="sbmtSignApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/doctor_signature_store</string>
 
 </resources>

@@ -146,6 +146,12 @@
             android:theme="@style/MyMaterialTheme"
             android:windowSoftInputMode ="stateHidden|adjustResize"/>
 
+        <activity
+            android:name=".activities.SignatureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme"
+            android:windowSoftInputMode ="stateHidden|adjustResize"/>
+
         <receiver android:name=".commons.IncomingSms"
             android:permission="android.permission.BROADCAST_SMS"
             android:exported="true">

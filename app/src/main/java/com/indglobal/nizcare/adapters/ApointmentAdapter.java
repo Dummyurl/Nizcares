@@ -75,7 +75,7 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
             tvPName.setText(Comman.capitalize(apointItem.getPatient_name()));
             tvHName.setText(Comman.capitalize(apointItem.getHospital_name()));
 
-            String status = apointItem.getStatus();
+            final String status = apointItem.getStatus();
             if (status.equalsIgnoreCase("1")){
                 tvStatus.setText("UPCOMING");
                 tvStatus.setTextColor(context.getResources().getColor(R.color.yellow));
@@ -98,7 +98,10 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    openRescheduleDialog(apointItem,position);
+                    if (!status.equalsIgnoreCase("3")&&!status.equalsIgnoreCase("4")){
+                        openRescheduleDialog(apointItem,position);
+                    }
+
                 }
             });
         }
@@ -124,6 +127,12 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
             rplCancel.setVisibility(View.GONE);
         }else if ((apointItem.getStatus()).equalsIgnoreCase("4")){
             rplCancel.setVisibility(View.GONE);
+            rplReschdule.setVisibility(View.GONE);
+        }
+
+        if (apointItem.getStatus().equalsIgnoreCase("1")){
+            rplReschdule.setVisibility(View.VISIBLE);
+        }else {
             rplReschdule.setVisibility(View.GONE);
         }
 

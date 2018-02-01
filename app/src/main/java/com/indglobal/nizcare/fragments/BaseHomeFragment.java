@@ -1010,6 +1010,7 @@ public class BaseHomeFragment extends Fragment implements View.OnClickListener{
                         rvInstantCnsltn.setLayoutManager(layoutManager);
                         rvInstantCnsltn.setAdapter(instantAdapter);
 
+                        cnsltnMainItemHashMap.clear();
                         JSONArray regular = data.getJSONArray("regular");
                         for (int i=0;i<regular.length();i++){
 
@@ -1096,6 +1097,7 @@ public class BaseHomeFragment extends Fragment implements View.OnClickListener{
 
                         showConsultation(topDate);
 
+                        forumItemArrayList.clear();
                         JSONArray forums = data.getJSONArray("forums");
                         for (int i=0;i<forums.length();i++){
 

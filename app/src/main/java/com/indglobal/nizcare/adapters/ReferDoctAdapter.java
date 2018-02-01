@@ -118,7 +118,7 @@ public class ReferDoctAdapter extends RecyclerView.Adapter<ReferDoctAdapter.MyVi
                 }
             });
 
-            rlOnline.setOnClickListener(new View.OnClickListener() {
+            rlRefer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (refered.equalsIgnoreCase("1")){

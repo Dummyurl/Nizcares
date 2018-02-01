@@ -93,7 +93,7 @@ public class EnquiryReplyActivity extends Activity implements RippleView.OnRippl
 
         Map<String, String> params = new HashMap<>();
         params.put("enquiry_id",enquiry_id);
-        params.put("answer",answer);
+        params.put("message",answer);
 
         String SBMTRPLYHIT = "sbmt_rply_hit";
         VolleySingleton.getInstance(EnquiryReplyActivity.this).cancelRequestInQueue(SBMTRPLYHIT);

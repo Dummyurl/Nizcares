@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rlToolbr"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <com.indglobal.nizcare.commons.RippleView
+            android:id="@+id/rplBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:rv_centered="true"
+            app:rv_color="@color/newfewGray"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_back"
+                android:padding="11dp"/>
+
+        </com.indglobal.nizcare.commons.RippleView>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/lightBlack"
+            android:text="@string/signtre"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"/>
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/toolbr_dropshadow"
+        android:layout_below="@+id/rlToolbr"/>
+
+    <RelativeLayout
+        android:id="@+id/rlNotSign"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlToolbr"
+        android:layout_marginTop="2dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:layout_margin="30dp"
+            android:gravity="center"
+            android:paddingBottom="30dp">
+
+            <com.indglobal.nizcare.commons.fonts.TextBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightBlack"
+                android:textSize="18sp"
+                android:text="@string/signtre"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightBlack"
+                android:textSize="15sp"
+                android:text="@string/upldsigntxt"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"/>
+
+            <com.indglobal.nizcare.commons.RippleView
+                android:id="@+id/rplCapture"
+                android:layout_width="260dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+                app:rv_color="@color/newfewGray"
+                app:rv_centered="true"
+                android:background="@drawable/round_stroke_green">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/ic_camera_b"/>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:textSize="16sp"
+                        android:textColor="@color/lightGreen"
+                        android:text="@string/capture"/>
+
+                </RelativeLayout>
+
+            </com.indglobal.nizcare.commons.RippleView>
+
+            <com.indglobal.nizcare.commons.RippleView
+                android:id="@+id/rplGallery"
+                android:layout_width="260dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="15dp"
+                app:rv_color="@color/newfewGray"
+                app:rv_centered="true"
+                android:background="@drawable/round_stroke_green">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/ic_gallery_c"/>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:textSize="16sp"
+                        android:textColor="@color/lightGreen"
+                        android:text="@string/frmgallery"/>
+
+                </RelativeLayout>
+
+            </com.indglobal.nizcare.commons.RippleView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlSigned"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlToolbr"
+        android:layout_marginTop="2dp"
+        android:visibility="gone">
+        
+        <ImageView
+            android:id="@+id/ivSign"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="30dp"
+            android:scaleType="fitXY"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:gravity="center">
+
+            <com.indglobal.nizcare.commons.RippleView
+                android:id="@+id/rplRemove"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:rv_color="@color/newfewGray"
+                app:rv_centered="true"
+                android:background="@drawable/round_stroke_red"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                android:visibility="gone">
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textSize="16sp"
+                    android:textColor="@color/red"
+                    android:text="@string/capture"/>
+                
+            </com.indglobal.nizcare.commons.RippleView>
+
+            <com.indglobal.nizcare.commons.RippleView
+                android:id="@+id/rplChange"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:rv_color="@color/newfewGray"
+                app:rv_centered="true"
+                android:background="@drawable/round_stroke_green"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp">
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textSize="16sp"
+                    android:textColor="@color/lightGreen"
+                    android:text="@string/change"/>
+
+            </com.indglobal.nizcare.commons.RippleView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:layout_width="@dimen/prgSize"
+        android:layout_height="@dimen/prgSize"
+        android:id="@+id/prgLoading"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminateDrawable="@drawable/progress"/>
+
+</RelativeLayout>
