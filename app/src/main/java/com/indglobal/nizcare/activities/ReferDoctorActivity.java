@@ -25,6 +25,7 @@ import com.indglobal.nizcare.adapters.BankAdapter;
 import com.indglobal.nizcare.adapters.PatientAdapter;
 import com.indglobal.nizcare.adapters.ReferDoctAdapter;
 import com.indglobal.nizcare.commons.Comman;
+import com.indglobal.nizcare.commons.CustomRequest;
 import com.indglobal.nizcare.commons.RippleView;
 import com.indglobal.nizcare.commons.VolleyJSONRequest;
 import com.indglobal.nizcare.commons.VolleySingleton;
@@ -36,6 +37,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by readyassist on 1/29/18.
@@ -43,7 +46,7 @@ import java.util.ArrayList;
 
 public class ReferDoctorActivity extends Activity implements RippleView.OnRippleCompleteListener{
 
-    public static ProgressBar prgLoading;
+    ProgressBar prgLoading;
     RippleView rplBack;
     public static TextView tvRefer;
     LinearLayout llMain;
@@ -55,7 +58,8 @@ public class ReferDoctorActivity extends Activity implements RippleView.OnRipple
     ReferDoctAdapter referDoctAdapter;
     ReferDocImgItem referDocImgItem;
 
-    public static String appointment_id;
+    String appointment_id;
+    public static ArrayList<String> doctorIds = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +78,7 @@ public class ReferDoctorActivity extends Activity implements RippleView.OnRipple
         appointment_id = ii.getStringExtra("appointment_id");
 
         referDoctAdapter = new ReferDoctAdapter(ReferDoctorActivity.this, referDoctorItemArrayList, null);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ReferDoctorActivity.this,LinearLayoutManager.VERTICAL,false);
         rvDoctrs.setLayoutManager(layoutManager);
         rvDoctrs.setAdapter(referDoctAdapter);
 
@@ -104,6 +108,29 @@ public class ReferDoctorActivity extends Activity implements RippleView.OnRipple
         });
 
         rplBack.setOnRippleCompleteListener(this);
+        tvRefer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int size = doctorIds.size();
+                if (size==0){
+
+                }else {
+                    prgLoading.setVisibility(View.VISIBLE);
+                    try {
+                        JSONArray doctorArray = new JSONArray();
+                        for (int i=0;i<doctorArray.length();i++){
+                            doctorArray.put(doctorArray.get(i));
+                        }
+                        referDoctor(appointment_id,doctorArray);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                        prgLoading.setVisibility(View.GONE);
+                        Toast.makeText(ReferDoctorActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+        });
 
     }
 
@@ -223,6 +250,73 @@ public class ReferDoctorActivity extends Activity implements RippleView.OnRipple
             }
         });
         request.setTag(GETDOCTRLISTHIT);
+        request.setRetryPolicy(new DefaultRetryPolicy(15000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        VolleySingleton.getInstance(ReferDoctorActivity.this).addToRequestQueue(request);
+    }
+
+    private void referDoctor(String appointment_id, JSONArray doctor_id) {
+
+        String url = getResources().getString(R.string.referDoctrApi);
+        String token = Comman.getPreferences(ReferDoctorActivity.this,"token");
+        url = url+"?token="+token;
+
+        Map<String, String> params = new HashMap<>();
+        params.put("appointment_id",appointment_id);
+        params.put("doctor_id",doctor_id+"");
+
+        String RFRDOCTRHIT = "refer_doctr_hit";
+        VolleySingleton.getInstance(ReferDoctorActivity.this).cancelRequestInQueue(RFRDOCTRHIT);
+        CustomRequest request = new CustomRequest(Request.Method.POST, url, params, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+
+                    boolean success = response.getBoolean("success");
+                    String msg = response.getString("message");
+
+                    if (success){
+                        Toast.makeText(ReferDoctorActivity.this,msg,Toast.LENGTH_SHORT).show();
+                        prgLoading.setVisibility(View.GONE);
+                        onBackPressed();
+
+                    }else {
+                        Toast.makeText(ReferDoctorActivity.this,msg,Toast.LENGTH_SHORT).show();
+                        prgLoading.setVisibility(View.GONE);
+                    }
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(ReferDoctorActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                    prgLoading.setVisibility(View.GONE);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if (error.networkResponse.data!=null){
+                    try {
+
+                        String jsonString = new String(error.networkResponse.data, HttpHeaderParser.parseCharset(error.networkResponse.headers));
+                        JSONObject errObject = new JSONObject(jsonString);
+
+                        String message = errObject.getString("message");
+
+                        Toast.makeText(ReferDoctorActivity.this,message,Toast.LENGTH_SHORT).show();
+
+                    } catch (Exception e) {
+                        Toast.makeText(ReferDoctorActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(ReferDoctorActivity.this,getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
+                }
+
+                prgLoading.setVisibility(View.GONE);
+            }
+        });
+        request.setTag(RFRDOCTRHIT);
         request.setRetryPolicy(new DefaultRetryPolicy(15000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));

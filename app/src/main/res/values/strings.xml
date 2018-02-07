@@ -85,6 +85,35 @@
         <item>Savings</item>
     </string-array>
 
+    <string-array name="duration_array">
+        <item>1 Day</item>
+        <item>2 Days</item>
+        <item>3 Days</item>
+        <item>4 Days</item>
+        <item>5 Days</item>
+        <item>6 Days</item>
+        <item>7 Days</item>
+        <item>8 Days</item>
+        <item>9 Days</item>
+        <item>10 Days</item>
+        <item>11 Days</item>
+        <item>12 Days</item>
+        <item>13 Days</item>
+        <item>14 Days</item>
+        <item>15 Days</item>
+        <item>20 Days</item>
+        <item>25 Days</item>
+        <item>30 Days</item>
+    </string-array>
+
+    <string-array name="dosage_array">
+        <item>1 Tablet</item>
+        <item>2 Tablets</item>
+        <item>3 Tablets</item>
+        <item>4 Tablets</item>
+        <item>5 Tablets</item>
+    </string-array>
+
 
     <string name="intro_one_title">Manage your \npractice with ease</string>
     <string name="intro_two_title">Book your \nappointments \neasily</string>
@@ -94,7 +123,7 @@
     <string name="forgotpass">Forgot Password?</string>
     <string name="signup">Signup</string>
     <string name="slctCntry">Select Country</string>
-    <string name="srch">Search...</string>
+    <string name="srch">Search…</string>
     <string name="noFound">No result found!</string>
     <string name="vrfctn">Verification</string>
     <string name="anotpsent">An OTP was sent to your phone number. \nEnter it in the field below.</string>
@@ -315,6 +344,38 @@
     <string name="signtre">Signature</string>
     <string name="upldsigntxt">Upload your signature in PNG or JPG format. \n Choose from gallery or take photo.</string>
     <string name="change">Change</string>
+    <string name="newapoint">New Appointment</string>
+    <string name="folwups">Follow up(s)</string>
+    <string name="slctpatnt">Select Patient!</string>
+    <string name="details">Details</string>
+    <string name="dateofvst">Date of visit</string>
+    <string name="treatment">Select Treatment</string>
+    <string name="ptntcmpln">Patient\'s complaint</string>
+    <string name="moreactns">More Actions</string>
+    <string name="addnxtapoint">Add Next Appointment</string>
+    <string name="slcttreatment">Select Treatment type!</string>
+    <string name="prvdPtntCompalaint">Provide Patient Compalaint!</string>
+    <string name="medcns">Medicine(s)</string>
+    <string name="medcnname">Medicine Name</string>
+    <string name="duratn">Duration</string>
+    <string name="dosagetype">Dosage Type</string>
+    <string name="dosagetime">Dosage Timings</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="before">Before</string>
+    <string name="after">After</string>
+    <string name="with">With</string>
+    <string name="dosage">Dosage</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="addnote">Add Note</string>
+    <string name="add">Add</string>
+    <string name="addmdcn">Add Medicine</string>
+    <string name="prscrptnnote">Prescription notes</string>
+    <string name="cncel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="prvdmedcnname">Provide Medicine name!</string>
+    <string name="prvdmdcntimeing">Provide dosage timinga!</string>
+    <string name="addmedicines">Add Medicines!</string>
 
 
     <string name="regApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/authenticate/register</string>
@@ -360,5 +421,13 @@
     <string name="getDocPrflApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_doctor_profile</string>
     <string name="getSignApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_doctor_signature</string>
     <string name="sbmtSignApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/doctor_signature_store</string>
+    <string name="removeClinicApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/delete_hospital_byid</string>
+    <string name="addapointApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/doctor_add_appointment_store</string>
+    <string name="getTreatmentApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_master_treatment</string>
+    <string name="addPtntVstApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/doctor_add_patient_visit_store</string>
+    <string name="getMedicineApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_medicine_names</string>
+    <string name="getDosageTypeApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_master_dosage_types</string>
+    <string name="getMedicineNameApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_medicine_names</string>
+    <string name="addPrscrptnApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/doctor_add_prescription_store</string>
 
 </resources>

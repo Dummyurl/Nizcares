@@ -266,6 +266,11 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     public void openBottomSheet () {
 
         View view = getLayoutInflater ().inflate (R.layout.home_menu_bottumsheet, null);
+
+        LinearLayout llAddPatient = (LinearLayout)view.findViewById(R.id.llAddPatient);
+        LinearLayout llCreatApoint = (LinearLayout)view.findViewById(R.id.llCreatApoint);
+        LinearLayout llAddVisit = (LinearLayout)view.findViewById(R.id.llAddVisit);
+        LinearLayout llAddPrscrptn = (LinearLayout)view.findViewById(R.id.llAddPrscrptn);
         TextView tvBtmShtCancle = (TextView)view.findViewById( R.id.tvBtmShtCancle);
 
         final Dialog mBottomSheetDialog = new Dialog (BaseActivity.this, R.style.MaterialDialogSheet);
@@ -275,12 +280,46 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         mBottomSheetDialog.getWindow ().setGravity (Gravity.BOTTOM);
         mBottomSheetDialog.show ();
 
-
         tvBtmShtCancle.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 mBottomSheetDialog.dismiss();
+            }
+        });
+
+        llCreatApoint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mBottomSheetDialog.dismiss();
+                Intent iiCreate = new Intent(BaseActivity.this,CreateApointActivity.class);
+                startActivity(iiCreate);
+            }
+        });
+
+        llAddPatient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mBottomSheetDialog.dismiss();
+                Intent ii = new Intent(BaseActivity.this,AddPatientActivity.class);
+                startActivity(ii);
+            }
+        });
+
+        llAddVisit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mBottomSheetDialog.dismiss();
+                Intent iiVisit = new Intent(BaseActivity.this,PatientVisitActivity.class);
+                startActivity(iiVisit);
+            }
+        });
+
+        llAddPrscrptn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iiAddPrscrptn = new Intent(BaseActivity.this,AddPrscrptnActivity.class);
+                startActivity(iiAddPrscrptn);
             }
         });
 

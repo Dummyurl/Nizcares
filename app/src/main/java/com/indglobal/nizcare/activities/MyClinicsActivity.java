@@ -17,11 +17,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.indglobal.nizcare.R;
 import com.indglobal.nizcare.adapters.BankAdapter;
+import com.indglobal.nizcare.adapters.MyClinicAdapter;
 import com.indglobal.nizcare.commons.Comman;
 import com.indglobal.nizcare.commons.RippleView;
 import com.indglobal.nizcare.commons.VolleyJSONRequest;
 import com.indglobal.nizcare.commons.VolleySingleton;
 import com.indglobal.nizcare.model.BankItem;
+import com.indglobal.nizcare.model.ClinicItem;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,9 +41,9 @@ public class MyClinicsActivity extends Activity implements RippleView.OnRippleCo
     RecyclerView rvMyClinics;
     CardView crdAddNewClinic;
 
-    BankItem bankItem;
-    ArrayList<BankItem> bankItemArrayList = new ArrayList<>();
-    BankAdapter bankAdapter;
+    ClinicItem clinicItem;
+    ArrayList<ClinicItem> clinicItemArrayList = new ArrayList<>();
+    MyClinicAdapter myClinicAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,12 +58,12 @@ public class MyClinicsActivity extends Activity implements RippleView.OnRippleCo
 
         Comman.setPreferences(MyClinicsActivity.this,"ClinicListUpdated","0");
 
-//        if (!Comman.isConnectionAvailable(MyClinicsActivity.this)){
-//            Toast.makeText(MyClinicsActivity.this,getResources().getString(R.string.noInternet),Toast.LENGTH_SHORT).show();
-//        }else {
-//            prgLoading.setVisibility(View.VISIBLE);
-//            getBankAccounts();
-//        }
+        if (!Comman.isConnectionAvailable(MyClinicsActivity.this)){
+            Toast.makeText(MyClinicsActivity.this,getResources().getString(R.string.noInternet),Toast.LENGTH_SHORT).show();
+        }else {
+            prgLoading.setVisibility(View.VISIBLE);
+            getClinicsAccounts();
+        }
 
         rplBack.setOnRippleCompleteListener(this);
         crdAddNewClinic.setOnClickListener(this);
@@ -94,14 +96,14 @@ public class MyClinicsActivity extends Activity implements RippleView.OnRippleCo
         }
     }
 
-    private void getBankAccounts() {
+    private void getClinicsAccounts() {
 
-        String url = getResources().getString(R.string.getBankdtlsApi);
+        String url = getResources().getString(R.string.getClinicsApi);
         String token = Comman.getPreferences(MyClinicsActivity.this,"token");
         url = url+"?token="+token;
 
-        String GETBANKDTLSHIT = "get_bnkdtls_hit";
-        VolleySingleton.getInstance(MyClinicsActivity.this).cancelRequestInQueue(GETBANKDTLSHIT);
+        String CLINICSHIT = "get_clinics_hit";
+        VolleySingleton.getInstance(MyClinicsActivity.this).cancelRequestInQueue(CLINICSHIT);
         VolleyJSONRequest request = new VolleyJSONRequest(Request.Method.GET, url,null, null,new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -112,39 +114,33 @@ public class MyClinicsActivity extends Activity implements RippleView.OnRippleCo
 
                     if (success){
 
-                        bankItemArrayList.clear();
+                        clinicItemArrayList.clear();
 
                         JSONArray data = response.getJSONArray("data");
                         for (int i=0;i<data.length();i++){
 
                             JSONObject object = data.getJSONObject(i);
 
-                            String bank_id = object.getString("bank_id");
-                            String country = object.getString("country");
-                            String bank_name = object.getString("bank_name");
-                            String account_holder_name = object.getString("account_holder_name");
-                            String account_number = object.getString("account_number");
-                            String account_type = object.getString("account_type");
-                            String ifsc = object.getString("ifsc");
-                            String bank_address = object.getString("bank_address");
-                            String micr = object.getString("micr");
-                            String deflt = object.getString("default");
-                            String pan_card_no = object.getString("pan_card_no");
+                            String hospital_id = object.getString("hospital_id");
+                            String logo = object.getString("logo");
+                            String logo_thumb = object.getString("logo_thumb");
+                            String name = object.getString("name");
+                            String address = object.getString("address");
+                            String consultation_fees = object.getString("consultation_fees");
 
-                            bankItem = new BankItem(bank_id,country,bank_name,account_holder_name,account_number,account_type,ifsc,bank_address,micr,deflt,pan_card_no);
-                            bankItemArrayList.add(bankItem);
-
+                            clinicItem = new ClinicItem(hospital_id,logo,logo_thumb,name,address,consultation_fees);
+                            clinicItemArrayList.add(clinicItem);
                         }
 
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MyClinicsActivity.this.getApplicationContext(),LinearLayoutManager.VERTICAL,false);
-                        bankAdapter = new BankAdapter(MyClinicsActivity.this,bankItemArrayList, new BankAdapter.OnItemClickListener() {
+                        myClinicAdapter = new MyClinicAdapter(MyClinicsActivity.this,clinicItemArrayList, new MyClinicAdapter.OnItemClickListener() {
                             @Override
-                            public void onItemClick(BankItem bankItem) {
+                            public void onItemClick(ClinicItem clinicItem) {
 
                             }
                         });
                         rvMyClinics.setLayoutManager(layoutManager);
-                        rvMyClinics.setAdapter(bankAdapter);
+                        rvMyClinics.setAdapter(myClinicAdapter);
 
                         prgLoading.setVisibility(View.GONE);
 
@@ -183,7 +179,7 @@ public class MyClinicsActivity extends Activity implements RippleView.OnRippleCo
                 prgLoading.setVisibility(View.GONE);
             }
         });
-        request.setTag(GETBANKDTLSHIT);
+        request.setTag(CLINICSHIT);
         request.setRetryPolicy(new DefaultRetryPolicy(15000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
@@ -193,16 +189,16 @@ public class MyClinicsActivity extends Activity implements RippleView.OnRippleCo
     @Override
     protected void onResume() {
         super.onResume();
-        String ClinicListUpdated = Comman.getPreferences(MyClinicsActivity.this,"ClinicListUpdated");
-        if (ClinicListUpdated.equalsIgnoreCase("1")){
-            Comman.setPreferences(MyClinicsActivity.this,"ClinicListUpdated","0");
-            if (!Comman.isConnectionAvailable(MyClinicsActivity.this)){
-                Toast.makeText(MyClinicsActivity.this,getResources().getString(R.string.noInternet),Toast.LENGTH_SHORT).show();
-            }else {
-                prgLoading.setVisibility(View.VISIBLE);
-                getBankAccounts();
-            }
-        }
+//        String ClinicListUpdated = Comman.getPreferences(MyClinicsActivity.this,"ClinicListUpdated");
+//        if (ClinicListUpdated.equalsIgnoreCase("1")){
+//            Comman.setPreferences(MyClinicsActivity.this,"ClinicListUpdated","0");
+//            if (!Comman.isConnectionAvailable(MyClinicsActivity.this)){
+//                Toast.makeText(MyClinicsActivity.this,getResources().getString(R.string.noInternet),Toast.LENGTH_SHORT).show();
+//            }else {
+//                prgLoading.setVisibility(View.VISIBLE);
+//                getBankAccounts();
+//            }
+//        }
     }
 
     @Override

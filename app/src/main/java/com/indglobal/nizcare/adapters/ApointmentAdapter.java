@@ -294,6 +294,7 @@ public class ApointmentAdapter extends RecyclerView.Adapter<ApointmentAdapter.My
         rplRefranthrdoc.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleView rippleView) {
+                dialog.cancel();
                 Intent ii = new Intent(context,ReferDoctorActivity.class);
                 ii.putExtra("appointment_id",appointment_id);
                 context.startActivity(ii);

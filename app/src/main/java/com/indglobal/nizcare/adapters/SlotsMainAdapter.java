@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.indglobal.nizcare.R;
+import com.indglobal.nizcare.activities.CreateApointActivity;
 import com.indglobal.nizcare.activities.ReScheduleActivity;
 import com.indglobal.nizcare.model.SlotItem;
 import com.indglobal.nizcare.model.SlotsMainItem;
@@ -105,7 +106,13 @@ public class SlotsMainAdapter extends RecyclerView.Adapter<SlotsMainAdapter.MyVi
         SlotAdapter slotAdapter = new SlotAdapter(context,slotsMainItem.getSlotItems(), new SlotAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(SlotItem slotItem) {
-                ReScheduleActivity.topslctdTime = slotItem.getSlot();
+                try {
+                    ReScheduleActivity.topslctdTime = slotItem.getSlot();
+                    CreateApointActivity.topslctdTime = slotItem.getSlot();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
             }
         });
         GridLayoutManager layoutManager = new GridLayoutManager(context,3);

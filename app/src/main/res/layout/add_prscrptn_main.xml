@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.indglobal.nizcare.commons.RippleView
+        android:id="@+id/rplBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        ripple:rv_centered="true"
+        ripple:rv_color="@color/newfewGray"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_back"
+            android:padding="11dp"/>
+
+    </com.indglobal.nizcare.commons.RippleView>
+
+    <com.indglobal.nizcare.commons.fonts.TextRegular
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:textSize="16sp"
+        android:textColor="@color/lightBlack"
+        android:text="@string/addprscptn"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"/>
+
+    <com.indglobal.nizcare.commons.fonts.TextRegular
+        android:id="@+id/tvDone"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:textSize="15sp"
+        android:textColor="@color/lightGreen"
+        android:text="@string/done"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:padding="15dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tvDropShadow"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/toolbr_dropshadow"
+        android:layout_below="@+id/rplBack"/>
+
+    <ScrollView
+        android:id="@+id/scrlMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDropShadow"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/lightBlack"
+                android:text="@string/ptnt"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <LinearLayout
+                    android:id="@+id/llSelectPtnt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp">
+
+                    <com.indglobal.nizcare.commons.roundedimageview.RoundedImageView
+                        android:id="@+id/ivPatient"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:riv_corner_radius_top_left="5dp"
+                        app:riv_corner_radius_top_right="5dp"
+                        app:riv_corner_radius_bottom_left="5dp"
+                        app:riv_corner_radius_bottom_right="5dp"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/round_fill_gray_stroke"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:id="@+id/tvName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="Select Patient"/>
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:id="@+id/tvGndrAge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/fullGray"
+                            android:text=""
+                            android:layout_marginTop="3dp"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llNewPtnt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp">
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="fitXY"
+                        android:text="+"
+                        android:textSize="30sp"
+                        android:gravity="center"
+                        android:background="@drawable/round_fill_gray_stroke"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightBlack"
+                            android:text="New Patient"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/lightBlack"
+                android:text="@string/medcns"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:background="@color/fullGray"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvMedicine"
+                android:scrollbars="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/medicine_item"
+                android:layout_marginTop="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp">
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/fullGray"
+                    android:text="@string/medcnname"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp">
+
+                    <com.indglobal.nizcare.commons.fonts.EditRegular
+                        android:id="@+id/etMedcnName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="8dp"
+                        android:textSize="15sp"
+                        android:background="@android:color/transparent"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        android:gravity="center_vertical"
+                        android:textCursorDrawable="@drawable/color_cursor"/>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_search"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:padding="5dp"
+                        android:layout_marginRight="10dp"/>
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvMedcnName"
+                    android:scrollbars="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    tools:listitem="@layout/spinner_item"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/fullGray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginRight="7dp">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/fullGray"
+                            android:text="@string/duratn"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/spinDuratn"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="text"
+                                android:imeOptions="actionNext"
+                                android:gravity="center_vertical"
+                                android:textCursorDrawable="@drawable/color_cursor"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_arrow_g_d"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"/>
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0.4dp"
+                            android:background="@color/fullGray"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="7dp">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/fullGray"
+                            android:text="@string/dosagetype"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/spinDosagetype"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="text"
+                                android:imeOptions="actionNext"
+                                android:gravity="center_vertical"
+                                android:textCursorDrawable="@drawable/color_cursor"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_arrow_g_d"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"/>
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0.4dp"
+                            android:background="@color/fullGray"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/fullGray"
+                    android:text="@string/dosagetime"
+                    android:layout_marginTop="20dp"/>
+
+                <com.indglobal.nizcare.commons.fonts.CheckRegular
+                    android:id="@+id/cbBreakfast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:text="@string/breakfast"
+                    style="@style/MyCheckBox"
+                    android:checked="false"
+                    android:textColor="@color/check_color_selector"/>
+
+                <LinearLayout
+                    android:id="@+id/llBreakfast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="40dp"
+                    android:visibility="gone"
+                    android:paddingBottom="20dp">
+
+                    <RadioGroup
+                        android:id="@+id/rgBTimings"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_stroke_green"
+                        android:weightSum="3"
+                        android:orientation="horizontal"
+                        android:padding="1dp">
+
+                        <com.indglobal.nizcare.commons.fonts.RadioRegular
+                            android:id="@+id/rbBBefore"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/before"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:checked="true"
+                            android:textColor="@color/radio_color_selector"
+                            android:button="@null"
+                            android:background="@drawable/twenty_selector" />
+
+                        <TextView
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/lightGreen"/>
+
+                        <com.indglobal.nizcare.commons.fonts.RadioRegular
+                            android:id="@+id/rbBAfter"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/after"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:checked="false"
+                            android:textColor="@color/radio_color_selector"
+                            android:button="@null"
+                            android:background="@drawable/middle_selector" />
+
+                        <TextView
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/lightGreen"/>
+
+                        <com.indglobal.nizcare.commons.fonts.RadioRegular
+                            android:id="@+id/rbBWith"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/with"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:checked="false"
+                            android:textColor="@color/radio_color_selector"
+                            android:button="@null"
+                            android:background="@drawable/twenty_selector_right" />
+
+                    </RadioGroup>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"
+                        android:textColor="@color/fullGray"
+                        android:text="@string/dosage"
+                        android:layout_marginTop="15dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Spinner
+                            android:id="@+id/spinBDosage"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@android:color/transparent"
+                            android:inputType="text"
+                            android:imeOptions="actionNext"
+                            android:gravity="center_vertical"
+                            android:textCursorDrawable="@drawable/color_cursor"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_arrow_g_d"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"/>
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:background="@color/fullGray"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/fullGray"
+                    android:layout_marginLeft="40dp"/>
+
+                <com.indglobal.nizcare.commons.fonts.CheckRegular
+                    android:id="@+id/cbLunch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:text="@string/lunch"
+                    style="@style/MyCheckBox"
+                    android:checked="false"
+                    android:textColor="@color/check_color_selector"/>
+
+                <LinearLayout
+                    android:id="@+id/llLunch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="40dp"
+                    android:paddingBottom="20dp"
+                    android:visibility="gone">
+
+                    <RadioGroup
+                        android:id="@+id/rgLTimings"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_stroke_green"
+                        android:weightSum="3"
+                        android:orientation="horizontal"
+                        android:padding="1dp">
+
+                        <com.indglobal.nizcare.commons.fonts.RadioRegular
+                            android:id="@+id/rbLBefore"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/before"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:checked="true"
+                            android:textColor="@color/radio_color_selector"
+                            android:button="@null"
+                            android:background="@drawable/twenty_selector" />
+
+                        <TextView
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/lightGreen"/>
+
+                        <com.indglobal.nizcare.commons.fonts.RadioRegular
+                            android:id="@+id/rbLAfter"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/after"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:checked="false"
+                            android:textColor="@color/radio_color_selector"
+                            android:button="@null"
+                            android:background="@drawable/middle_selector" />
+
+                        <TextView
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/lightGreen"/>
+
+                        <com.indglobal.nizcare.commons.fonts.RadioRegular
+                            android:id="@+id/rbLWith"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/with"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:checked="false"
+                            android:textColor="@color/radio_color_selector"
+                            android:button="@null"
+                            android:background="@drawable/twenty_selector_right" />
+
+                    </RadioGroup>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"
+                        android:textColor="@color/fullGray"
+                        android:text="@string/dosage"
+                        android:layout_marginTop="15dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Spinner
+                            android:id="@+id/spinLDosage"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@android:color/transparent"
+                            android:inputType="text"
+                            android:imeOptions="actionNext"
+                            android:gravity="center_vertical"
+                            android:textCursorDrawable="@drawable/color_cursor"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_arrow_g_d"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"/>
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:background="@color/fullGray"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/fullGray"
+                    android:layout_marginLeft="40dp"/>
+
+                <com.indglobal.nizcare.commons.fonts.CheckRegular
+                    android:id="@+id/cbDinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:text="@string/dinner"
+                    style="@style/MyCheckBox"
+                    android:checked="false"
+                    android:textColor="@color/check_color_selector"/>
+
+                <LinearLayout
+                    android:id="@+id/llDinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="40dp"
+                    android:paddingBottom="20dp"
+                    android:visibility="gone">
+
+                    <RadioGroup
+                        android:id="@+id/rgDTimings"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_stroke_green"
+                        android:weightSum="3"
+                        android:orientation="horizontal"
+                        android:padding="1dp">
+
+                        <com.indglobal.nizcare.commons.fonts.RadioRegular
+                            android:id="@+id/rbDBefore"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/before"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:checked="true"
+                            android:textColor="@color/radio_color_selector"
+                            android:button="@null"
+                            android:background="@drawable/twenty_selector" />
+
+                        <TextView
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/lightGreen"/>
+
+                        <com.indglobal.nizcare.commons.fonts.RadioRegular
+                            android:id="@+id/rbDAfter"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/after"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:checked="false"
+                            android:textColor="@color/radio_color_selector"
+                            android:button="@null"
+                            android:background="@drawable/middle_selector" />
+
+                        <TextView
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/lightGreen"/>
+
+                        <com.indglobal.nizcare.commons.fonts.RadioRegular
+                            android:id="@+id/rbDWith"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/with"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:checked="false"
+                            android:textColor="@color/radio_color_selector"
+                            android:button="@null"
+                            android:background="@drawable/twenty_selector_right" />
+
+                    </RadioGroup>
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"
+                        android:textColor="@color/fullGray"
+                        android:text="@string/dosage"
+                        android:layout_marginTop="15dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Spinner
+                            android:id="@+id/spinDDosage"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@android:color/transparent"
+                            android:inputType="text"
+                            android:imeOptions="actionNext"
+                            android:gravity="center_vertical"
+                            android:textCursorDrawable="@drawable/color_cursor"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_arrow_g_d"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"/>
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:background="@color/fullGray"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/fullGray"
+                    android:layout_marginLeft="40dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginTop="20dp">
+
+                    <com.indglobal.nizcare.commons.RippleView
+                        android:id="@+id/rplAdd"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        ripple:rv_centered="true"
+                        ripple:rv_color="@color/newfewGray"
+                        android:layout_marginRight="7dp"
+                        android:layout_weight="1">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:textSize="16sp"
+                            android:gravity="center"
+                            android:textColor="@color/lightGreen"
+                            android:background="@drawable/round_stroke_green"
+                            android:text="@string/add"/>
+
+                    </com.indglobal.nizcare.commons.RippleView>
+
+                    <com.indglobal.nizcare.commons.RippleView
+                        android:id="@+id/rplCancel"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        ripple:rv_centered="true"
+                        ripple:rv_color="@color/newfewGray"
+                        android:layout_marginLeft="7dp"
+                        android:layout_weight="1">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:textSize="16sp"
+                            android:gravity="center"
+                            android:textColor="@color/red"
+                            android:background="@drawable/round_stroke_red"
+                            android:text="@string/cncel"/>
+
+                    </com.indglobal.nizcare.commons.RippleView>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/reverse_overlay_gray_bg"
+                android:padding="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/lightBlack"
+                    android:text="@string/prscrptnnote"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/fullGray"
+                    android:layout_marginTop="5dp"/>
+
+
+                <com.indglobal.nizcare.commons.fonts.EditRegular
+                    android:id="@+id/etAddNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:textSize="15sp"
+                    android:textColor="@color/lightBlack"
+                    android:hint="@string/addnote"
+                    android:gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:imeOptions="actionDone"
+                    android:background="@android:color/transparent"
+                    android:minHeight="80dp"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <ProgressBar
+        android:layout_width="@dimen/prgSize"
+        android:layout_height="@dimen/prgSize"
+        android:id="@+id/prgLoading"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminateDrawable="@drawable/progress"/>
+
+</RelativeLayout>

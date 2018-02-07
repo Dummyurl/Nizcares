@@ -28,6 +28,7 @@
             android:background="@color/lightGray"/>
 
         <LinearLayout
+            android:id="@+id/llCreatApoint"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
@@ -56,6 +57,7 @@
             android:background="@color/lightGray"/>
 
         <LinearLayout
+            android:id="@+id/llAddVisit"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
@@ -84,6 +86,7 @@
             android:background="@color/lightGray"/>
 
         <LinearLayout
+            android:id="@+id/llAddPrscrptn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
@@ -112,6 +115,7 @@
             android:background="@color/lightGray"/>
 
         <LinearLayout
+            android:id="@+id/llAddPatient"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"

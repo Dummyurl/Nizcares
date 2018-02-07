@@ -122,10 +122,15 @@ public class ReferDoctAdapter extends RecyclerView.Adapter<ReferDoctAdapter.MyVi
                 @Override
                 public void onClick(View v) {
                     if (refered.equalsIgnoreCase("1")){
-                        Toast.makeText(context,context.getResources().getString(R.string.alrdyRefered),Toast.LENGTH_SHORT).show();
+                        referDoctorItemArrayList.get(pstn).setRefered("0");
+                        notifyItemChanged(pstn);
+                        ReferDoctorActivity.doctorIds.remove(referDoctorItem.getDoctor_id());
+                        ReferDoctorActivity.tvRefer.setText("Refer("+ReferDoctorActivity.doctorIds.size()+")");
                     }else {
-                        ReferDoctorActivity.prgLoading.setVisibility(View.VISIBLE);
-                        referDoctor(ReferDoctorActivity.appointment_id,referDoctorItem.getDoctor_id(),pstn);
+                        referDoctorItemArrayList.get(pstn).setRefered("1");
+                        notifyItemChanged(pstn);
+                        ReferDoctorActivity.doctorIds.add(referDoctorItem.getDoctor_id());
+                        ReferDoctorActivity.tvRefer.setText("Refer("+ReferDoctorActivity.doctorIds.size()+")");
                     }
                 }
             });
@@ -187,75 +192,6 @@ public class ReferDoctAdapter extends RecyclerView.Adapter<ReferDoctAdapter.MyVi
                 notifyDataSetChanged();
             }
         };
-    }
-
-
-    private void referDoctor(String appointment_id, String doctor_id, final int pstn) {
-
-        String url = context.getResources().getString(R.string.referDoctrApi);
-        String token = Comman.getPreferences(context,"token");
-        url = url+"?token="+token;
-
-        Map<String, String> params = new HashMap<>();
-        params.put("appointment_id",appointment_id);
-        params.put("doctor_id",doctor_id);
-
-        String RFRDOCTRHIT = "refer_doctr_hit";
-        VolleySingleton.getInstance(context).cancelRequestInQueue(RFRDOCTRHIT);
-        CustomRequest request = new CustomRequest(Request.Method.POST, url, params, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-
-                try {
-
-                    boolean success = response.getBoolean("success");
-                    String msg = response.getString("message");
-
-                    if (success){
-                        Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
-                        referDoctorItemArrayList.get(pstn).setRefered("1");
-                        notifyDataSetChanged();
-                        ReferDoctorActivity.prgLoading.setVisibility(View.GONE);
-
-                    }else {
-                        Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
-                        ReferDoctorActivity.prgLoading.setVisibility(View.GONE);
-                    }
-
-                }catch (Exception e){
-                    e.printStackTrace();
-                    Toast.makeText(context,context.getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
-                    ReferDoctorActivity.prgLoading.setVisibility(View.GONE);
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                if (error.networkResponse.data!=null){
-                    try {
-
-                        String jsonString = new String(error.networkResponse.data, HttpHeaderParser.parseCharset(error.networkResponse.headers));
-                        JSONObject errObject = new JSONObject(jsonString);
-
-                        String message = errObject.getString("message");
-
-                        Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
-
-                    } catch (Exception e) {
-                        Toast.makeText(context,context.getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
-                    }
-                }else {
-                    Toast.makeText(context,context.getResources().getString(R.string.somethingwrong),Toast.LENGTH_SHORT).show();
-                }
-
-                ReferDoctorActivity.prgLoading.setVisibility(View.GONE);
-            }
-        });
-        request.setTag(RFRDOCTRHIT);
-        request.setRetryPolicy(new DefaultRetryPolicy(15000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        VolleySingleton.getInstance(context).addToRequestQueue(request);
     }
 
 }
