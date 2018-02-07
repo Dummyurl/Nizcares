@@ -271,6 +271,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         LinearLayout llCreatApoint = (LinearLayout)view.findViewById(R.id.llCreatApoint);
         LinearLayout llAddVisit = (LinearLayout)view.findViewById(R.id.llAddVisit);
         LinearLayout llAddPrscrptn = (LinearLayout)view.findViewById(R.id.llAddPrscrptn);
+        LinearLayout llAddTipPlan = (LinearLayout)view.findViewById(R.id.llAddTipPlan);
         TextView tvBtmShtCancle = (TextView)view.findViewById( R.id.tvBtmShtCancle);
 
         final Dialog mBottomSheetDialog = new Dialog (BaseActivity.this, R.style.MaterialDialogSheet);
@@ -318,8 +319,18 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         llAddPrscrptn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mBottomSheetDialog.dismiss();
                 Intent iiAddPrscrptn = new Intent(BaseActivity.this,AddPrscrptnActivity.class);
                 startActivity(iiAddPrscrptn);
+            }
+        });
+
+        llAddTipPlan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mBottomSheetDialog.dismiss();
+                Intent iiAddtip = new Intent(BaseActivity.this, AddTipActivity.class);
+                startActivity(iiAddtip);
             }
         });
 

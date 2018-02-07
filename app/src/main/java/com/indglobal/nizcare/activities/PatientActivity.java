@@ -66,6 +66,8 @@ public class PatientActivity  extends AppCompatActivity implements View.OnClickL
                     returnIntent.putExtra("patient_img",patientItem.getProfile_pic());
                     returnIntent.putExtra("patient_age",patientItem.getAge());
                     returnIntent.putExtra("patient_gender",patientItem.getGender());
+                    returnIntent.putExtra("patient_type",patientItem.getPatient_type());
+                    returnIntent.putExtra("patient_mobile",patientItem.getMobile_no());
                     setResult(Activity.RESULT_OK,returnIntent);
                     onBackPressed();
                 }catch (Exception e){

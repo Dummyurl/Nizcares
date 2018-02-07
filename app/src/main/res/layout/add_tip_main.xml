@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.indglobal.nizcare.commons.RippleView
+        android:id="@+id/rplBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        ripple:rv_centered="true"
+        ripple:rv_color="@color/newfewGray"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_back"
+            android:padding="11dp"/>
+
+    </com.indglobal.nizcare.commons.RippleView>
+
+    <com.indglobal.nizcare.commons.fonts.TextRegular
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:textSize="16sp"
+        android:textColor="@color/lightBlack"
+        android:text="@string/addatip"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"/>
+
+    <com.indglobal.nizcare.commons.fonts.TextRegular
+        android:id="@+id/tvDone"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:textSize="15sp"
+        android:textColor="@color/lightGreen"
+        android:text="@string/done"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:padding="15dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tvDropShadow"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/toolbr_dropshadow"
+        android:layout_below="@+id/rplBack"/>
+
+    <ScrollView
+        android:id="@+id/scrlMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDropShadow"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/lightBlack"
+                    android:text="@string/ptnt"
+                    android:layout_centerVertical="true"/>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:id="@+id/tvAddPatnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/lightGreen"
+                    android:text="@string/addptnt"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvPatients"
+                android:scrollbars="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/patient_item"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/lightBlack"
+                android:text="@string/tipplan"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:background="@color/fullGray"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp">
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/fullGray"
+                    android:text="@string/slcttippln"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Spinner
+                        android:id="@+id/spinTipPlans"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:background="@android:color/transparent"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        android:gravity="center_vertical"
+                        android:textCursorDrawable="@drawable/color_cursor"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_arrow_g_d"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/fullGray"/>
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/fullGray"
+                    android:text="@string/planstrtdate"
+                    android:layout_marginTop="20dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.indglobal.nizcare.commons.fonts.TextRegular
+                        android:id="@+id/tvDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/lightBlack"
+                        android:inputType="text"
+                        android:textSize="15sp"
+                        android:ellipsize="marquee"
+                        android:imeOptions="actionNext"
+                        android:gravity="center_vertical"
+                        android:textCursorDrawable="@drawable/color_cursor"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_arrow_g_f"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/fullGray"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <ProgressBar
+        android:layout_width="@dimen/prgSize"
+        android:layout_height="@dimen/prgSize"
+        android:id="@+id/prgLoading"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminateDrawable="@drawable/progress"/>
+
+</RelativeLayout>

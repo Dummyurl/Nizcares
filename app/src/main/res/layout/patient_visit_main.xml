@@ -204,7 +204,6 @@
                     android:inputType="text"
                     android:textSize="15sp"
                     android:ellipsize="marquee"
-                    android:paddingLeft="8dp"
                     android:imeOptions="actionNext"
                     android:gravity="center_vertical"
                     android:textCursorDrawable="@drawable/color_cursor"/>

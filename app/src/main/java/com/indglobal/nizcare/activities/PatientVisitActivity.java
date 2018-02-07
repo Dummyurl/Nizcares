@@ -330,31 +330,17 @@ public class PatientVisitActivity  extends Activity implements RippleView.OnRipp
             @Override
             public void onDateSet(DatePicker view, final int year, final int monthOfYear, final int dayOfMonth) {
 
-                int mHour = c.get(Calendar.HOUR_OF_DAY);
-                int mMinute = c.get(Calendar.MINUTE);
+                Calendar datetime = Calendar.getInstance();
+                datetime.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+                datetime.set(Calendar.MONTH,monthOfYear);
+                datetime.set(Calendar.YEAR,year);
 
-                TimePickerDialog timePickerDialog = new TimePickerDialog(PatientVisitActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                Date dropSchdldDate = datetime.getTime();
 
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMMM dd, yyyy");
+                String date = simpleDateFormat.format(dropSchdldDate);
+                tvDate.setText(date);
 
-                        Calendar datetime = Calendar.getInstance();
-                        datetime.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-                        datetime.set(Calendar.MONTH,monthOfYear);
-                        datetime.set(Calendar.YEAR,year);
-                        datetime.set(Calendar.HOUR_OF_DAY, hourOfDay);
-                        datetime.set(Calendar.MINUTE, minute);
-
-                        Date dropSchdldDate = datetime.getTime();
-
-                        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMMM dd, yyyy");
-                        String date = simpleDateFormat.format(dropSchdldDate);
-                        tvDate.setText(date);
-
-                    }
-
-                }, mHour, mMinute, false);
-                timePickerDialog.show();
             }
 
         }, mYear, mMonth, mDay);

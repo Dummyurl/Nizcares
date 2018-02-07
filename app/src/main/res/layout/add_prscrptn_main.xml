@@ -220,7 +220,6 @@
                         android:id="@+id/etMedcnName"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingLeft="8dp"
                         android:textSize="15sp"
                         android:background="@android:color/transparent"
                         android:inputType="text"
