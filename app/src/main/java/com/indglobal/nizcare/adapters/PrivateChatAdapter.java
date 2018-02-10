@@ -42,7 +42,7 @@ public class PrivateChatAdapter extends RecyclerView.Adapter<PrivateChatAdapter.
 
         void bind(final PrivateChatItem privateChatItem, final PrivateChatAdapter.OnItemClickListener listener) {
 
-            tvTitle.setText(privateChatItem.getTitle());
+            tvTitle.setText(Comman.capitalize(privateChatItem.getTitle()));
             tvSubTitle.setText(Comman.capitalize(privateChatItem.getName())+", "+Comman.capitalize(privateChatItem.getGender())+"*"+privateChatItem.getAge()+" Years Old * "+privateChatItem.getTime_ago());
 
             itemView.setOnClickListener(new View.OnClickListener() {

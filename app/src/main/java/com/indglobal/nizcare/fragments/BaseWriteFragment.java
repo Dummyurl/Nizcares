@@ -171,7 +171,12 @@ public class BaseWriteFragment extends Fragment implements View.OnClickListener{
         spinAllSpeclts.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ((TextView) view.findViewById(R.id.text1)).setTextColor(getResources().getColor(R.color.lightGreen));
+                try {
+                    ((TextView) view.findViewById(R.id.text1)).setTextColor(getResources().getColor(R.color.lightGreen));
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
                 chatFunction();
             }
 

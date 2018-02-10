@@ -80,7 +80,7 @@ public class PrivateAnswerActivity extends Activity implements RippleView.OnRipp
         drImg = Comman.getPreferences(PrivateAnswerActivity.this,"profile_pic");
         drSpeclt = Comman.getPreferences(PrivateAnswerActivity.this,"speciality");
 
-        tvTitle.setText(title);
+        tvTitle.setText(Comman.capitalize(title));
         tvDescrptn.setText(descrptn);
         tvSubTitle.setText(Comman.capitalize(name)+", "+Comman.capitalize(gender)+"*"+age+" Years Old"+" * "+time);
         tvName.setText(drName);

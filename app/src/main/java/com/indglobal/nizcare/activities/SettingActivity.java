@@ -51,6 +51,7 @@ public class SettingActivity extends Activity implements RippleView.OnRippleComp
         llMyClinics.setOnClickListener(this);
         llBankDetails.setOnClickListener(this);
         llSignature.setOnClickListener(this);
+        llMyHolidays.setOnClickListener(this);
 
     }
 
@@ -73,6 +74,11 @@ public class SettingActivity extends Activity implements RippleView.OnRippleComp
             case R.id.llSignature:
                 Intent iiSign = new Intent(SettingActivity.this,SignatureActivity.class);
                 startActivity(iiSign);
+                break;
+
+            case R.id.llMyHolidays:
+                Intent iiHldy = new Intent(SettingActivity.this,MyHolidaysActivity.class);
+                startActivity(iiHldy);
                 break;
         }
 

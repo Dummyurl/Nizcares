@@ -167,7 +167,7 @@
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
                             android:textColor="@color/fullGray"
-                            android:text="$2,800/-"
+                            android:text=""
                             android:layout_centerVertical="true"
                             android:layout_alignParentRight="true"/>
 

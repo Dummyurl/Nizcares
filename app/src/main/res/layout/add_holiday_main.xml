@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rlToolbr"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <com.indglobal.nizcare.commons.RippleView
+            android:id="@+id/rplBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:rv_centered="true"
+            app:rv_color="@color/newfewGray"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_back"
+                android:padding="11dp"/>
+
+        </com.indglobal.nizcare.commons.RippleView>
+
+        <com.indglobal.nizcare.commons.fonts.TextRegular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/lightBlack"
+            android:text="@string/addholiday"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"/>
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/toolbr_dropshadow"
+        android:layout_below="@+id/rlToolbr"/>
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlToolbr"
+        android:layout_marginTop="2dp"
+        android:visibility="visible">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="5dp">
+
+                <com.indglobal.nizcare.commons.fonts.TextRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/fullGray"
+                    android:text="@string/slctclnc"
+                    android:layout_marginTop="15dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Spinner
+                        android:id="@+id/spinClinic"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@android:color/transparent"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        android:gravity="center_vertical"
+                        android:textCursorDrawable="@drawable/color_cursor"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_arrow_g_d"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/fullGray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginTop="15dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/fullGray"
+                            android:text="@string/from"
+                            android:layout_marginTop="15dp"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.indglobal.nizcare.commons.fonts.TextRegular
+                                android:id="@+id/tvFrmDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/lightBlack"
+                                android:inputType="text"
+                                android:textSize="15sp"
+                                android:ellipsize="marquee"
+                                android:imeOptions="actionNext"
+                                android:gravity="center_vertical"
+                                android:textCursorDrawable="@drawable/color_cursor"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_arrow_g_f"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="5dp"/>
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0.4dp"
+                            android:background="@color/fullGray"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1">
+
+                        <com.indglobal.nizcare.commons.fonts.TextRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/fullGray"
+                            android:text="@string/to"
+                            android:layout_marginTop="15dp"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.indglobal.nizcare.commons.fonts.TextRegular
+                                android:id="@+id/tvToDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/lightBlack"
+                                android:inputType="text"
+                                android:textSize="15sp"
+                                android:ellipsize="marquee"
+                                android:imeOptions="actionNext"
+                                android:gravity="center_vertical"
+                                android:textCursorDrawable="@drawable/color_cursor"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_arrow_g_f"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="5dp"/>
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0.4dp"
+                            android:background="@color/fullGray"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <com.indglobal.nizcare.commons.RippleView
+            android:id="@+id/rplAddHolyday"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            app:rv_centered="true"
+            app:rv_color="@color/newfewGray">
+
+            <com.indglobal.nizcare.commons.fonts.TextRegular
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@color/lightGreen"
+                android:text="@string/addholiday"/>
+
+        </com.indglobal.nizcare.commons.RippleView>
+
+    </RelativeLayout>
+
+
+    <ProgressBar
+        android:layout_width="@dimen/prgSize"
+        android:layout_height="@dimen/prgSize"
+        android:id="@+id/prgLoading"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminateDrawable="@drawable/progress"/>
+
+</RelativeLayout>

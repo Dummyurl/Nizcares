@@ -50,7 +50,7 @@ public class SpinSpecAdapter extends BaseAdapter {
         View v = convertView;
         if (convertView == null) {
             LayoutInflater inflater = activity.getLayoutInflater();
-            v = inflater.inflate(R.layout.spinner_item, parent, false);
+            v = inflater.inflate(R.layout.spinner_item_with_padding, parent, false);
             holder = new SpinSpecAdapter.ViewHolder();
 
             holder.name = (TextView)v.findViewById(R.id.text1);

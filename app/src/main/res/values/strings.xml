@@ -382,6 +382,11 @@
     <string name="addPatients">Add Patients!</string>
     <string name="addplanstartdate">Add plan start date!</string>
     <string name="slcttiplans">Select tip plans</string>
+    <string name="addholiday">Add Holiday</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="prvdfromdate">Provide From Date!</string>
+    <string name="prvdtodate">Provide To Date!</string>
 
 
     <string name="regApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/authenticate/register</string>
@@ -437,5 +442,11 @@
     <string name="addPrscrptnApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/doctor_add_prescription_store</string>
     <string name="getTipPlansApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_master_tip_plans</string>
     <string name="addTipPlanApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/doctor_add_tip_plan_store</string>
+    <string name="removeHolydayApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/delete_holiday_byid</string>
+    <string name="getHolydaysApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_doctor_holidays</string>
+    <string name="addHolidayApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/doctor_holidays_store</string>
+    <string name="updateHolidayApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/update_holidays_store</string>
+    <string name="getWalletBlncApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/get_wallet_amount</string>
+    <string name="instantonlineApi">http://phplaravel-92226-383167.cloudwaysapps.com/api/v1/instant_consultation_available_store</string>
 
 </resources>
